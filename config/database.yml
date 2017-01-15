@@ -25,7 +25,7 @@ development:
   adapter: postgresql
   host: localhost
   username: user
-  database: app-dev
+  database: postgresql-horizontal-69838
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
