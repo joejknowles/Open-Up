@@ -1,3 +1,5 @@
+require_relative 'urls.rb'
+
 Rails.application.routes.draw do
-  get '/' => "rails/welcome#index"
+  get Urls::SLOTS => "slots#index"
 end

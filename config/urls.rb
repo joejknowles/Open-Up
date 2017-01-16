@@ -1,3 +1,3 @@
 module Urls
-  BOOK_SLOT = '/'
+  SLOTS = '/'
 end
