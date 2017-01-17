@@ -1,12 +1,11 @@
 language:
   - node_js
-  - ruby
 node_js:
   - node
   - "6.1"
   - "5.11"
-rvm:
-  - 2.3.1
+before_install:
+  - rvm install 2.3.1
 install:
   - npm install -g tape
   - npm install
