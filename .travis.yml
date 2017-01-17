@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - node
+  - "6.1"
+  - "5.11"
+rvm:
+  - 2.3.1
+install:
+  - npm install -g tape
+  - npm install
+  - bundle install
+script:
+  - npm test
+  - rspec
