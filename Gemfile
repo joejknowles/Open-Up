@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'coveralls', require: false
 end
 
 group :development, :test do
