@@ -11,5 +11,4 @@ install:
   - npm install
   - bundle install
 script:
-  - npm test
   - rspec
