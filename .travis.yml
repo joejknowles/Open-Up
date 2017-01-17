@@ -4,6 +4,8 @@ node_js:
   - node
   - "6.1"
   - "5.11"
+addons:
+  postgresql: "9.4"
 before_install:
   - rvm install 2.3.1
 install:
