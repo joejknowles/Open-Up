@@ -21,5 +21,6 @@ module OpenUp
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    middleware.use ::ActionDispatch::Static, "#{Rails.root}/client/build", index: 'index', headers: config.static_cache_control
   end
 end
