@@ -33,7 +33,8 @@ gem 'jbuilder', '~> 2.5'
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'poltergeist', '>= 2.1.1'
+  gem 'phantomjs', '>= 2.1.1'
+  gem 'poltergeist'
   gem 'coveralls', require: false
 end
 
