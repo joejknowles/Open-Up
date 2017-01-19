@@ -35,6 +35,7 @@ group :test do
   gem 'capybara'
   gem 'phantomjs', '>= 2.1.1'
   gem 'poltergeist'
+  gem 'selenium-webdriver'
   gem 'coveralls', require: false
 end
 
