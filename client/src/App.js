@@ -3,10 +3,9 @@ import './App.css';
 
 class App extends Component {
   render() {
-    const response = 'date';
     return (
       <div className="App">
-        Today { response }
+        Today { this.props.date }
       </div>
     );
   }

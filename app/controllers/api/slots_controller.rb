@@ -1,5 +1,5 @@
 class SlotsController < ApplicationController
   def index
-    render json: 'hi'
+    render json: { date: Date.today}
   end
 end
