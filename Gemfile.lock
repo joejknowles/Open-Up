@@ -102,7 +102,7 @@ GEM
       mini_portile2 (~> 2.1.0)
     pg (0.19.0)
     phantomjs (2.1.1.0)
-    poltergeist (1.11.0)
+    poltergeist (1.12.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
@@ -221,7 +221,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   pg (~> 0.18)
   phantomjs (>= 2.1.1)
-  poltergeist
+  poltergeist (= 1.12.0)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rspec-rails

@@ -34,7 +34,7 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'phantomjs', '>= 2.1.1'
-  gem 'poltergeist'
+  gem 'poltergeist', '1.12.0'
   gem 'selenium-webdriver'
   gem 'coveralls', require: false
 end
