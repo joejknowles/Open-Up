@@ -4,6 +4,8 @@ require_relative '../../config/urls.rb'
 feature 'Booking', js: true do
   scenario "should say today" do
     visit Urls::SLOTS
+
+    sleep 1
     expect(page).to have_content 'Today'
   end
 end
