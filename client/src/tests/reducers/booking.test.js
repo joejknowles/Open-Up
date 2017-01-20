@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { selectedDate } from '../../reducers';
+import { selectedDate, slotsById } from '../../reducers';
 
 it('selectedDate returns date', () => {
   const testDate = new Date(100);
@@ -11,5 +11,5 @@ it('selectedDate returns date', () => {
 
 it('slotsById returns empty object by default', () => {
   const actual = slotsById(null, {});
-  expect(actual).toBe({});
+  expect(actual).toEqual({});
 });

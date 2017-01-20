@@ -4,3 +4,5 @@ export const selectedDate = (state, action) => {
   }
   return state;
 };
+
+export const slotsById = (state, action) => ({});
