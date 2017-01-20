@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
+import DayBooking from './dayBooking'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        Today { this.props.date }
+        <DayBooking />
       </div>
     );
   }
 }
+
 export default App;
