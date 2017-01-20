@@ -8,3 +8,8 @@ it('selectedDate returns date', () => {
   const actual = selectedDate(null, action);
   expect(actual).toBe(testDate);
 });
+
+it('slotsById returns empty object by default', () => {
+  const actual = slotsById(null, {});
+  expect(actual).toBe({});
+});
