@@ -9,11 +9,16 @@ addons:
 before_install:
   - rvm install 2.3.1
 install:
+  - cd client
   - npm install -g tape
   - npm install
   - bundle install
+  - cd ..
 before_script:
   - rake db:create
   - rake db:migrate
 script:
+  - cd client
+  - npm test
+  - cd ..
   - rspec
