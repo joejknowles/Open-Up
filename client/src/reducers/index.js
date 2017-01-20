@@ -10,7 +10,7 @@ export const selectedDate = (state, action) => {
 
 export const slotsById = (state, action) => {
   if (action.response) {
-    return normalize(action.response, arrayOfSlots).entities.slots;
+    return action.response.entities.slots;
   }
   return {};
 }
