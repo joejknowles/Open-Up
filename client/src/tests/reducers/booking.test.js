@@ -16,8 +16,8 @@ it('slotsById returns empty object by default', () => {
 
 it('slotsById returns slots by Id', () => {
   const action = { response:
-    { slots: [{ id: 1 }, {id: 2}] }
+    [{ id: 1, available: true }, { id: 2, available: true }]
   };
   const actual = slotsById(null, action);
-  expect(actual).toEqual({ 1: { id: 1 }, 2: {id: 2} });
+  expect(actual).toEqual({ 1: { id: 1, available: true }, 2: { id: 2, available: true } });
 });

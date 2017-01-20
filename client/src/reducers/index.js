@@ -1,3 +1,6 @@
+import { normalize } from 'normalizr';
+import { arrayOfSlots } from '../schema';
+
 export const selectedDate = (state, action) => {
   if (action.response) {
     return action.response.date;
@@ -5,4 +8,9 @@ export const selectedDate = (state, action) => {
   return state;
 };
 
-export const slotsById = (state, action) => ({});
+export const slotsById = (state, action) => {
+  if (action.response) {
+    return normalize(action.response, arrayOfSlots).entities.slots;
+  }
+  return {};
+}
