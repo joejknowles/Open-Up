@@ -1,5 +1,6 @@
 import { normalize } from 'normalizr';
 import { arrayOfSlots } from '../schema';
+import { combineReducers } from 'redux'
 
 export const selectedDate = (state, action) => {
   if (action.response) {
@@ -8,9 +9,11 @@ export const selectedDate = (state, action) => {
   return state;
 };
 
-export const slotsById = (state, action) => {
+export const slotsById = (state = {}, action) => {
   if (action.response) {
     return action.response.entities.slots;
   }
-  return {};
+  return state;
 }
+
+export default combineReducers({ selectedDate, slotsById })

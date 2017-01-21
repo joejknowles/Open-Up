@@ -5,12 +5,12 @@ import { selectedDate, slotsById } from '../../reducers';
 it('selectedDate returns date', () => {
   const testDate = new Date(100);
   const action = { response: { date: testDate } };
-  const actual = selectedDate(null, action);
+  const actual = selectedDate(undefined, action);
   expect(actual).toBe(testDate);
 });
 
 it('slotsById returns empty object by default', () => {
-  const actual = slotsById(null, {});
+  const actual = slotsById(undefined, {});
   expect(actual).toEqual({});
 });
 

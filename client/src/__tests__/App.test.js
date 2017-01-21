@@ -6,8 +6,7 @@ import DayBooking from '../components/dayBooking';
 import renderer from 'react-test-renderer';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  shallow(<App />);
 });
 
 it('renders booking component', () => {

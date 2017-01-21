@@ -2,7 +2,10 @@ exports[`test renders correctly 1`] = `
 <div
   className="App">
   <div>
-    Today 
+    <h3>
+      Today 
+      
+    </h3>
   </div>
 </div>
 `;
