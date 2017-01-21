@@ -29,6 +29,6 @@ it('allSlots returns an empty array by default', () => {
 });
 
 it('allSlots returns an array of slot ids', () => {
-  const actual = allSlots(undefined, { response: { results: [1, 2, 4] }});
+  const actual = allSlots(undefined, { response: { result: [1, 2, 4] }});
   expect(actual).toEqual([1, 2, 4]);
 });

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 import { connect } from 'react-redux';
-
+import { fetchSlots } from '../actions'
 
 export class DayBooking extends Component {
   componentDidMount() {
-
+    this.props.fetchSlots();
   }
 
   render() {
     const date = this.props.date ?
-      this.props.date.toLocaleDateString("en-GB") :
+      this.props.date : //.toLocaleDateString("en-GB")
       '';
     const slots = this.props.slots;
     return (
@@ -29,4 +29,13 @@ const mapStateToProps = (state) => ({
   date: state.selectedDate
 });
 
-export default connect(mapStateToProps)(DayBooking);
+const mapDispatchToProps = (dispatch) => ({
+  fetchSlots: fetchSlots(dispatch)
+});
+
+const mergeProps = (stateProps, dispatchProps) => ({
+  ...stateProps,
+  fetchSlots: dispatchProps.fetchSlots(stateProps.date)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(DayBooking);

@@ -1,5 +1,6 @@
 class Api::SlotsController < ApplicationController
   def show
-    render json: { date: Date.today }
+    response = { date: Date.today, slots: [{id: 1}, {id: 2} ] }.to_json
+    render json: response
   end
 end

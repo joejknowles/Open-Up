@@ -15,7 +15,7 @@ export const slotsById = (state = {}, action) => {
 }
 
 export const allSlots = (state = [], action) => (
-  action.response ? action.response.results : state
+  action.response ? action.response.result : state
 );
 
 export default combineReducers({ selectedDate, slotsById, allSlots })

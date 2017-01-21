@@ -15,5 +15,5 @@ end
 
 def date_today
   date = Date.today
-  "#{date.day}/#{date.month}/#{date.year}"
+  date.to_s
 end
