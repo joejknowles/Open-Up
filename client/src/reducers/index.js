@@ -1,8 +1,6 @@
-import { normalize } from 'normalizr';
-import { arrayOfSlots } from '../schema';
 import { combineReducers } from 'redux'
 
-export const selectedDate = (state, action) => {
+export const selectedDate = (state = {}, action) => {
   if (action.response) {
     return action.response.date;
   }

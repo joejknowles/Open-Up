@@ -14,6 +14,6 @@ export const fetchSlots = (date) => (dispatch) => {
       }
     });
   }, (error) => {
-    dispatch({type: 'FETCH_SLOTS_FAILURE'});
+    dispatch({ type: 'FETCH_SLOTS_FAILURE' });
   });
 }
