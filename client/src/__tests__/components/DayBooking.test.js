@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import DayBooking from '../../components/dayBooking';
+import { DayBooking } from '../../components/dayBooking';
 import renderer from 'react-test-renderer';
 
 it('renders booking component', () => {

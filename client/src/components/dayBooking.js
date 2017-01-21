@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import '../styles/App.css';
 import { connect } from 'react-redux';
 
+
 export class DayBooking extends Component {
+  componentDidMount() {
+
+  }
+
   render() {
     const date = this.props.date ?
       this.props.date.toLocaleDateString("en-GB") :
       '';
-    const slots = this.props.slots || []
+    const slots = this.props.slots;
     return (
       <div>
         <h3>Today { date }</h3>
