@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { selectedDate, slotsById } from '../../reducers';
+import { selectedDate, slotsById, allSlots } from '../../reducers';
 
 it('selectedDate returns date', () => {
   const testDate = new Date(100);
@@ -21,4 +21,14 @@ it('slotsById returns slots by Id', () => {
   } } };
   const actual = slotsById(null, action);
   expect(actual).toEqual(normalizedSlots);
+});
+
+it('allSlots returns an empty array by default', () => {
+  const actual = allSlots(undefined, {});
+  expect(actual).toEqual([]);
+});
+
+it('allSlots returns an array of slot ids', () => {
+  const actual = allSlots(undefined, { response: { results: [1, 2, 4] }});
+  expect(actual).toEqual([1, 2, 4]);
 });

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
+import { connect } from 'react-redux';
 
-class DayBooking extends Component {
+export class DayBooking extends Component {
   render() {
     const date = this.props.date ?
       this.props.date.toLocaleDateString("en-GB") :
@@ -17,4 +18,10 @@ class DayBooking extends Component {
     );
   }
 }
-export default DayBooking;
+
+const mapStateToProps = (state) => ({
+  slots: state.allSlots.map((id) => state.slotsById[id]),
+  date: state.selectedDate
+});
+
+export default connect(mapStateToProps)(DayBooking);

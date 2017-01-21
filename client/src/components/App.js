@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 import DayBooking from './dayBooking'
+import { Provider } from 'react-redux';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <DayBooking />
-      </div>
+      <Provider store={ this.props.store }>
+        <div className="App">
+          <DayBooking />
+        </div>
+      </Provider>
     );
   }
 }
