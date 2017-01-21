@@ -1,7 +1,7 @@
 jest.mock('../../apiClients', () => ({
   fetchSlots: () => (
   new Promise((resolve, reject) => (
-    resolve([{ id: 1 }, { id: 2 }] ) )
+    resolve({ slots: [{ id: 1 }, { id: 2 }] } ) )
   ))
 }));
 import { fetchSlots } from '../../actions';
@@ -24,7 +24,7 @@ it('fetch slots calls dispatch with fetch slots success action with normalized r
   const spy = sinon.spy();
   const action = {
     type: 'FETCH_SLOTS_SUCCESS',
-    response: { 1: { id: 1 }, 2: { id: 2 } }
+    response: { entities: { slots: { 1: { id: 1 }, 2: { id: 2 } } }, result: [1, 2], date: undefined }
   }
   return fetchSlots()(spy).then((response) => {
     expect(spy.calledWith(action)).toBe(true);
