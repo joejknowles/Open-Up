@@ -30,7 +30,7 @@ it('renders message for no slots', () => {
     slots={ [] }
     fetchSlots={ ()=> {}}
     />);
-  expect(component).toContain('No slots available');
+  expect(component.find('.message').text()).toBe('No slots available');
 });
 
 it('renders the same as before with two slots', () => {

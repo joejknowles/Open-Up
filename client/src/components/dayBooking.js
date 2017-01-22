@@ -20,7 +20,7 @@ export class DayBooking extends Component {
 
   slots() {
     const { slots } = this.props;
-    if (!slots) return 'No slots available';
+    if (slots.length === 0) return <p className="message">No slots available</p>;
     return slots.map(({ id }) => (
         <button key={ id } ></button>
     ))
