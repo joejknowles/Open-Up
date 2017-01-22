@@ -1,4 +1,13 @@
-exports[`test renders correctly 1`] = `
+exports[`test renders the same as before with no slots 1`] = `
+<div>
+  <h3>
+    Today 
+    1999-01-01
+  </h3>
+</div>
+`;
+
+exports[`test renders the same as before with two slots 1`] = `
 <div>
   <h3>
     Today 

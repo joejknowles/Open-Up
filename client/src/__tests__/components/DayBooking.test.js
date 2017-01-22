@@ -33,11 +33,22 @@ it('renders message for no slots', () => {
   expect(component.find('.message').text()).toBe('No slots available');
 });
 
-it('renders correctly', () => {
+it('renders the same as before with two slots', () => {
   const tree = renderer.create(
     <DayBooking
       date={ fakeDate }
       slots={ [{ id: 1 }, { id: 2 }] }
+      fetchSlots={ ()=> {}}
+      />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it('renders the same as before with no slots', () => {
+  const tree = renderer.create(
+    <DayBooking
+      date={ fakeDate }
+      slots={ [] }
       fetchSlots={ ()=> {}}
       />
   ).toJSON();
