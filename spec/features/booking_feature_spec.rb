@@ -1,6 +1,5 @@
 require 'rails_helper'
 require_relative '../../config/urls.rb'
-require_relative '../helpers/slots_helper.rb'
 
 feature 'Booking', js: true do
   scenario "should say today" do
