@@ -9,18 +9,21 @@ export class DayBooking extends Component {
   }
 
   render() {
-    const date = this.props.date ?
-      this.props.date : //.toLocaleDateString("en-GB")
-      '';
-    const slots = this.props.slots;
+    const { date = '' } = this.props; //.toLocaleDateString("en-GB")
     return (
       <div>
         <h3>Today { date }</h3>
-        { slots.map(({ id }) => (
-            <button key={ id } ></button>
-        )) }
+        { this.slots() }
       </div>
     );
+  }
+
+  slots() {
+    const { slots } = this.props;
+    if (!slots) return 'No slots available';
+    return slots.map(({ id }) => (
+        <button key={ id } ></button>
+    ))
   }
 }
 

@@ -8,7 +8,7 @@ export const selectedDate = (state = null, action) => {
 };
 
 export const slotsById = (state = {}, action) => {
-  if (action.response) {
+  if (action.response && action.response.entities.slots) {
     return action.response.entities.slots;
   }
   return state;

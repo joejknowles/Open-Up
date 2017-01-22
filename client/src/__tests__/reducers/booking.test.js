@@ -14,6 +14,11 @@ it('slotsById returns empty object by default', () => {
   expect(actual).toEqual({});
 });
 
+it('slotsById returns previous state when no slots', () => {
+  const actual = slotsById(undefined, { response: { entities: {} } });
+  expect(actual).toEqual({});
+});
+
 it('slotsById returns slots by Id', () => {
   const normalizedSlots = { 1: { id: 1, available: true }, 2: { id: 2, available: true } };
   const action = { response: { entities: { slots:
