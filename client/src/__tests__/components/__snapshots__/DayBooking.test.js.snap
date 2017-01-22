@@ -17,7 +17,11 @@ exports[`test renders the same as before with two slots 1`] = `
     Today 
     1999-01-01
   </h3>
-  <button />
-  <button />
+  <button>
+    book
+  </button>
+  <button>
+    book
+  </button>
 </div>
 `;

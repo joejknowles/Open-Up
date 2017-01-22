@@ -37,6 +37,7 @@ group :test do
   gem 'poltergeist', '1.12.0'
   gem 'selenium-webdriver'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 end
 
 group :development, :test do

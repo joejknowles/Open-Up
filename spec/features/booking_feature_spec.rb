@@ -2,8 +2,6 @@ require 'rails_helper'
 require_relative '../../config/urls.rb'
 require_relative '../helpers/slots_helper.rb'
 
-include SlotsHelper
-
 feature 'Booking', js: true do
   scenario "should say today" do
     visit Urls::SLOTS
@@ -22,11 +20,13 @@ feature 'Booking', js: true do
     end
   end
 
-  context "with one slot" do
+  context 'with one slot' do
+    before do
+      Slot.create(start_time: DateTime.now)
+    end
     scenario "display one button" do
-      add_slot
       visit Urls::SLOTS
-      expect(find 'button').to exist
+      expect(page).to have_content('book')
     end
   end
 end
