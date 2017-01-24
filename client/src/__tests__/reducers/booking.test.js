@@ -1,5 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import { selectedDate, slotsById, allSlots } from '../../reducers';
 
 it('selectedDate returns date', () => {
