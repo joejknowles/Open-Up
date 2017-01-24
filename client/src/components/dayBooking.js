@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 import { connect } from 'react-redux';
-import { fetchSlots } from '../actions'
+import { fetchSlots } from '../actions';
+import LoadingIndicator from './loadingIndicator';
 
 export class DayBooking extends Component {
   componentDidMount() {
@@ -9,6 +10,7 @@ export class DayBooking extends Component {
   }
 
   render() {
+    if (this.props.isLoading) return (<LoadingIndicator />);
     const { date = '' } = this.props; //.toLocaleDateString("en-GB")
     return (
       <div>
@@ -29,7 +31,8 @@ export class DayBooking extends Component {
 
 const mapStateToProps = (state) => ({
   slots: state.allSlots.map((id) => state.slotsById[id]),
-  date: state.selectedDate
+  date: state.selectedDate,
+  isLoading: state.isLoading
 });
 
 const mapDispatchToProps = (dispatch) => ({
