@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import isLoading from './isLoading'
 
 export const selectedDate = (state = null, action) => {
   if (action.response) {
@@ -18,4 +19,4 @@ export const allSlots = (state = [], action) => (
   action.response ? action.response.result : state
 );
 
-export default combineReducers({ selectedDate, slotsById, allSlots })
+export default combineReducers({ selectedDate, slotsById, allSlots, isLoading })
