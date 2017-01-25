@@ -3,6 +3,7 @@ import '../../styles/App.css';
 import { connect } from 'react-redux';
 import { fetchSlots } from '../../actions';
 import LoadingIndicator from '../loadingIndicator';
+import Heading from './heading';
 
 export class DayBooking extends Component {
   componentDidMount() {
@@ -14,7 +15,7 @@ export class DayBooking extends Component {
     const { date = '' } = this.props; //.toLocaleDateString("en-GB")
     return (
       <div>
-        <h3>Today { date }</h3>
+        <Heading { ...{ date } } />
         { this.slots() }
       </div>
     );

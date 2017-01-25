@@ -1,0 +1,6 @@
+exports[`test renders heading as before 1`] = `
+<h3>
+  Today 
+  1999-01-01
+</h3>
+`;

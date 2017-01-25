@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import { Heading } from '../../../components/dayBooking/heading';
+import renderer from 'react-test-renderer';
 
 const fakeDate = '1999-01-01';
 
@@ -10,4 +11,13 @@ it('renders heading text using date', () => {
     date={ fakeDate }
     />);
   expect(component.find('h3').text()).toBe(`Today ${fakeDate}`);
+});
+
+it('renders heading as before', () => {
+  const tree = renderer.create(
+    <Heading
+      date={ fakeDate }
+      />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
 });
