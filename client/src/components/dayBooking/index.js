@@ -3,7 +3,7 @@ import '../../styles/App.css';
 import { connect } from 'react-redux';
 import { fetchSlots } from '../../actions';
 
-import LoadingIndicator from '../loadingIndicator';
+import LoadingBlocker from '../loadingBlocker';
 import Heading from './heading';
 import List from './list';
 
@@ -13,12 +13,13 @@ export class DayBooking extends Component {
   }
 
   render() {
-    if (this.props.isLoading) return (<LoadingIndicator />);
     return (
-      <div>
-        <Heading />
-        <List />
-      </div>
+      <LoadingBlocker isLoading={ this.props.isLoading }>
+        <div>
+          <Heading />
+          <List />
+        </div>
+      </LoadingBlocker>
     );
   }
 }

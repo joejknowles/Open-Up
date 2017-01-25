@@ -1,14 +1,16 @@
-import { LoadingBlocker } from '../../../components/dayBooking/loadingBlocker';
+import { LoadingBlocker } from '../../components/loadingBlocker';
+
+import React from 'react';
+import LoadingIndicator from '../../components/loadingIndicator';
+import { shallow } from 'enzyme';
 
 import ReactTestUtils from 'react-addons-test-utils';
-import React from 'react';
-import LoadingIndicator from '../../../components/loadingIndicator';
 const shallowRenderer = ReactTestUtils.createRenderer();
 
 it('renders loading indicator when loading', () => {
   const component = shallow(
     <LoadingBlocker isLoading={ true }>
-      children
+      <p className='test-child'>children</p>
     </LoadingBlocker>
   );
   expect(component.find(LoadingIndicator).length).toBe(1);
@@ -17,7 +19,7 @@ it('renders loading indicator when loading', () => {
 it('matches snapshot when loading', () => {
   const tree = shallowRenderer.render(
     <LoadingBlocker isLoading={ true }>
-      children
+      <p className='test-child'>children</p>
     </LoadingBlocker>
   );
   expect(tree).toMatchSnapshot();
@@ -35,7 +37,7 @@ it('renders children when not loading', () => {
 it('matches snapshot when not loading', () => {
   const tree = shallowRenderer.render(
     <LoadingBlocker isLoading={ false }>
-      children
+      <p className='test-child'>children</p>
     </LoadingBlocker>
   );
   expect(tree).toMatchSnapshot();

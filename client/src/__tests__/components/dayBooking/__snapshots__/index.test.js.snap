@@ -1,6 +1,9 @@
 exports[`test matches snapshot 1`] = `
-<div>
-  <Connect(Component) />
-  <Connect(Component) />
-</div>
+<Unknown
+  isLoading={undefined}>
+  <div>
+    <Connect(Component) />
+    <Connect(Component) />
+  </div>
+</Unknown>
 `;
