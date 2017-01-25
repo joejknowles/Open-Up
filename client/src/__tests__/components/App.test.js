@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../components/App';
+import App from '../../components/App';
 import { shallow } from 'enzyme';
-import DayBooking from '../components/dayBooking';
+import DayBooking from '../../components/dayBooking';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 
