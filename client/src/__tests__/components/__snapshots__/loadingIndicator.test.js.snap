@@ -3,6 +3,11 @@ exports[`test Loading indicator renders the same as before 1`] = `
   className="uil-default"
   height="120px"
   preserveAspectRatio="xMidYMid"
+  style={
+    Object {
+      "marginTop": "200px",
+    }
+  }
   viewBox="0 0 100 100"
   width="120px"
   xmlns="http://www.w3.org/2000/svg">
@@ -14,7 +19,7 @@ exports[`test Loading indicator renders the same as before 1`] = `
     x="0"
     y="0" />
   <rect
-    fill="#00b2ff"
+    fill="black"
     height="20"
     rx="5"
     ry="5"
@@ -25,13 +30,13 @@ exports[`test Loading indicator renders the same as before 1`] = `
     <animate
       attributeName="opacity"
       begin="0s"
-      dur="1s"
+      dur="0.5s"
       from="1"
       repeatCount="indefinite"
       to="0" />
   </rect>
   <rect
-    fill="#00b2ff"
+    fill="black"
     height="20"
     rx="5"
     ry="5"
@@ -41,14 +46,14 @@ exports[`test Loading indicator renders the same as before 1`] = `
     y="40">
     <animate
       attributeName="opacity"
-      begin="0.08333333333333333s"
-      dur="1s"
+      begin="0.041666666666666664s"
+      dur="0.5s"
       from="1"
       repeatCount="indefinite"
       to="0" />
   </rect>
   <rect
-    fill="#00b2ff"
+    fill="black"
     height="20"
     rx="5"
     ry="5"
@@ -58,14 +63,14 @@ exports[`test Loading indicator renders the same as before 1`] = `
     y="40">
     <animate
       attributeName="opacity"
-      begin="0.16666666666666666s"
-      dur="1s"
+      begin="0.08333333333333333s"
+      dur="0.5s"
       from="1"
       repeatCount="indefinite"
       to="0" />
   </rect>
   <rect
-    fill="#00b2ff"
+    fill="black"
     height="20"
     rx="5"
     ry="5"
@@ -75,14 +80,14 @@ exports[`test Loading indicator renders the same as before 1`] = `
     y="40">
     <animate
       attributeName="opacity"
-      begin="0.25s"
-      dur="1s"
+      begin="0.125s"
+      dur="0.5s"
       from="1"
       repeatCount="indefinite"
       to="0" />
   </rect>
   <rect
-    fill="#00b2ff"
+    fill="black"
     height="20"
     rx="5"
     ry="5"
@@ -92,14 +97,14 @@ exports[`test Loading indicator renders the same as before 1`] = `
     y="40">
     <animate
       attributeName="opacity"
-      begin="0.3333333333333333s"
-      dur="1s"
+      begin="0.16666666666666666s"
+      dur="0.5s"
       from="1"
       repeatCount="indefinite"
       to="0" />
   </rect>
   <rect
-    fill="#00b2ff"
+    fill="black"
     height="20"
     rx="5"
     ry="5"
@@ -109,14 +114,14 @@ exports[`test Loading indicator renders the same as before 1`] = `
     y="40">
     <animate
       attributeName="opacity"
-      begin="0.4166666666666667s"
-      dur="1s"
+      begin="0.20833333333333334s"
+      dur="0.5s"
       from="1"
       repeatCount="indefinite"
       to="0" />
   </rect>
   <rect
-    fill="#00b2ff"
+    fill="black"
     height="20"
     rx="5"
     ry="5"
@@ -126,14 +131,14 @@ exports[`test Loading indicator renders the same as before 1`] = `
     y="40">
     <animate
       attributeName="opacity"
-      begin="0.5s"
-      dur="1s"
+      begin="0.25s"
+      dur="0.5s"
       from="1"
       repeatCount="indefinite"
       to="0" />
   </rect>
   <rect
-    fill="#00b2ff"
+    fill="black"
     height="20"
     rx="5"
     ry="5"
@@ -143,14 +148,14 @@ exports[`test Loading indicator renders the same as before 1`] = `
     y="40">
     <animate
       attributeName="opacity"
-      begin="0.5833333333333334s"
-      dur="1s"
+      begin="0.2916666666666667s"
+      dur="0.5s"
       from="1"
       repeatCount="indefinite"
       to="0" />
   </rect>
   <rect
-    fill="#00b2ff"
+    fill="black"
     height="20"
     rx="5"
     ry="5"
@@ -160,14 +165,14 @@ exports[`test Loading indicator renders the same as before 1`] = `
     y="40">
     <animate
       attributeName="opacity"
-      begin="0.6666666666666666s"
-      dur="1s"
+      begin="0.3333333333333333s"
+      dur="0.5s"
       from="1"
       repeatCount="indefinite"
       to="0" />
   </rect>
   <rect
-    fill="#00b2ff"
+    fill="black"
     height="20"
     rx="5"
     ry="5"
@@ -177,14 +182,14 @@ exports[`test Loading indicator renders the same as before 1`] = `
     y="40">
     <animate
       attributeName="opacity"
-      begin="0.75s"
-      dur="1s"
+      begin="0.375s"
+      dur="0.5s"
       from="1"
       repeatCount="indefinite"
       to="0" />
   </rect>
   <rect
-    fill="#00b2ff"
+    fill="black"
     height="20"
     rx="5"
     ry="5"
@@ -194,14 +199,14 @@ exports[`test Loading indicator renders the same as before 1`] = `
     y="40">
     <animate
       attributeName="opacity"
-      begin="0.8333333333333334s"
-      dur="1s"
+      begin="0.4166666666666667s"
+      dur="0.5s"
       from="1"
       repeatCount="indefinite"
       to="0" />
   </rect>
   <rect
-    fill="#00b2ff"
+    fill="black"
     height="20"
     rx="5"
     ry="5"
@@ -211,8 +216,8 @@ exports[`test Loading indicator renders the same as before 1`] = `
     y="40">
     <animate
       attributeName="opacity"
-      begin="0.9166666666666666s"
-      dur="1s"
+      begin="0.4583333333333333s"
+      dur="0.5s"
       from="1"
       repeatCount="indefinite"
       to="0" />
