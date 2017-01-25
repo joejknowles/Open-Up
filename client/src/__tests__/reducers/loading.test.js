@@ -13,6 +13,6 @@ it('isLoading becomes false when FETCH_**_FAILURE action called', () => (
 
 it('isLoadingSelector selects isLoading', () => (
   expect(
-    isLoadingSelector({isLoading: 'is loading test'}).isLoading)
+    isLoadingSelector({isLoading: 'is loading test'}))
     .toBe('is loading test')
 ));
