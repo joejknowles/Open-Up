@@ -1,21 +1,9 @@
-exports[`test renders the same as before with no slots 1`] = `
+exports[`test matches snapshot 1`] = `
 <div>
   <Connect(Component) />
   <p
     className="message">
     No slots available
   </p>
-</div>
-`;
-
-exports[`test renders the same as before with two slots 1`] = `
-<div>
-  <Connect(Component) />
-  <button>
-    book
-  </button>
-  <button>
-    book
-  </button>
 </div>
 `;
