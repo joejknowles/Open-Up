@@ -4,12 +4,12 @@ import { shallow } from 'enzyme';
 import { DayBooking } from '../../../components/dayBooking';
 import LoadingIndicator from '../../../components/loadingIndicator';
 import renderer from 'react-test-renderer';
+import ReactTestUtils from 'react-addons-test-utils';
 
-const fakeDate = '1999-01-01';
+const shallowRenderer = ReactTestUtils.createRenderer();
 
 it('renders loading indicator when isLoading true', () => {
   const component = shallow(<DayBooking
-    date={ fakeDate }
     slots={ [{ id: 1 }, { id: 2 }] }
     fetchSlots={ ()=> {}}
     isLoading={ true }
@@ -19,7 +19,6 @@ it('renders loading indicator when isLoading true', () => {
 
 it('renders two buttons for two slots', () => {
   const component = shallow(<DayBooking
-    date={ fakeDate }
     slots={ [{ id: 1 }, { id: 2 }] }
     fetchSlots={ ()=> {}}
     isLoading={ false }
@@ -29,7 +28,6 @@ it('renders two buttons for two slots', () => {
 
 it('renders three buttons for three slots', () => {
   const component = shallow(<DayBooking
-    date={ fakeDate }
     slots={ [{ id: 1 }, { id: 2 }, { id: 4 }] }
     fetchSlots={ ()=> {}}
     isLoading={ false }
@@ -39,7 +37,6 @@ it('renders three buttons for three slots', () => {
 
 it('renders message for no slots', () => {
   const component = shallow(<DayBooking
-    date={ fakeDate }
     slots={ [] }
     fetchSlots={ ()=> {}}
     isLoading={ false }
@@ -48,25 +45,23 @@ it('renders message for no slots', () => {
 });
 
 it('renders the same as before with two slots', () => {
-  const tree = renderer.create(
+  const tree = shallowRenderer.render(
     <DayBooking
-      date={ fakeDate }
       slots={ [{ id: 1 }, { id: 2 }] }
       fetchSlots={ ()=> {}}
       isLoading={ false }
       />
-  ).toJSON();
+  );
   expect(tree).toMatchSnapshot();
 });
 
 it('renders the same as before with no slots', () => {
-  const tree = renderer.create(
+  const tree = shallowRenderer.render(
     <DayBooking
-      date={ fakeDate }
       slots={ [] }
       fetchSlots={ ()=> {}}
       isLoading={ false }
       />
-  ).toJSON();
+  );
   expect(tree).toMatchSnapshot();
 });

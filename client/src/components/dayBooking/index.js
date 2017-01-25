@@ -12,10 +12,9 @@ export class DayBooking extends Component {
 
   render() {
     if (this.props.isLoading) return (<LoadingIndicator />);
-    const { date = '' } = this.props; //.toLocaleDateString("en-GB")
     return (
       <div>
-        <Heading { ...{ date } } />
+        <Heading />
         { this.slots() }
       </div>
     );
@@ -40,9 +39,9 @@ const mapDispatchToProps = (dispatch) => ({
   fetchSlots: fetchSlots(dispatch)
 });
 
-const mergeProps = (stateProps, dispatchProps) => ({
-  ...stateProps,
-  fetchSlots: dispatchProps.fetchSlots(stateProps.date)
+const mergeProps = ({ slots, isLoading, date }, dispatchProps) => ({
+  slots, isLoading,
+  fetchSlots: dispatchProps.fetchSlots(date)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(DayBooking);
