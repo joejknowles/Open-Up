@@ -3,7 +3,7 @@ language:
 node_js:
   - node
   - "6.1"
-  - "5.11"
+  - "7.2.1"
 addons:
   postgresql: "9.4"
 before_install:
