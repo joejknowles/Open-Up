@@ -19,4 +19,8 @@ export const allSlots = (state = [], action) => (
   action.response ? action.response.result : state
 );
 
+export const isLoadingSelector = ({ isLoading }) => ({
+  isLoading
+});
+
 export default combineReducers({ selectedDate, slotsById, allSlots, isLoading })
