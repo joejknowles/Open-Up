@@ -12,6 +12,7 @@ install:
   - bundle install
   - cd client
   - npm install
+  - npm run build
   - cd ..
 before_script:
   - rake db:create
