@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import { DayBooking } from '../../components/dayBooking';
-import LoadingIndicator from '../../components/loadingIndicator';
+import { DayBooking } from '../../../components/dayBooking';
+import LoadingIndicator from '../../../components/loadingIndicator';
 import renderer from 'react-test-renderer';
 
 const fakeDate = '1999-01-01';
