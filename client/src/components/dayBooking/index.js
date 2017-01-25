@@ -14,7 +14,7 @@ export class DayBooking extends Component {
 
   render() {
     return (
-      <LoadingBlocker isLoading={ this.props.isLoading }>
+      <LoadingBlocker>
         <div>
           <Heading />
           <List />
@@ -24,16 +24,15 @@ export class DayBooking extends Component {
   }
 }
 
-const mapStateToProps = ({ isLoading, date }) => ({
-  isLoading, date
+const mapStateToProps = ({ date }) => ({
+  date
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSlots: fetchSlots(dispatch)
 });
 
-const mergeProps = ({ isLoading, date }, dispatchProps) => ({
-  isLoading,
+const mergeProps = ({ date }, dispatchProps) => ({
   fetchSlots: dispatchProps.fetchSlots(date)
 });
 
