@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import '../../styles/App.css';
 import { connect } from 'react-redux';
 import { fetchSlots } from '../../actions';
+
 import LoadingIndicator from '../loadingIndicator';
 import Heading from './heading';
+import List from './list';
 
 export class DayBooking extends Component {
   componentDidMount() {
@@ -15,17 +17,9 @@ export class DayBooking extends Component {
     return (
       <div>
         <Heading />
-        { this.slots() }
+        <List slots={ this.props.slots } />
       </div>
     );
-  }
-
-  slots() {
-    const { slots } = this.props;
-    if (slots.length === 0) return <p className="message">No slots available</p>;
-    return slots.map(({ id }) => (
-        <button key={ id } >book</button>
-    ))
   }
 }
 

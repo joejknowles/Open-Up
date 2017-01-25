@@ -1,9 +1,7 @@
 exports[`test matches snapshot 1`] = `
 <div>
   <Connect(Component) />
-  <p
-    className="message">
-    No slots available
-  </p>
+  <Unknown
+    slots={undefined} />
 </div>
 `;

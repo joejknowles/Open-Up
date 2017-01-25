@@ -1,5 +1,11 @@
 import { List } from '../../../components/dayBooking/list';
 
+import React from 'react';
+import { shallow } from 'enzyme';
+import ReactTestUtils from 'react-addons-test-utils';
+
+const shallowRenderer = ReactTestUtils.createRenderer();
+
 it('renders two buttons for two slots', () => {
   const component = shallow(<List
     slots={ [{ id: 1 }, { id: 2 }] }
@@ -36,7 +42,7 @@ it('renders the same as before with two slots', () => {
 
 it('renders the same as before with no slots', () => {
   const tree = shallowRenderer.render(
-    <DayBooking
+    <List
       slots={ [] }
       fetchSlots={ ()=> {}}
       />
