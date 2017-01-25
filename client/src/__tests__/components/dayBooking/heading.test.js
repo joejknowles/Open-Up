@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import { Heading } from '../../../components/dayBooking/heading';
+import { Heading, mapStateToProps } from '../../../components/dayBooking/heading';
 import renderer from 'react-test-renderer';
 
 const fakeDate = '1999-01-01';
@@ -21,3 +21,8 @@ it('renders heading as before', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it('maps sate to props correctly', () => (
+  expect(mapStateToProps({ selectedDate: 'test date' }))
+    .toEqual({ date: 'test date'})
+));
