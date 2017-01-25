@@ -1,0 +1,13 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
+import { Heading } from '../../../components/dayBooking/heading';
+
+const fakeDate = '1999-01-01';
+
+it('renders heading text using date', () => {
+  const component = shallow(<Heading
+    date={ fakeDate }
+    />);
+  expect(component.find('h3').text()).toBe(`Today ${fakeDate}`);
+});
