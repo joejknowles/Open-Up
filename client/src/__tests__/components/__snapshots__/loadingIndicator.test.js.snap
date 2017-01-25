@@ -21,6 +21,7 @@ exports[`test Loading indicator renders the same as before 1`] = `
   <rect
     fill="black"
     height="20"
+    opacity="0.2"
     rx="5"
     ry="5"
     transform="rotate(0 50 50) translate(0 -30)"
@@ -38,6 +39,7 @@ exports[`test Loading indicator renders the same as before 1`] = `
   <rect
     fill="black"
     height="20"
+    opacity="0.2"
     rx="5"
     ry="5"
     transform="rotate(30 50 50) translate(0 -30)"
@@ -55,6 +57,7 @@ exports[`test Loading indicator renders the same as before 1`] = `
   <rect
     fill="black"
     height="20"
+    opacity="0.2"
     rx="5"
     ry="5"
     transform="rotate(60 50 50) translate(0 -30)"
@@ -72,6 +75,7 @@ exports[`test Loading indicator renders the same as before 1`] = `
   <rect
     fill="black"
     height="20"
+    opacity="0.2"
     rx="5"
     ry="5"
     transform="rotate(90 50 50) translate(0 -30)"
@@ -89,6 +93,7 @@ exports[`test Loading indicator renders the same as before 1`] = `
   <rect
     fill="black"
     height="20"
+    opacity="0.2"
     rx="5"
     ry="5"
     transform="rotate(120 50 50) translate(0 -30)"
@@ -106,6 +111,7 @@ exports[`test Loading indicator renders the same as before 1`] = `
   <rect
     fill="black"
     height="20"
+    opacity="0.2"
     rx="5"
     ry="5"
     transform="rotate(150 50 50) translate(0 -30)"
@@ -123,6 +129,7 @@ exports[`test Loading indicator renders the same as before 1`] = `
   <rect
     fill="black"
     height="20"
+    opacity="0.2"
     rx="5"
     ry="5"
     transform="rotate(180 50 50) translate(0 -30)"
@@ -140,6 +147,7 @@ exports[`test Loading indicator renders the same as before 1`] = `
   <rect
     fill="black"
     height="20"
+    opacity="0.2"
     rx="5"
     ry="5"
     transform="rotate(210 50 50) translate(0 -30)"
@@ -157,6 +165,7 @@ exports[`test Loading indicator renders the same as before 1`] = `
   <rect
     fill="black"
     height="20"
+    opacity="0.2"
     rx="5"
     ry="5"
     transform="rotate(240 50 50) translate(0 -30)"
@@ -174,6 +183,7 @@ exports[`test Loading indicator renders the same as before 1`] = `
   <rect
     fill="black"
     height="20"
+    opacity="0.2"
     rx="5"
     ry="5"
     transform="rotate(270 50 50) translate(0 -30)"
@@ -191,6 +201,7 @@ exports[`test Loading indicator renders the same as before 1`] = `
   <rect
     fill="black"
     height="20"
+    opacity="0.2"
     rx="5"
     ry="5"
     transform="rotate(300 50 50) translate(0 -30)"
@@ -208,6 +219,7 @@ exports[`test Loading indicator renders the same as before 1`] = `
   <rect
     fill="black"
     height="20"
+    opacity="0.2"
     rx="5"
     ry="5"
     transform="rotate(330 50 50) translate(0 -30)"
