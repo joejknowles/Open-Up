@@ -17,24 +17,22 @@ export class DayBooking extends Component {
     return (
       <div>
         <Heading />
-        <List slots={ this.props.slots } />
+        <List />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  slots: state.allSlots.map((id) => state.slotsById[id]),
-  date: state.selectedDate,
-  isLoading: state.isLoading
+const mapStateToProps = ({ isLoading }) => ({
+  isLoading
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSlots: fetchSlots(dispatch)
 });
 
-const mergeProps = ({ slots, isLoading, date }, dispatchProps) => ({
-  slots, isLoading,
+const mergeProps = ({ isLoading, date }, dispatchProps) => ({
+  isLoading,
   fetchSlots: dispatchProps.fetchSlots(date)
 });
 

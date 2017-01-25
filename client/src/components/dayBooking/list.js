@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 export const List = ({ slots = [] }) => (
   slots.length === 0 ?
@@ -10,4 +11,10 @@ export const List = ({ slots = [] }) => (
   </div>)
 );
 
-export default List;
+const mapStateToProps = (state) => ({
+  slots: state.allSlots.map((id) => state.slotsById[id])
+});
+
+const connectedList = connect(mapStateToProps)(List);
+
+export default connectedList;
