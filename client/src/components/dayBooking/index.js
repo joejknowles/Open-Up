@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
+import '../../styles/App.css';
 import { connect } from 'react-redux';
-import { fetchSlots } from '../actions';
-import LoadingIndicator from './loadingIndicator';
+import { fetchSlots } from '../../actions';
+import LoadingIndicator from '../loadingIndicator';
 
 export class DayBooking extends Component {
   componentDidMount() {
