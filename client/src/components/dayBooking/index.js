@@ -23,8 +23,8 @@ export class DayBooking extends Component {
   }
 }
 
-const mapStateToProps = ({ isLoading }) => ({
-  isLoading
+const mapStateToProps = ({ isLoading, date }) => ({
+  isLoading, date
 });
 
 const mapDispatchToProps = (dispatch) => ({
