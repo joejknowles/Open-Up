@@ -32,5 +32,5 @@ end
 
 def date_today
   date = Date.today
-  date.to_s
+  date.strftime('%-d/%-m/%Y')
 end

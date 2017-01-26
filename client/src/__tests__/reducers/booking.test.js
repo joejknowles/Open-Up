@@ -1,11 +1,4 @@
-import { selectedDate, slotsById, allSlots } from '../../reducers';
-
-it('selectedDate returns date', () => {
-  const testDate = new Date(100);
-  const action = { response: { date: testDate } };
-  const actual = selectedDate(undefined, action);
-  expect(actual).toBe(testDate);
-});
+import { slotsById, allSlots } from '../../reducers';
 
 it('slotsById returns empty object by default', () => {
   const actual = slotsById(undefined, {});

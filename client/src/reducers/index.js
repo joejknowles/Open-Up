@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux'
 import isLoading from './isLoading'
+import parse from 'date-fns/parse'
 
 export const selectedDate = (state = null, action) => {
   if (action.response) {
-    return action.response.date;
+    return parse(action.response.date);
   }
   return state;
 };

@@ -3,7 +3,7 @@ exports[`test renders correctly 1`] = `
   className="App">
   <div>
     <h3>
-      Today 
+      Today 26/2/2017
     </h3>
     <p
       className="message">
