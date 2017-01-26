@@ -31,11 +31,15 @@ def git_add_and_commit message
   git_commit message
 end
 
-def commit_if_tests_pass
-  build_js_and_test
+def interactive_git_add_and_commit
   puts 'enter a commit message'
   message = STDIN.gets.chomp
   git_add_and_commit message
+end
+
+def commit_if_tests_pass
+  build_js_and_test
+  interactive_git_add_and_commit
 end
 
 task :cc do
