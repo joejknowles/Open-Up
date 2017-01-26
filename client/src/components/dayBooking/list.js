@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { slotsSelector } from '../../reducers'
 
 export const List = ({ slots = [] }) => (
   slots.length === 0 ?
@@ -12,7 +13,7 @@ export const List = ({ slots = [] }) => (
 );
 
 const mapStateToProps = (state) => ({
-  slots: state.allSlots.map((id) => state.slotsById[id])
+  slots: slotsSelector(state)
 });
 
 const connectedList = connect(mapStateToProps)(List);

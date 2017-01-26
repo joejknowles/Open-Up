@@ -27,4 +27,8 @@ export const selectedDateSelector = ({ selectedDate }) => (
   selectedDate
 );
 
+export const slotsSelector = ({ allSlots, slotsById }) => (
+  allSlots.map((id) => slotsById[id])
+);
+
 export default combineReducers({ selectedDate, slotsById, allSlots, isLoading })
