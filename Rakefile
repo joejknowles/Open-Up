@@ -30,7 +30,11 @@ def git_commit message
   sh 'git', 'ci', '-m', message
 end
 
-task :c, [:commit_message] do |t, args|
+def git_add_and_commit message
   git_add
-  git_commit args[:commit_message]
+  git_commit message
+end
+
+task :c, [:commit_message] do |t, args|
+  git_add_and_commit args[:commit_message]
 end
