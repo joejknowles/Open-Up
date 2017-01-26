@@ -5,13 +5,13 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
-task :ci do
-  commit_if_tests_pass
-end
-
 task :push do
   commit_if_tests_pass
   push
+end
+
+task :ci do
+  commit_if_tests_pass
 end
 
 task :test do
@@ -22,22 +22,27 @@ task :no_run_test do
   build_js_and_test
 end
 
-def build_js
-  sh 'npm', 'run', 'build', '--prefix', 'client'
+def build_js_and_test # only works if ci var is set
+  run_node_tests
+  build_js
+  run_rspec_tests
+end
+
+def commit_if_tests_pass
+  test_and_build_in_ci
+  interactive_git_add_and_commit
 end
 
 def run_node_tests
   sh 'npm', 'test', '--prefix', 'client'
 end
 
-def run_rspec_tests
-  sh 'rspec'
+def build_js
+  sh 'npm', 'run', 'build', '--prefix', 'client'
 end
 
-def build_js_and_test
-  run_node_tests
-  build_js
-  run_rspec_tests
+def run_rspec_tests
+  sh 'rspec'
 end
 
 def test_and_build_in_ci
@@ -61,11 +66,6 @@ def interactive_git_add_and_commit
   puts 'enter a commit message'
   message = STDIN.gets.chomp
   git_add_and_commit message
-end
-
-def commit_if_tests_pass
-  test_and_build_in_ci
-  interactive_git_add_and_commit
 end
 
 def push
