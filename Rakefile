@@ -5,12 +5,32 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
-task :ft do
+def build_js
   sh 'npm', 'run', 'build', '--prefix', 'client'
+end
+
+def run_feature_tests
   sh 'rspec'
 end
 
-task :c do
+def build_js_and_test
+  build_js
+  run_feature_tests
+end
+
+task :ft do
+  build_js_and_test
+end
+
+def git_add
   sh 'git', 'add', '.'
-  sh 'git', 'ci', '-m',  'parse date from server using date-fns'
+end
+
+def git_commit message
+  sh 'git', 'ci', '-m', message
+end
+
+task :c, [:commit_message] do |t, args|
+  git_add
+  git_commit args[:commit_message]
 end
