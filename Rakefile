@@ -9,17 +9,13 @@ def build_js
   sh 'npm', 'run', 'build', '--prefix', 'client'
 end
 
-def run_feature_tests
+def run_rspec_tests
   sh 'rspec'
 end
 
 def build_js_and_test
   build_js
-  run_feature_tests
-end
-
-task :ft do
-  build_js_and_test
+  run_rspec_tests
 end
 
 def git_add
@@ -33,6 +29,21 @@ end
 def git_add_and_commit message
   git_add
   git_commit message
+end
+
+def commit_if_tests_pass
+  build_js_and_test
+  puts 'enter a commit message'
+  message = STDIN.gets.chomp
+  git_add_and_commit message
+end
+
+task :cc do
+  commit_if_tests_pass
+end
+
+task :ft do
+  build_js_and_test
 end
 
 task :c, [:commit_message] do |t, args|
