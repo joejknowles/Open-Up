@@ -75,5 +75,5 @@ def get_commit_message
 end
 
 def push
-  sh 'git', 'push'
+  sh 'git push'
 end
