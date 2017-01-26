@@ -5,8 +5,29 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
+task :ci do
+  commit_if_tests_pass
+end
+
+task :push do
+  commit_if_tests_pass
+  push
+end
+
+task :test do
+  test_and_build_in_ci
+end
+
+task :no_run_test do
+  build_js_and_test
+end
+
 def build_js
   sh 'npm', 'run', 'build', '--prefix', 'client'
+end
+
+def run_node_tests
+  sh 'npm', 'test', '--prefix', 'client'
 end
 
 def run_rspec_tests
@@ -14,8 +35,13 @@ def run_rspec_tests
 end
 
 def build_js_and_test
+  run_node_tests
   build_js
   run_rspec_tests
+end
+
+def test_and_build_in_ci
+  sh 'CI=true rake no_run_test'
 end
 
 def git_add
@@ -38,18 +64,10 @@ def interactive_git_add_and_commit
 end
 
 def commit_if_tests_pass
-  build_js_and_test
+  test_and_build_in_ci
   interactive_git_add_and_commit
 end
 
-task :cc do
-  commit_if_tests_pass
-end
-
-task :ft do
-  build_js_and_test
-end
-
-task :c, [:commit_message] do |t, args|
-  git_add_and_commit args[:commit_message]
+def push
+  sh 'git push'
 end
