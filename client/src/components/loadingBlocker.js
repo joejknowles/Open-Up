@@ -9,5 +9,5 @@ export const LoadingBlocker = ({ isLoading, children }) => (
 );
 
 export default connect((state) =>
-  ({ isloading: isLoadingSelector(state) })
+  ({ isLoading: isLoadingSelector(state) })
 )(LoadingBlocker);

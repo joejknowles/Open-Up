@@ -23,4 +23,8 @@ export const isLoadingSelector = ({ isLoading }) => (
   isLoading
 );
 
+export const selectedDateSelector = ({ selectedDate }) => (
+  selectedDate
+);
+
 export default combineReducers({ selectedDate, slotsById, allSlots, isLoading })

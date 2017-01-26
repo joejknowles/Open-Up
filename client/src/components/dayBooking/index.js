@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../styles/App.css';
 import { connect } from 'react-redux';
 import { fetchSlots } from '../../actions';
+import { selectedDateSelector } from '../../reducers';
 
 import LoadingBlocker from '../loadingBlocker';
 import Heading from './heading';
@@ -24,8 +25,8 @@ export class DayBooking extends Component {
   }
 }
 
-const mapStateToProps = ({ date }) => ({
-  date
+const mapStateToProps = (state) => ({
+  date: selectedDateSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
