@@ -1,4 +1,6 @@
 import { List } from '../../../components/dayBooking/list';
+import { BookButton } from '../../../components/dayBooking/bookButton';
+import { connect } from 'react-redux';
 
 import React from 'react';
 import { shallow } from 'enzyme';
@@ -11,7 +13,7 @@ it('renders two buttons for two slots', () => {
     slots={ [{ id: 1 }, { id: 2 }] }
     fetchSlots={ ()=> {}}
     />);
-  expect(component.find('button').length).toBe(2);
+  expect(component.find('Connect(Component)').length).toBe(2);
 });
 
 it('renders three buttons for three slots', () => {
@@ -19,7 +21,7 @@ it('renders three buttons for three slots', () => {
     slots={ [{ id: 1 }, { id: 2 }, { id: 4 }] }
     fetchSlots={ ()=> {}}
     />);
-  expect(component.find('button').length).toBe(3);
+  expect(component.find('Connect(Component)').length).toBe(3);
 });
 
 it('renders message for no slots', () => {

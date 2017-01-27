@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { slotsSelector } from '../../reducers'
+import { slotsSelector } from '../../reducers';
+import BookButton from './bookButton'
 
 export const List = ({ slots = [] }) => (
   slots.length === 0 ?
   <p className="message">No slots available</p> :
   (<div>
     { slots.map(({ id }) => (
-        <button key={ id } >book</button>
+        <BookButton key={ id } />
     )) }
   </div>)
 );

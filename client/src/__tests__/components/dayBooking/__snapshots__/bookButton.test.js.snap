@@ -1,0 +1,5 @@
+exports[`test renders heading as before 1`] = `
+<button>
+  book
+</button>
+`;
