@@ -9,6 +9,7 @@ class App extends Component {
       <Provider store={ this.props.store }>
         <div className="App">
           <DayBooking />
+          This is testing the heroku build process
         </div>
       </Provider>
     );
