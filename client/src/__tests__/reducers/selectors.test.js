@@ -1,4 +1,7 @@
-import { isLoadingSelector, selectedDateSelector, slotsSelector } from '../../reducers';
+import { isLoadingSelector,
+  selectedDateSelector,
+  slotsSelector,
+  createSlotSelector } from '../../reducers';
 
 it('isLoadingSelector selects isLoading', () => (
   expect(
@@ -12,15 +15,17 @@ it('selectedDateSelector selects selectedDate', () => (
     .toBe('selectedDate test')
 ));
 
-it('slotsSelector selects selectedDate', () => {
+it('slotsSelector selects slot ids', () => {
+  const allSlots = [1, 2, 5];
+  expect(slotsSelector({ allSlots })).toEqual(allSlots);
+})
+
+it('slotSelector selects correct slot', () => {
   const slotsById = {
     1: { id: 1 }, 2: { id: 2 }
   };
-  const allSlots =[ 1, 2 ];
-  const expected = [
-    { id: 1 }, { id: 2 }
-  ];
+  const expected = { id: 1 };
   expect(
-    slotsSelector({ slotsById, allSlots }))
+    createSlotSelector(1)({ slotsById }))
     .toEqual(expected)
 });

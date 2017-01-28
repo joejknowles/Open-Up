@@ -10,7 +10,7 @@ const shallowRenderer = ReactTestUtils.createRenderer();
 
 it('renders two buttons for two slots', () => {
   const component = shallow(<List
-    slots={ [{ id: 1 }, { id: 2 }] }
+    slots={ [ 1 , 2 ] }
     fetchSlots={ ()=> {}}
     />);
   expect(component.find('Connect(Component)').length).toBe(2);
@@ -18,7 +18,7 @@ it('renders two buttons for two slots', () => {
 
 it('renders three buttons for three slots', () => {
   const component = shallow(<List
-    slots={ [{ id: 1 }, { id: 2 }, { id: 4 }] }
+    slots={ [ 1 , 2 , 4 ] }
     fetchSlots={ ()=> {}}
     />);
   expect(component.find('Connect(Component)').length).toBe(3);
@@ -35,7 +35,7 @@ it('renders message for no slots', () => {
 it('renders the same as before with two slots', () => {
   const tree = shallowRenderer.render(
     <List
-      slots={ [{ id: 1 }, { id: 2 }] }
+      slots={ [1 , 2 ] }
       fetchSlots={ ()=> {}}
       />
   );

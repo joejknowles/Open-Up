@@ -7,7 +7,7 @@ export const List = ({ slots = [] }) => (
   slots.length === 0 ?
   <p className="message">No slots available</p> :
   (<div>
-    { slots.map(({ id }) => (
+    { slots.map(( id ) => (
         <BookButton key={ id } />
     )) }
   </div>)
