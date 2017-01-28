@@ -25,7 +25,7 @@ feature 'Booking', js: true do
     end
     scenario "display one button" do
       visit Urls::SLOTS
-      expect(page).to have_content('book')
+      expect(page).to have_content("book #{ date_today }")
     end
   end
 end
