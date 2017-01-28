@@ -1,5 +1,8 @@
 exports[`test renders heading as before 1`] = `
 <button>
-  book
+  book 
+  13:00
+   to 
+  14:00
 </button>
 `;

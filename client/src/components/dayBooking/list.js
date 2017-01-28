@@ -8,7 +8,7 @@ export const List = ({ slots = [] }) => (
   <p className="message">No slots available</p> :
   (<div>
     { slots.map(( id ) => (
-        <BookButton key={ id } />
+        <BookButton key={ id } { ...{ id } } />
     )) }
   </div>)
 );

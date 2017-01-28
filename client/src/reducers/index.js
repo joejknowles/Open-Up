@@ -32,6 +32,9 @@ export const slotsSelector = ({ allSlots }) => (
   allSlots
 );
 
-export const createSlotSelector = (id) => ({ slotsById }) => (slotsById[id]);
+export const createSlotSelector = (id) => ({ slotsById }) => {
+  console.log(slotsById);
+  return slotsById[id];
+}
 
 export default combineReducers({ selectedDate, slotsById, allSlots, isLoading })

@@ -3,8 +3,8 @@ import { shallow } from 'enzyme';
 import { BookButton } from '../../../components/dayBooking/bookButton';
 import renderer from 'react-test-renderer';
 
-const startTime = new Date();
-const endTime = new Date();
+const startTime = new Date(null, null, null, 13);
+const endTime = new Date(null, null, null, 14);
 const times = { startTime, endTime };
 
 it('renders heading text using date', () => {
