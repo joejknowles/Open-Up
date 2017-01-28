@@ -1,5 +1,7 @@
 import 'whatwg-fetch';
 
 export const fetchSlots = () => {
-  return fetch('/api/slots').then((response) => response.json());
+  return fetch('/api/slots').then(
+    (response) => response.json()
+  );
 };
