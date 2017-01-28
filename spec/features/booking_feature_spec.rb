@@ -20,14 +20,18 @@ feature 'Booking', js: true do
   end
 
   context 'with one slot' do
-    before do
-      Slot.create(start_time: DateTime.now)
-    end
     scenario "display one button" do
+      start_time = DateTime.now
+      end_time = 1.hour.from_now
+      Slot.create(start_time: start_time, end_time: end_time)
       visit Urls::SLOTS
-      expect(page).to have_content("book #{ date_today }")
+      expect(page).to have_content("book #{format_time start_time} to #{format_time end_time}")
     end
   end
+end
+
+def format_time time
+  time.strftime('%H:%M')
 end
 
 def date_today
