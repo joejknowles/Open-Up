@@ -11,6 +11,7 @@ export const selectedDate = (state = null, action) => {
 
 export const slotsById = (state = {}, action) => {
   if (action.response && action.response.entities.slots) {
+    // parse dates
     return action.response.entities.slots;
   }
   return state;
@@ -32,9 +33,8 @@ export const slotsSelector = ({ allSlots }) => (
   allSlots
 );
 
-export const createSlotSelector = (id) => ({ slotsById }) => {
-  console.log(slotsById);
-  return slotsById[id];
-}
+export const createSlotSelector = (id) => ({ slotsById }) => (
+  slotsById[id]
+);
 
 export default combineReducers({ selectedDate, slotsById, allSlots, isLoading })

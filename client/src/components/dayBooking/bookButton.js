@@ -11,10 +11,8 @@ const formatTime = (time) => (
   format(time, 'H:mm')
 );
 
-const mapStateToProps = (state, { id }) => {
-  const s =  createSlotSelector(id);
-  console.log(s);
-  return s
-};
+const mapStateToProps = (state, { id }) => (
+  createSlotSelector(id)
+);
 
 export default connect(mapStateToProps)(BookButton);
