@@ -4,11 +4,11 @@ import format from 'date-fns/format'
 import { createSlotSelector } from '../../reducers'
 
 const formatTime = (time) => (
-  format(time, 'H:mm')
+  format(time, 'HH:mm')
 );
 
 export const BookButton = ({ startTime, endTime}) => (
-  <button>book { formatTime(startTime) } to { formatTime(endTime) }</button>
+  <button className="BookButton">book { formatTime(startTime) } to { formatTime(endTime) }</button>
 );
 
 const mapStateToProps = (state, { id }) => (

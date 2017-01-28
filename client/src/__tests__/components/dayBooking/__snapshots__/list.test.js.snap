@@ -6,10 +6,17 @@ exports[`test renders the same as before with no slots 1`] = `
 `;
 
 exports[`test renders the same as before with two slots 1`] = `
-<div>
-  <Connect(Component)
-    id={1} />
-  <Connect(Component)
-    id={2} />
+<div
+  className="List">
+  <div
+    className="Slot">
+    <Connect(Component)
+      id={1} />
+  </div>
+  <div
+    className="Slot">
+    <Connect(Component)
+      id={2} />
+  </div>
 </div>
 `;

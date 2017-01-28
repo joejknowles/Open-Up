@@ -1,5 +1,6 @@
 exports[`test renders heading as before 1`] = `
-<button>
+<button
+  className="BookButton">
   book 
   13:00
    to 

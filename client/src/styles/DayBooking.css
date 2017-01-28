@@ -1,0 +1,19 @@
+.List {
+  width: 60%;
+  margin: auto;
+}
+
+.BookButton {
+  width: 75%;
+  height: 4em;
+
+  margin-bottom: 1em;
+  background-color: white;
+  border-color: black;
+  border-radius: 0.5em;
+  outline: none;
+}
+
+.BookButton:focus {
+  background-color: #F0F0F0;
+}
