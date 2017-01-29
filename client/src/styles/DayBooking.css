@@ -15,5 +15,13 @@
 }
 
 .BookButton:focus {
-  background-color: #F0F0F0;
+  -webkit-box-shadow: 6px 6px 30px -8px rgba(0,0,0,0.75);
+-moz-box-shadow: 6px 6px 30px -8px rgba(0,0,0,0.75);
+box-shadow: 6px 6px 30px -8px rgba(0,0,0,0.75);
+}
+
+.BookButton:active {
+  -webkit-box-shadow: inset 6px 6px 30px -8px rgba(0,0,0,0.75);
+-moz-box-shadow: inset 6px 6px 30px -8px rgba(0,0,0,0.75);
+box-shadow: inset 6px 6px 30px -8px rgba(0,0,0,0.75);
 }
