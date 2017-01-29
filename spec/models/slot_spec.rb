@@ -21,8 +21,8 @@ describe Slot, type: :model do
     expect(slot.errors.size).to be(0)
   end
 
-  it "is invalid with non-existant booking" do
-    slot = Slot.create(booking_id: 1)
-    expect(slot.errors[:booking].size).to be(1)
+  it "can have one booking" do
+    slot = Slot.new(booking: Booking.new)
+    expect(slot.booking).not_to be(nil)
   end
 end
