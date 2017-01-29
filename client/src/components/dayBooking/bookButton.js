@@ -1,7 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import format from 'date-fns/format'
-import { createSlotSelector } from '../../reducers'
+import format from 'date-fns/format';
 
 const formatTime = (time) => (
   format(time, 'HH:mm')
@@ -10,9 +8,3 @@ const formatTime = (time) => (
 export const BookButton = ({ startTime, endTime}) => (
   <button className="BookButton">book { formatTime(startTime) } to { formatTime(endTime) }</button>
 );
-
-const mapStateToProps = (state, { id }) => (
-  createSlotSelector(id)
-);
-
-export default connect(mapStateToProps)(BookButton);

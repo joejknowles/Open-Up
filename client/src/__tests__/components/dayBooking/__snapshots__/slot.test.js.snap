@@ -1,0 +1,22 @@
+exports[`test renders Slot with booking as before 1`] = `
+<p
+  className="message">
+  unavailable from 
+  13:00
+   to 
+  14:00
+</p>
+`;
+
+exports[`test renders Slot without booking as before 1`] = `
+<div
+  className="Slot">
+  <button
+    className="BookButton">
+    book 
+    13:00
+     to 
+    14:00
+  </button>
+</div>
+`;

@@ -7,12 +7,12 @@ const startTime = new Date(null, null, null, 13);
 const endTime = new Date(null, null, null, 14);
 const times = { startTime, endTime };
 
-it('renders heading text using date', () => {
+it('renders button text with correct times', () => {
   const component = shallow(<BookButton id={ 1 } { ...times } />);
   expect(component.find('button').text()).toBe('book 13:00 to 14:00');
 });
 
-it('renders heading as before', () => {
+it('renders booking button as before', () => {
   const tree = renderer.create(
     <BookButton { ...times } />
   ).toJSON();

@@ -1,4 +1,4 @@
-exports[`test renders heading as before 1`] = `
+exports[`test renders booking button as before 1`] = `
 <button
   className="BookButton">
   book 
