@@ -20,4 +20,9 @@ describe Slot, type: :model do
     slot = Slot.create(start_time: Time.now, end_time: Time.now)
     expect(slot.errors.size).to be(0)
   end
+
+  it "is invalid with non-existant booking" do
+    slot = Slot.create(booking: 1)
+    expect(slot.errors[:booking].size).to be(1)
+  end
 end
