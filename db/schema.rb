@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128133219) do
+ActiveRecord::Schema.define(version: 20170129130433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "slot_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slot_id"], name: "index_bookings_on_slot_id", using: :btree
+  end
 
   create_table "slots", force: :cascade do |t|
     t.time     "start_time"
@@ -22,4 +29,5 @@ ActiveRecord::Schema.define(version: 20170128133219) do
     t.time     "end_time"
   end
 
+  add_foreign_key "bookings", "slots"
 end
