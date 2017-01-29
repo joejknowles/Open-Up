@@ -21,3 +21,17 @@ export const fetchSlots = (dispatch) => (date) => () => {
     dispatch({ type: 'FETCH_SLOTS_FAILURE' });
   });
 }
+
+export const bookSlot = (slotId) => (dispatch) => () => {
+  dispatch({type: 'BOOK_SLOT_REQUEST'});
+  return apiClients.bookSlot(slotId).then((response) => {
+    response = camelizeKeys(response);
+    const successAction = {
+      type: 'BOOK_SLOT_SUCCESS',
+      response
+    };
+    dispatch(successAction);
+  }, (error) => {
+    dispatch({ type: 'BOOK_SLOT_FAILURE' });
+  });
+}
