@@ -20,20 +20,26 @@ feature 'Booking', js: true do
   end
 
   context 'with one slot' do
-    scenario "display one button with single digit hour" do
-      start_time = Time.new(1970, 10, 10, 9, 0, 0, '+00:00')
-      end_time = Time.new(1970, 10, 10, 10, 0, 0, '+00:00')
+    let(:start_time) { Time.new(1970, 10, 10, 9, 0, 0, '+00:00') }
+    let(:end_time) { Time.new(1970, 10, 10, 10, 0, 0, '+00:00')}
+
+    before do
       Slot.create(start_time: start_time, end_time: end_time)
+    end
+    scenario "display one button with single digit hour" do
       visit Urls::SLOTS
       expect(page).to have_content("book #{format_time start_time} to #{format_time end_time}")
     end
 
     scenario "display one button with double digit hour time" do
-      start_time = Time.new(1970, 10, 10, 12, 0, 0, '+00:00')
-      end_time = Time.new(1970, 10, 10, 13, 0, 0, '+00:00')
-      Slot.create(start_time: start_time, end_time: end_time)
       visit Urls::SLOTS
       expect(page).to have_content("book #{format_time start_time} to #{format_time end_time}")
+    end
+
+    scenario "click" do
+      visit Urls::SLOTS
+      find(:css, '.BookButton').click
+      expect(page).to have_content("unavailable #{format_time start_time} to #{format_time end_time}")
     end
   end
 
