@@ -16,7 +16,7 @@ describe Slot, type: :model do
     expect(slot.errors.size).to be(2)
   end
 
-  it "is valid without a start and end time" do
+  it "is valid with a start and end time" do
     slot = Slot.create(start_time: Time.now, end_time: Time.now)
     expect(slot.errors.size).to be(0)
   end
