@@ -19,6 +19,13 @@ it('slotsById returns slots by Id on fetch slots success', () => {
   expect(actual).toEqual(normalizedSlots);
 });
 
+it('slotsById returns previous state when no new slots on fetch slots success', () => {
+  const previousState =  {};
+  const action = { type: 'FETCH_SLOTS_SUCCESS', response: { entities:  } };
+  const actual = slotsById(previousState, action);
+  expect(actual).toBe(previousState);
+});
+
 it('allSlots returns an empty array by default', () => {
   const actual = allSlots(undefined, {});
   expect(actual).toEqual([]);
