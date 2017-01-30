@@ -12,7 +12,7 @@ export const selectedDate = (state = null, action) => {
 export const slotsById = (state = {}, action) => {
   switch (action.type) {
     case 'FETCH_SLOTS_SUCCESS':
-      return action.response.entities.slots || {};
+      return action.response.entities.slots || state;
     default:
       return state;
   }
