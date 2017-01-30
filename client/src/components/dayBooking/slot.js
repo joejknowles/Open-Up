@@ -10,14 +10,22 @@ const formatTime = (time) => (
 );
 
 export const Slot = (props) => (
-  props.booking ?
-  <p className="message">
-    unavailable { formatTime(props.startTime) } to { formatTime(props.endTime) }
-  </p>
-  :
-  (<div className="Slot">
-      <BookButton { ...props }  />
-  </div>)
+  <div className="Slot">
+    {
+      props.booking ?
+        <UnavailableSlot { ...props } />
+      :
+        <BookButton { ...props }  />
+    }
+  </div>
+);
+
+export const UnavailableSlot = ({ startTime, endTime }) => (
+  <div className="unavailableSlot">
+    <span className="message">
+      unavailable { formatTime(startTime) } to { formatTime(endTime) }
+    </span>
+  </div>
 );
 
 const mapStateToProps = (state, { id }) => (

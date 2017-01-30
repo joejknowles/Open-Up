@@ -3,11 +3,33 @@
   margin: auto;
 }
 
-.BookButton {
+.Slot {
   width: 75%;
   height: 4em;
+  line-height: 4em;
+  margin: auto;
 
   margin-bottom: 1em;
+}
+
+.unavailableSlot {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #BBB;
+  border-radius: 0.5em;
+  color: #BBB;
+}
+
+.message {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.BookButton {
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
   background-color: white;
   border-color: black;
   border-radius: 0.5em;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Slot } from '../../../components/dayBooking/slot';
+import { Slot, UnavailableSlot } from '../../../components/dayBooking/slot';
 import { BookButton } from '../../../components/dayBooking/bookButton';
 import ReactTestUtils from 'react-addons-test-utils';
 
@@ -17,7 +17,7 @@ it("renders a button when there's no booking", () => {
 
 it("renders unavailable message when there's a booking", () => {
   const component = shallow(<Slot booking={ true } { ...times } />);
-  expect(component.find('p').text()).toBe('unavailable 13:00 to 14:00');
+  expect(component.find(UnavailableSlot).length).toBe(1);
 });
 
 it('renders Slot with booking as before', () => {
@@ -32,4 +32,9 @@ it('renders Slot without booking as before', () => {
     <Slot booking={ false } { ...times } />
   );
   expect(tree).toMatchSnapshot();
+});
+
+it("UnavailableSlot renders unavailable message", () => {
+  const component = shallow(<UnavailableSlot { ...times } />);
+  expect(component.find('span').text()).toBe('unavailable 13:00 to 14:00');
 });

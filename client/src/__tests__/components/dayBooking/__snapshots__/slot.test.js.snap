@@ -1,11 +1,11 @@
 exports[`test renders Slot with booking as before 1`] = `
-<p
-  className="message">
-  unavailable 
-  13:00
-   to 
-  14:00
-</p>
+<div
+  className="Slot">
+  <Unknown
+    booking={true}
+    endTime={1899-12-31T14:00:00.000Z}
+    startTime={1899-12-31T13:00:00.000Z} />
+</div>
 `;
 
 exports[`test renders Slot without booking as before 1`] = `
