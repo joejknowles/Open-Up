@@ -9,7 +9,7 @@ describe Booking, type: :model do
 
   it "is invalid with slot that's already booked" do
     slot_id = Slot.create(start_time: Time.now, end_time: Time.now).id
-    booking1 = Booking.new(slot_id: slot_id)
+    booking1 = Booking.create(slot_id: slot_id)
     booking2 = Booking.new(slot_id: slot_id)
     booking2.valid?
     expect(booking2.errors[:slot].size).to be(1)
