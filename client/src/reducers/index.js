@@ -4,7 +4,7 @@ import bookings from './bookings'
 import parse from 'date-fns/parse'
 
 export const selectedDate = (state = null, action) => {
-  if (action.response) {
+  if (action.type === 'FETCH_SLOTS_SUCCESS') {
     return parse(action.response.date);
   }
   return state;
