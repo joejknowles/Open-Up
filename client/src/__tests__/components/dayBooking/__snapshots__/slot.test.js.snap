@@ -17,3 +17,16 @@ exports[`test renders Slot without booking as before 1`] = `
     startTime={1899-12-31T13:00:00.000Z} />
 </div>
 `;
+
+exports[`test renders UnavailableSlot as before 1`] = `
+<div
+  className="unavailableSlot">
+  <span
+    className="message">
+    unavailable 
+    13:00
+     to 
+    14:00
+  </span>
+</div>
+`;

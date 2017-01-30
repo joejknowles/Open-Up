@@ -34,6 +34,13 @@ it('renders Slot without booking as before', () => {
   expect(tree).toMatchSnapshot();
 });
 
+it('renders UnavailableSlot as before', () => {
+  const tree = shallowRenderer.render(
+    <UnavailableSlot { ...times } />
+  );
+  expect(tree).toMatchSnapshot();
+});
+
 it("UnavailableSlot renders unavailable message", () => {
   const component = shallow(<UnavailableSlot { ...times } />);
   expect(component.find('span').text()).toBe('unavailable 13:00 to 14:00');
