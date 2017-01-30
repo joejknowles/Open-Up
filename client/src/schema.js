@@ -1,6 +1,6 @@
 import { schema } from 'normalizr';
 
-const booking = new schema.Entity('bookings');
+export const booking = new schema.Entity('bookings');
 
 const slot = new schema.Entity('slots', {
   booking

@@ -51,7 +51,7 @@ feature 'Booking', js: true do
       slot = Slot.create(start_time: start_time, end_time: end_time)
       Booking.create(slot: slot)
       visit Urls::SLOTS
-      expect(page).to have_content("unavailable from #{format_time start_time} to #{format_time end_time}")
+      expect(page).to have_content("unavailable #{format_time start_time} to #{format_time end_time}")
     end
   end
 end

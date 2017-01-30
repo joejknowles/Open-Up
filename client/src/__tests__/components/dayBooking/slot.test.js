@@ -17,7 +17,7 @@ it("renders a button when there's no booking", () => {
 
 it("renders unavailable message when there's a booking", () => {
   const component = shallow(<Slot booking={ true } { ...times } />);
-  expect(component.find('p').text()).toBe('unavailable from 13:00 to 14:00');
+  expect(component.find('p').text()).toBe('unavailable 13:00 to 14:00');
 });
 
 it('renders Slot with booking as before', () => {

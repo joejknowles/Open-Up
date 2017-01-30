@@ -28,6 +28,7 @@ export const bookSlot = (slotId) => (dispatch) => () => {
     response = camelizeKeys(response);
     const successAction = {
       type: 'BOOK_SLOT_SUCCESS',
+      slotId,
       response
     };
     dispatch(successAction);

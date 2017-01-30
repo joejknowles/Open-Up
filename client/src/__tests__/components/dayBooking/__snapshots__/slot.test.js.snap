@@ -1,7 +1,7 @@
 exports[`test renders Slot with booking as before 1`] = `
 <p
   className="message">
-  unavailable from 
+  unavailable 
   13:00
    to 
   14:00

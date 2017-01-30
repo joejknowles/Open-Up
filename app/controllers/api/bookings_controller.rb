@@ -2,7 +2,7 @@ class Api::BookingsController < ApplicationController
   skip_before_action :verify_authenticity_token
   def create
     booking = Booking.create(slot_id_params)
-    response = { booking: booking }
+    response = { booking_id: booking.id }
     render json: response
   end
 

@@ -12,7 +12,7 @@ const formatTime = (time) => (
 export const Slot = (props) => (
   props.booking ?
   <p className="message">
-    unavailable from { formatTime(props.startTime) } to { formatTime(props.endTime) }
+    unavailable { formatTime(props.startTime) } to { formatTime(props.endTime) }
   </p>
   :
   (<div className="Slot">
