@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import isLoading from './isLoading'
+import bookings from './bookings'
 import parse from 'date-fns/parse'
 
 export const selectedDate = (state = null, action) => {
@@ -41,4 +42,4 @@ export const createSlotSelector = (id) => ({ slotsById }) => (
   slotsById[id]
 );
 
-export default combineReducers({ selectedDate, slotsById, allSlots, isLoading })
+export default combineReducers({ selectedDate, slotsById, allSlots, isLoading, bookings })
