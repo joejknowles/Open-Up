@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { BookButton } from '../../../components/dayBooking/bookButton';
+import { BookButton, mapDispatchToProps } from '../../../components/dayBooking/bookButton';
 import renderer from 'react-test-renderer';
 
 const startTime = new Date(null, null, null, 13);
@@ -18,3 +18,18 @@ it('renders booking button as before', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it('calls bookSlot on click', () => {
+  const mockBookSlot = jest.fn();
+  const component = shallow(<BookButton bookSlot={ mockBookSlot } />);
+  expect(mockBookSlot).not.toHaveBeenCalled();
+  component.simulate('click');
+  expect(mockBookSlot).toHaveBeenCalled();
+});
+
+it('mapDispatchToProps bookSlot with Id', () => {
+  const actions = require('../../../actions');
+  actions.bookSlot = jest.fn(() => () => {});
+  mapDispatchToProps(null, { id: 1 });
+  expect(actions.bookSlot).toHaveBeenCalledWith(1);
+})

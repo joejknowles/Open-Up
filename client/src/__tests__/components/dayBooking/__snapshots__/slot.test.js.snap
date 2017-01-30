@@ -11,12 +11,9 @@ exports[`test renders Slot with booking as before 1`] = `
 exports[`test renders Slot without booking as before 1`] = `
 <div
   className="Slot">
-  <button
-    className="BookButton">
-    book 
-    13:00
-     to 
-    14:00
-  </button>
+  <Connect(Component)
+    booking={false}
+    endTime={1899-12-31T14:00:00.000Z}
+    startTime={1899-12-31T13:00:00.000Z} />
 </div>
 `;

@@ -1,6 +1,7 @@
 exports[`test renders booking button as before 1`] = `
 <button
-  className="BookButton">
+  className="BookButton"
+  onClick={undefined}>
   book 
   13:00
    to 

@@ -2,7 +2,7 @@ import React from 'react';
 import '../../styles/DayBooking.css';
 import { connect } from 'react-redux';
 import { createSlotSelector } from '../../reducers';
-import { BookButton } from './bookButton';
+import BookButton from './bookButton';
 import format from 'date-fns/format';
 
 const formatTime = (time) => (

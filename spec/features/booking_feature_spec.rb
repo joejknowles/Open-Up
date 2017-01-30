@@ -39,6 +39,7 @@ feature 'Booking', js: true do
     scenario "click" do
       visit Urls::SLOTS
       find(:css, '.BookButton').click
+        visit Urls::SLOTS
       expect(page).to have_content("unavailable #{format_time start_time} to #{format_time end_time}")
     end
   end

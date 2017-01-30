@@ -12,7 +12,7 @@ it('slotsById returns previous state when no slots', () => {
 
 it('slotsById returns slots by Id', () => {
   const normalizedSlots = { 1: { id: 1, available: true }, 2: { id: 2, available: true } };
-  const action = { response: { entities: { slots:
+  const action = { type: 'FETCH_SLOTS_SUCCESS', response: { entities: { slots:
     normalizedSlots
   } } };
   const actual = slotsById(null, action);

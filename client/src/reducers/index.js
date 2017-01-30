@@ -10,15 +10,16 @@ export const selectedDate = (state = null, action) => {
 };
 
 export const slotsById = (state = {}, action) => {
-  if (action.response && action.response.entities.slots) {
-    // parse dates
-    return action.response.entities.slots;
+  switch (action.type) {
+    case 'FETCH_SLOTS_SUCCESS':
+      return action.response.entities.slots;
+    default:
+      return state;
   }
-  return state;
 }
 
 export const allSlots = (state = [], action) => (
-  action.response ? action.response.result : state
+  action.type === 'FETCH_SLOTS_SUCCESS' ? action.response.result : state
 );
 
 export const isLoadingSelector = ({ isLoading }) => (
