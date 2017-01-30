@@ -11,26 +11,26 @@ it('bookings returns previous state when no bookings', () => {
 });
 
 it('bookings returns bookings by Id on fetch slots success', () => {
-  const normalizedBookings = { 1: { id: 1, available: true }, 2: { id: 2, available: true } };
+  const normalizedBookings = { 1: { id: 1 }, 2: { id: 2 } };
   const action = { type: 'FETCH_SLOTS_SUCCESS', response: { entities: { bookings:
-    normalizedbookings
+    normalizedBookings
   } } };
-  const actual = bookings(null, action);
+  const actual = bookings(undefined, action);
   expect(actual).toEqual(normalizedBookings);
 });
 
 it('bookings returns previous state when no new bookings on fetch slots success', () => {
-  const previousState =  {};
+  const previousState =  { 10: { id: 10 } };
   const action = { type: 'FETCH_SLOTS_SUCCESS', response: { entities: {} } };
   const actual = bookings(previousState, action);
-  expect(actual).toBe(previousState);
+  expect(actual).toEqual(previousState);
 });
 
 it('bookings returns bookings by Id on book slot success', () => {
-  const normalizedBookings = { 1: { id: 1, available: true }, 2: { id: 2, available: true } };
+  const normalizedBookings = { 1: { id: 1 }, 2: { id: 2 } };
   const action = { type: 'BOOK_SLOT_SUCCESS', response: { entities: { bookings:
     normalizedBookings
   } } };
-  const actual = bookings(null, action);
+  const actual = bookings(undefined, action);
   expect(actual).toEqual(normalizedBookings);
 });

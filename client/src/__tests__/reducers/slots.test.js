@@ -11,19 +11,19 @@ it('slotsById returns previous state when no slots', () => {
 });
 
 it('slotsById returns slots by Id on fetch slots success', () => {
-  const normalizedSlots = { 1: { id: 1, available: true }, 2: { id: 2, available: true } };
+  const normalizedSlots = { 1: { id: 1  }, 2: { id: 2 } };
   const action = { type: 'FETCH_SLOTS_SUCCESS', response: { entities: { slots:
     normalizedSlots
   } } };
-  const actual = slotsById(null, action);
+  const actual = slotsById(undefined, action);
   expect(actual).toEqual(normalizedSlots);
 });
 
 it('slotsById returns previous state when no new slots on fetch slots success', () => {
-  const previousState =  {};
+  const previousState =  { 10: { id: 10 } };
   const action = { type: 'FETCH_SLOTS_SUCCESS', response: { entities: {} } };
   const actual = slotsById(previousState, action);
-  expect(actual).toBe(previousState);
+  expect(actual).toEqual(previousState);
 });
 
 it('allSlots returns an empty array by default', () => {
