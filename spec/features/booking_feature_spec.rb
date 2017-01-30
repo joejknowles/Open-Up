@@ -7,13 +7,13 @@ feature 'Booking', js: true do
     expect(page).to have_content 'Today'
   end
 
-  scenario "should say today's date" do
+  scenario "should say today's date", js: true  do
     visit Urls::SLOTS
     expect(page).to have_content date_today
   end
 
   context "no slots" do
-    scenario "display message: No slots available" do
+    scenario "display message: No slots available", js: true  do
       visit Urls::SLOTS
       expect(page).to have_content 'No slots available'
     end
@@ -36,10 +36,10 @@ feature 'Booking', js: true do
       expect(page).to have_content("book #{format_time start_time} to #{format_time end_time}")
     end
 
-    scenario "click" do
+    scenario "books slot when clicked" do
       visit Urls::SLOTS
       find(:css, '.BookButton').click
-        visit Urls::SLOTS
+      visit Urls::SLOTS
       expect(page).to have_content("unavailable #{format_time start_time} to #{format_time end_time}")
     end
   end

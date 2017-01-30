@@ -30,8 +30,8 @@ it('bookSlot to call fetch with /api/booking url', () => {
   const url = '/api/booking';
   const options = {
     method: 'POST',
-    headers: { "Content-Type": "aplication/json" },
-    body: JSON.stringify({ slotId })
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ slot_id: slotId })
   };
   const expectedArgs = [url, options]
   return apiClients.bookSlot(slotId).then((response) => {

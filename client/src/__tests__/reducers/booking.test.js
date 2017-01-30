@@ -10,7 +10,7 @@ it('slotsById returns previous state when no slots', () => {
   expect(actual).toEqual({});
 });
 
-it('slotsById returns slots by Id', () => {
+it('slotsById returns slots by Id on fetch slots success', () => {
   const normalizedSlots = { 1: { id: 1, available: true }, 2: { id: 2, available: true } };
   const action = { type: 'FETCH_SLOTS_SUCCESS', response: { entities: { slots:
     normalizedSlots
@@ -24,7 +24,7 @@ it('allSlots returns an empty array by default', () => {
   expect(actual).toEqual([]);
 });
 
-it('allSlots returns an array of slot ids', () => {
-  const actual = allSlots(undefined, { response: { result: [1, 2, 4] }});
+it('allSlots returns an array of slot ids on fetch slots success', () => {
+  const actual = allSlots(undefined, { type: 'FETCH_SLOTS_SUCCESS', response: { result: [1, 2, 4] }});
   expect(actual).toEqual([1, 2, 4]);
 });
