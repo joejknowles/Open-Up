@@ -9,7 +9,7 @@ import { removeAlert } from '../../actions/alerts'
 export const Error = ({ message, onClick }) => (
   <div
     className="Alert Error"
-    onClick={ onClick }>
+    { ...{ onClick } }>
     { message }
   </div>
 );
