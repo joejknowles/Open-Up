@@ -1,7 +1,7 @@
 require 'rails_helper'
 require_relative '../../config/urls.rb'
 
-feature 'Booking', js: true do
+feature 'Day Booking page', js: true do
   scenario "should say today" do
     visit Urls::SLOTS
     expect(page).to have_content 'Today'
@@ -26,6 +26,7 @@ feature 'Booking', js: true do
     before do
       Slot.create(start_time: start_time, end_time: end_time)
     end
+
     scenario "display one button with single digit hour" do
       visit Urls::SLOTS
       expect(page).to have_content("book #{format_time start_time} to #{format_time end_time}")
