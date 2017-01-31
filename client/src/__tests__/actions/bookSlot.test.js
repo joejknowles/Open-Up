@@ -2,8 +2,8 @@ jest.mock('../../apiClients', () => ({
   bookSlot: (slotId) => (
     new Promise((resolve, reject) => (
       slotId === 'bad slot id' ?
-        reject({ status: 402, errors: ['Slot has already been taken'] }) :
-        resolve({ status: 200, booking_id: 105 })
+        reject({ errors: ['Slot has already been taken'], status: 402, ok: false }) :
+        resolve({ booking_id: 105, status: 200, ok: true })
     ))
   )
 }));
@@ -22,7 +22,13 @@ it('book slot calls dispatch with book slot success action with response on succ
   const slotId= 1;
   const spy = sinon.spy();
   const normalizedBookings = { 1: { id: 1 }, 2: { id: 2 } };
-  const successAction = { type: 'BOOK_SLOT_SUCCESS', slotId, response: { bookingId: 105, status: 200 } }
+  const successAction = {
+    type: 'BOOK_SLOT_SUCCESS',
+    slotId,
+    response: { 
+      bookingId: 105, status: 200, ok: true
+     }
+   }
   return bookSlot(slotId)(spy)().then((response) => {
     expect(spy.getCall(1).args[0]).toEqual(successAction);
   });
@@ -34,7 +40,8 @@ it('book slot calls dispatch with book slot failure action on failure', () => {
     type: 'BOOK_SLOT_FAILURE',
     response: {
       errors: ['Slot has already been taken'],
-      status: 402
+      status: 402,
+      ok: false
     }
   };
   return bookSlot('bad slot id')(spy)()

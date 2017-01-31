@@ -2,8 +2,8 @@ jest.mock('../../apiClients', () => ({
   fetchSlots: (date) => (
     new Promise((resolve, reject) => (
       date === 'failing date' ?
-        reject({ response: { error: 'fails'}, status: 402}) :
-        resolve({ status: 200, slots: [{ id: 1 }, { id: 2 }] } )
+        reject({ response: { error: 'fails'}, status: 402, ok: false}) :
+        resolve({ slots: [{ id: 1 }, { id: 2 }], status: 200, ok: true } )
     ))
   )
 }));
