@@ -1,7 +1,8 @@
-import { combineReducers } from 'redux'
-import isLoading from './isLoading'
-import bookings from './bookings'
-import parse from 'date-fns/parse'
+import { combineReducers } from 'redux';
+import isLoading from './isLoading';
+import bookings from './bookings';
+import errors from './errors';
+import parse from 'date-fns/parse';
 
 export const selectedDate = (state = null, action) => {
   if (action.type === 'FETCH_SLOTS_SUCCESS') {
@@ -49,4 +50,13 @@ export const createSlotSelector = (id) => ({ slotsById }) => (
   slotsById[id]
 );
 
-export default combineReducers({ selectedDate, slotsById, allSlots, isLoading, bookings })
+export const errorsSelector = ({ errors }) => (errors);
+
+export default combineReducers({
+  selectedDate,
+  slotsById,
+  allSlots,
+  isLoading,
+  bookings,
+  errors
+});

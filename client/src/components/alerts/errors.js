@@ -9,3 +9,5 @@ export const Errors = ({ errors }) => (
     }
   </div>
 );
+
+export default Errors;
