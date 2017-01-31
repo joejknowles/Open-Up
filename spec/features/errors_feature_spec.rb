@@ -14,7 +14,7 @@ feature 'Day Booking page', js: true do
     end
 
     scenario "should show error message" do
-      expect(page).to have_content 'slot was already taken'
+      expect(page).to have_content 'Slot has already been taken'
     end
 
     scenario "should update slots" do

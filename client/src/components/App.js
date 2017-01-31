@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <Provider store={ this.props.store }>
         <div className="App">
-          <Errors errors={ [] } />
+          <Errors />
           <DayBooking />
         </div>
       </Provider>

@@ -5,7 +5,8 @@ jest.mock('../../apiClients', () => ({
         reject({ errors: ['Slot has already been taken'], status: 402, ok: false }) :
         resolve({ booking_id: 105, status: 200, ok: true })
     ))
-  )
+  ),
+  fetchSlots: () => new Promise(() => {})
 }));
 
 import { bookSlot } from '../../actions';
@@ -25,7 +26,7 @@ it('book slot calls dispatch with book slot success action with response on succ
   const successAction = {
     type: 'BOOK_SLOT_SUCCESS',
     slotId,
-    response: { 
+    response: {
       bookingId: 105, status: 200, ok: true
      }
    }
@@ -46,6 +47,15 @@ it('book slot calls dispatch with book slot failure action on failure', () => {
   };
   return bookSlot('bad slot id')(spy)()
     .then((error) => {
-      expect(spy.getCall(1).args[0]).toEqual(failureAction)
+      expect(spy.getCall(2).args[0]).toEqual(failureAction)
+    });
+});
+
+it('book slot calls dispatch with fetch slots request action on failure', () => {
+  const spy = sinon.spy();
+  const action = { type: 'FETCH_SLOTS_REQUEST'};
+  return bookSlot('bad slot id')(spy)()
+    .then((error) => {
+      expect(spy.getCall(1).args[0]).toEqual(action)
     });
 });

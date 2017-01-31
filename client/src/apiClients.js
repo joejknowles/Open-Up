@@ -1,23 +1,17 @@
 import 'whatwg-fetch';
 
 const checkStatus = (response) => {
+  let json = response.json();
   if (response.ok) {
-    return response;
+    return json;
   } else {
-    var error = new Error(response.statusText);
-    error.response = response;
-    throw error;
+    return json.then(Promise.reject.bind(Promise));
   }
 };
-
-const parseJSON = (response) => (
-  response.json()
-);
 
 export const fetchSlots = () => (
   fetch('/api/slots')
     .then(checkStatus)
-    .then(parseJSON)
 );
 
 export const bookSlot = (slotId) => {
@@ -27,5 +21,4 @@ export const bookSlot = (slotId) => {
     body: JSON.stringify({ slot_id: slotId })
   })
   .then(checkStatus)
-  .then(parseJSON)
 };

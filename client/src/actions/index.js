@@ -20,7 +20,7 @@ export const fetchSlots = (dispatch) => (date) => () => {
   }, (error) => {
     dispatch({ type: 'FETCH_SLOTS_FAILURE' });
   });
-}
+};
 
 export const bookSlot = (slotId) => (dispatch) => () => {
   dispatch({type: 'BOOK_SLOT_REQUEST'});
@@ -33,6 +33,7 @@ export const bookSlot = (slotId) => (dispatch) => () => {
     };
     dispatch(successAction);
   }).catch((response) => {
+    fetchSlots(dispatch)()(); // TODO: use a better library than redux thunk
     dispatch({
       type: 'BOOK_SLOT_FAILURE',
       response

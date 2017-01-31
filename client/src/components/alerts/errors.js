@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { errorsSelector } from '../../reducers'
 
 export const Errors = ({ errors }) => (
   <div>
@@ -10,4 +13,6 @@ export const Errors = ({ errors }) => (
   </div>
 );
 
-export default Errors;
+export default connect((state) => (
+  { errors: errorsSelector(state) }
+))(Errors);

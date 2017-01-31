@@ -7,7 +7,13 @@ import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 
 const mockStore = configureStore([]);
-const emptyStoreMock = mockStore({ allSlots: [], selectedDate: new Date(2017, 1, 26) });
+const emptyStoreMock = mockStore(
+  {
+    allSlots: [],
+    selectedDate: new Date(2017, 1, 26),
+    errors: []
+  }
+);
 
 it('renders without crashing', () => {
   shallow(<App store={ emptyStoreMock }/>);
