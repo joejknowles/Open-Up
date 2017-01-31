@@ -38,7 +38,7 @@ it('book slot calls dispatch with book slot success action with response on succ
 
 it('book slot calls dispatch with book slot failure action on failure', () => {
   const mockedId = '1';
-  jest.mock('lodash.uniqueId', () => mockedId);
+  jest.mock('lodash.uniqueid', () => mockedId);
   const spy = sinon.spy();
   const failureAction = {
     type: 'BOOK_SLOT_FAILURE',
