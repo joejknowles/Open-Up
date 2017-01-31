@@ -1,7 +1,19 @@
-.Alert {
-
+.Alerts {
+  position: absolute;
+  margin: 0 0 0 em;
+  width: 20%;
 }
 
 .Error {
-  
+  border: red;
+
+}
+
+.Alert {
+  border-style: solid;
+  border-width: thin;
+  border-radius: 0.3em;
+  width: 100%;
+
+  margin: 0.2em;
 }

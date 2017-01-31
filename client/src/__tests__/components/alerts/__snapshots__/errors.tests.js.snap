@@ -6,7 +6,8 @@ exports[`test error matches snapshot 1`] = `
 `;
 
 exports[`test errors match snapshot 1`] = `
-<div>
+<div
+  className="Alerts">
   <Connect(Component)
     id="1" />
 </div>

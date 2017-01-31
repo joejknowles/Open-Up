@@ -14,7 +14,7 @@ const ConnectedError = connect((state, { id }) =>
 )(Error)
 
 export const Errors = ({ errors }) => (
-  <div>
+  <div className="Alerts">
     {
       errors.map((id) => (
         <ConnectedError key={ id } { ...{ id } } />

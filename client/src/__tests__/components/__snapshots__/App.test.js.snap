@@ -1,7 +1,8 @@
 exports[`test renders correctly 1`] = `
 <div
   className="App">
-  <div />
+  <div
+    className="Alerts" />
   <div>
     <h3>
       Today 26/2/2017
