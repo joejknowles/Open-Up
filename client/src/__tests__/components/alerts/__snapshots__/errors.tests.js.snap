@@ -1,7 +1,8 @@
 exports[`test error matches snapshot 1`] = `
-<p>
+<div
+  className="Alert Error">
   error message
-</p>
+</div>
 `;
 
 exports[`test errors match snapshot 1`] = `

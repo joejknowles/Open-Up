@@ -6,7 +6,7 @@ import '../../styles/Alert.css'
 import { errorsSelector, createErrorSelector } from '../../reducers';
 
 export const Error = ({ message }) => (
-  <div class="Alert Error">{ message }</div>
+  <div className="Alert Error">{ message }</div>
 );
 
 const ConnectedError = connect((state, { id }) =>
