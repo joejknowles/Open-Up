@@ -4,14 +4,25 @@ import { connect } from 'react-redux';
 import '../../styles/Alert.css'
 
 import { errorsSelector, createErrorSelector } from '../../reducers';
+import { removeAlert } from '../../actions/alerts'
 
-export const Error = ({ message }) => (
-  <div className="Alert Error">{ message }</div>
+export const Error = ({ message, onClick }) => (
+  <div
+    className="Alert Error"
+    { ...onClick }>
+    { message }
+  </div>
 );
 
-const ConnectedError = connect((state, { id }) =>
-  createErrorSelector(id)
-)(Error)
+const mapDispatchToProps = (dispatch, { id }) => ({
+  onClick: () => dispatch(removeAlert(id))
+});
+const mapStateToProps = (state, { id }) => createErrorSelector(id);
+
+const ConnectedError = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Error);
 
 export const Errors = ({ errors }) => (
   <div className="Alerts">
