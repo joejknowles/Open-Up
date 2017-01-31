@@ -1,12 +1,11 @@
 .Alerts {
-  position: absolute;
+  position: fixed;
   margin: 0 0 0 em;
   width: 20%;
 }
 
 .Error {
   border: red;
-
 }
 
 .Alert {
