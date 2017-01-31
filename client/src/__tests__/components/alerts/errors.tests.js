@@ -1,13 +1,20 @@
-import { Errors } from '../../../components/alerts/errors';
+import { Errors, Error } from '../../../components/alerts/errors';
 
 import React from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
 
 const shallowRenderer = ReactTestUtils.createRenderer();
 
-it('matches snapshot', () => {
+it('errors match snapshot', () => {
   const tree = shallowRenderer.render(
-    <Errors errors={ ['test error'] } />
+    <Errors errors={ ['1'] } />
+  );
+  expect(tree).toMatchSnapshot();
+});
+
+it('error matches snapshot', () => {
+  const tree = shallowRenderer.render(
+    <Error message="error message"  />
   );
   expect(tree).toMatchSnapshot();
 });
