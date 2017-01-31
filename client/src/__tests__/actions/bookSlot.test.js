@@ -35,14 +35,16 @@ it('book slot calls dispatch with book slot success action with response on succ
   });
 });
 
+
 it('book slot calls dispatch with book slot failure action on failure', () => {
+  const mockedId = '1';
+  jest.mock('lodash.uniqueId', () => mockedId);
   const spy = sinon.spy();
   const failureAction = {
     type: 'BOOK_SLOT_FAILURE',
     response: {
-      errors: ['Slot has already been taken'],
-      status: 402,
-      ok: false
+      errors: { [mockedId]: { id: mockedId, message: 'Slot has already been taken' } },
+      result: [ mockedId ]
     }
   };
   return bookSlot('bad slot id')(spy)()

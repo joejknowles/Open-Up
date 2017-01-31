@@ -3,6 +3,7 @@ import { normalize } from 'normalizr';
 import { arrayOfSlots } from '../schema'
 
 import { camelizeKeys } from 'humps'
+import uniqueId from 'lodash.uniqueid'
 
 export const fetchSlots = (dispatch) => (date) => () => {
   dispatch({type: 'FETCH_SLOTS_REQUEST'});
@@ -34,9 +35,18 @@ export const bookSlot = (slotId) => (dispatch) => () => {
     dispatch(successAction);
   }).catch((response) => {
     fetchSlots(dispatch)()(); // TODO: use a better library than redux thunk
+    const errors = {};
+    const result = [];
+    response.errors.forEach((message) => {
+      const id = uniqueId();
+      errors[id] = { id, message };
+      result.push(id);
+    });
     dispatch({
       type: 'BOOK_SLOT_FAILURE',
-      response
+      response: {
+        errors, result
+      }
     });
   });
 }
