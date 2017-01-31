@@ -17,6 +17,11 @@ feature 'Day Booking page', js: true do
       expect(page).to have_content 'Slot has already been taken'
     end
 
+    scenario "error message should disappear on click" do
+      find(:css, '.Alert').click
+      expect(page).not_to have_content 'Slot has already been taken'
+    end
+
     scenario "should update slots" do
       expect(page).to have_content 'unavailable'
     end
