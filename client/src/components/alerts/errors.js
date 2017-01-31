@@ -9,13 +9,13 @@ import { removeAlert } from '../../actions/alerts'
 export const Error = ({ message, onClick }) => (
   <div
     className="Alert Error"
-    { ...onClick }>
+    onClick={ onClick }>
     { message }
   </div>
 );
 
 const mapDispatchToProps = (dispatch, { id }) => ({
-  onClick: () => dispatch(removeAlert(id))
+  onClick: () => (dispatch(removeAlert(id)))
 });
 const mapStateToProps = (state, { id }) => createErrorSelector(id);
 

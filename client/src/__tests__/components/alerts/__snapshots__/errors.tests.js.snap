@@ -1,6 +1,7 @@
 exports[`test error matches snapshot 1`] = `
 <div
-  className="Alert Error">
+  className="Alert Error"
+  onClick={undefined}>
   error message
 </div>
 `;
