@@ -10,6 +10,9 @@ export default (state = [], action) => {
       ...action.response.result
     ];
   }
+  if (action.type === 'REMOVE_ALERT') {
+    return [ ...state ].filter((id) => id !== action.id);
+  }
   return state;
 };
 
