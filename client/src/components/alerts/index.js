@@ -6,7 +6,7 @@ import '../../styles/Alert.css'
 import { alertsSelector, createAlertSelector } from '../../reducers';
 import { removeAlert } from '../../actions/alerts'
 
-export const Error = ({ message, onClick }) => (
+export const Alert = ({ message, onClick }) => (
   <div
     className="Alert Error"
     { ...{ onClick } }>
@@ -22,9 +22,9 @@ const mapStateToProps = (state, { id }) => createAlertSelector(id);
 const ConnectedError = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Error);
+)(Alert);
 
-export const Errors = ({ alerts }) => (
+export const Alerts = ({ alerts }) => (
   <div className="Alerts">
     {
       alerts.map((id) => (
@@ -36,4 +36,4 @@ export const Errors = ({ alerts }) => (
 
 export default connect((state) => (
   { alerts: alertsSelector(state) }
-))(Errors);
+))(Alerts);
