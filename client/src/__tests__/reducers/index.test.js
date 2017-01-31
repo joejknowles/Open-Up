@@ -6,7 +6,8 @@ const expectedReducers = [
   'allSlots',
   'isLoading',
   'bookings',
-  'errors'
+  'errors',
+  'errorsById'
 ];
 
 const runTestForName = (reducerName) => (

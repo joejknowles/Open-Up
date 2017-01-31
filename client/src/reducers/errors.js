@@ -7,8 +7,18 @@ export default (state = [], action) => {
   if (isFailureType(action)) {
     return [
       ...state,
-      ...action.response.errors
+      ...action.response.result
     ];
+  }
+  return state;
+};
+
+export const errorsById = (state = {}, action) => {
+  if (isFailureType(action)) {
+    return {
+      ...state,
+      ...action.response.errors
+    }
   }
   return state;
 };

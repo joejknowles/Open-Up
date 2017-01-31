@@ -1,16 +1,30 @@
-import errors from '../../reducers/errors';
-import { errorsSelector } from '../../reducers';
+import errors, { errorsById } from '../../reducers/errors';
+import { errorsSelector, createErrorSelector } from '../../reducers';
 
 it('errors defaults to empty array', () => expect(errors(undefined, {})).toEqual([]));
 
 it('adds error message when BOOK_SLOT_FAILURE action called', () => (
-  expect(errors([], { type: 'BOOK_SLOT_FAILURE', response: { errors: ['booking failure'] } })).toEqual(['booking failure'])
+  expect(errors([], { type: 'BOOK_SLOT_FAILURE', response: { result: ['1'] } })).toEqual(['1'])
 ));
 
 it('adds error message when FETCH_SLOTS_FAILURE action called', () => (
-  expect(errors(['other error message'], { type: 'FETCH_SLOTS_FAILURE', response: { errors: ['slot failure'] } })).toEqual(['other error message', 'slot failure'])
+  expect(errors(['2'], { type: 'FETCH_SLOTS_FAILURE', response: { result: ['1'] } })).toEqual(['2', '1'])
 ));
 
-it('errorsSelector selector returns errors', () =>(
-  expect(errorsSelector({errors: ['an error']})).toEqual(['an error'])
+it('errorsSelector selector returns errors', () => (
+  expect(errorsSelector({errors: ['1']})).toEqual(['1'])
+));
+
+it('errorsById defaults to empty object', () => expect(errorsById(undefined, {})).toEqual({}));
+
+it('errorsById adds error message when BOOK_SLOT_FAILURE action called', () => (
+  expect(errorsById({}, { type: 'BOOK_SLOT_FAILURE', response: { errors: { '1': { id: '1', message: 'error message'} } } })).toEqual({ '1': { id: '1', message: 'error message'} })
+));
+
+it('errorsById adds error message when FETCH_SLOTS_FAILURE action called', () => (
+  expect(errorsById({}, { type: 'FETCH_SLOTS_FAILURE', response: { errors: { '1': { id: '1', message: 'error message'} } } })).toEqual({ '1': { id: '1', message: 'error message'} })
+));
+
+it('errorSelector selector returns errors', () => (
+  expect(createErrorSelector('1')({ errorsById: { '1': { id: '1', message: 'error message' } } })).toEqual({ id: '1', message: 'error message' })
 ));
