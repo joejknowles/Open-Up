@@ -3,7 +3,7 @@ import * as apiClients from '../apiClients';
 const setFetchFunction = () => {
   window.fetch = jest.fn((url) => (
     new Promise((resolve, reject) => (
-      resolve({ json: () => ({ slots: [] }) })
+      resolve({ status: 200, json: () => ({ slots: [] }) })
     ))
   ));
 }

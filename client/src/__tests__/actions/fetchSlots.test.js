@@ -2,8 +2,8 @@ jest.mock('../../apiClients', () => ({
   fetchSlots: (date) => (
     new Promise((resolve, reject) => (
       date === 'failing date' ?
-        reject({error: 'fails'}) :
-        resolve({ slots: [{ id: 1 }, { id: 2 }] } )
+        reject({ response: { error: 'fails'}, status: 402}) :
+        resolve({ status: 200, slots: [{ id: 1 }, { id: 2 }] } )
     ))
   )
 }));
@@ -21,7 +21,7 @@ it('fetch slots returns a function that calls dispatch with fetch slots request 
   const spy = sinon.spy();
   const result = fetchSlots(spy)()();
   const action = { type: 'FETCH_SLOTS_REQUEST' }
-  expect(spy.calledWith(action)).toBe(true);
+  expect(spy.getCall(0).args[0]).toEqual(action);
 });
 
 it('fetch slots calls dispatch with fetch slots success action with normalized response on success', () => {
@@ -31,7 +31,7 @@ it('fetch slots calls dispatch with fetch slots success action with normalized r
     response: { entities: { slots: { 1: { id: 1 }, 2: { id: 2 } } }, result: [1, 2], date: undefined }
   };
   return fetchSlots(spy)()().then((response) => {
-    expect(spy.calledWith(successAction)).toBe(true);
+    expect(spy.getCall(1).args[0]).toEqual(successAction);
   });
 });
 
@@ -41,7 +41,7 @@ it('fetch slots calls dispatch with fetch slots failure action on failure', () =
     type: 'FETCH_SLOTS_FAILURE'
   }
   return fetchSlots(spy)('failing date')()
-    .catch((error) => (
-    expect(spy.calledWith(failureAction)).toBe(true)
-  ));
+    .then((error) => {
+      expect(spy.getCall(1).args[0]).toEqual(failureAction)
+  });
 });

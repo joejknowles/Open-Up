@@ -32,7 +32,7 @@ export const bookSlot = (slotId) => (dispatch) => () => {
       response
     };
     dispatch(successAction);
-  }, (error) => {
+  }).catch((error) => {
     dispatch({ type: 'BOOK_SLOT_FAILURE' });
   });
 }
