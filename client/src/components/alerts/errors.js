@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { errorsSelector, createErrorSelector } from '../../reducers'
+import '../../styles/Alert.css'
+
+import { errorsSelector, createErrorSelector } from '../../reducers';
 
 export const Error = ({ message }) => (
-  <p>{ message }</p>
+  <div class="Alert Error">{ message }</div>
 );
 
 const ConnectedError = connect((state, { id }) =>
@@ -20,8 +22,6 @@ export const Errors = ({ errors }) => (
     }
   </div>
 );
-
-
 
 export default connect((state) => (
   { errors: errorsSelector(state) }
