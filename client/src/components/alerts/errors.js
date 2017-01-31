@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import '../../styles/Alert.css'
 
-import { errorsSelector, createErrorSelector } from '../../reducers';
+import { alertsSelector, createAlertSelector } from '../../reducers';
 import { removeAlert } from '../../actions/alerts'
 
 export const Error = ({ message, onClick }) => (
@@ -17,17 +17,17 @@ export const Error = ({ message, onClick }) => (
 const mapDispatchToProps = (dispatch, { id }) => ({
   onClick: () => (dispatch(removeAlert(id)))
 });
-const mapStateToProps = (state, { id }) => createErrorSelector(id);
+const mapStateToProps = (state, { id }) => createAlertSelector(id);
 
 const ConnectedError = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Error);
 
-export const Errors = ({ errors }) => (
+export const Errors = ({ alerts }) => (
   <div className="Alerts">
     {
-      errors.map((id) => (
+      alerts.map((id) => (
         <ConnectedError key={ id } { ...{ id } } />
       ))
     }
@@ -35,5 +35,5 @@ export const Errors = ({ errors }) => (
 );
 
 export default connect((state) => (
-  { errors: errorsSelector(state) }
+  { alerts: alertsSelector(state) }
 ))(Errors);

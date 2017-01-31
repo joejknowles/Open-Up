@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import isLoading from './isLoading';
 import bookings from './bookings';
-import errors, { errorsById } from './errors';
+import alerts, { alertsById } from './alerts';
 import parse from 'date-fns/parse';
 
 export const selectedDate = (state = null, action) => {
@@ -50,9 +50,9 @@ export const createSlotSelector = (id) => ({ slotsById }) => (
   slotsById[id]
 );
 
-export const errorsSelector = ({ errors }) => errors;
+export const alertsSelector = ({ alerts }) => alerts;
 
-export const createErrorSelector = (id) => ({errorsById}) => errorsById[id];
+export const createAlertSelector = (id) => ({alertsById}) => alertsById[id];
 
 export default combineReducers({
   selectedDate,
@@ -60,6 +60,6 @@ export default combineReducers({
   allSlots,
   isLoading,
   bookings,
-  errors,
-  errorsById
+  alerts,
+  alertsById
 });

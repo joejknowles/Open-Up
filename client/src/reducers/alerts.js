@@ -16,7 +16,7 @@ export default (state = [], action) => {
   return state;
 };
 
-export const errorsById = (state = {}, action) => {
+export const alertsById = (state = {}, action) => {
   if (isFailureType(action)) {
     return {
       ...state,

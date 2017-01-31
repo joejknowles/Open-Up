@@ -7,14 +7,14 @@ const shallowRenderer = ReactTestUtils.createRenderer();
 
 it('errors match snapshot', () => {
   const tree = shallowRenderer.render(
-    <Errors errors={ ['1'] } />
+    <Errors alerts={ ['1'] } />
   );
   expect(tree).toMatchSnapshot();
 });
 
 it('error matches snapshot', () => {
   const tree = shallowRenderer.render(
-    <Error message="error message"  />
+    <Error message="error message" />
   );
   expect(tree).toMatchSnapshot();
 });
