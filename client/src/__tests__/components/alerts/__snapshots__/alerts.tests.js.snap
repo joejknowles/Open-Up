@@ -8,7 +8,7 @@ exports[`test Alert matches snapshot with error 1`] = `
 
 exports[`test Alert matches snapshot with success notification 1`] = `
 <div
-  className="Alert Error"
+  className="Alert Success"
   onClick={undefined}>
   error message
 </div>

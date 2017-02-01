@@ -6,9 +6,9 @@ import '../../styles/Alert.css'
 import { alertsSelector, createAlertSelector } from '../../reducers';
 import { removeAlert } from '../../actions/alerts'
 
-export const Alert = ({ message, onClick }) => (
+export const Alert = ({ message, onClick, type }) => (
   <div
-    className="Alert Error"
+    className={ `Alert ${ type === 'ERROR' ? 'Error' : 'Success' }`}
     { ...{ onClick } }>
     { message }
   </div>
