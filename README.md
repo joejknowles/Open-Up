@@ -6,7 +6,7 @@
 [![Issue Count](https://codeclimate.com/github/joejknowles/Open-Up/badges/issue_count.svg)](https://codeclimate.com/github/joejknowles/Open-Up)
 
 # Open-Up
-Next generation booking platform
+Booking platform
 
 #Running
 
@@ -16,16 +16,19 @@ run server with: rails s
 run tests with: rspec
 
 ###react client
-npm start
+
+  from client directory:
+
+  `npm start`
     Starts the development server.
 
-  npm run build
+  `npm run build`
     Bundles the app into static files for production.
 
-  npm test
+  `npm test`
     Starts the test runner.
 
-  npm run eject
+  `npm run eject`
     Removes this tool and copies build dependencies, configuration files
     and scripts into the app directory. If you do this, you can’t go back!
 
@@ -33,3 +36,11 @@ We suggest that you begin by typing:
 
   cd client
   npm start
+
+###Automated tasks
+
+  `rake test`
+    builds the js then runs all tests - node and ruby
+
+  `rake push`
+    runs `rake test` then pushes to default git remote if the tests pass
