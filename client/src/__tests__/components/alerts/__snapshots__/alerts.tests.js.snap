@@ -22,7 +22,7 @@ exports[`test Alerts match snapshot 1`] = `
     transitionEnter={true}
     transitionEnterTimeout={500}
     transitionLeave={true}
-    transitionLeaveTimeout={500}
+    transitionLeaveTimeout={400}
     transitionName="alert">
     <Connect(Component)
       id="1" />

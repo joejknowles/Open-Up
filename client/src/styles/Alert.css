@@ -32,7 +32,7 @@
 }
 
 .alert-leave {
-  transition: transform 500ms ease-in;
+  transition: transform 500ms;
 }
 
 .alert-leave.alert-leave-active {

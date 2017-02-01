@@ -30,7 +30,7 @@ export const Alerts = ({ alerts }) => (
     <ReactCSSTransitionsGroup
       transitionName="alert"
       transitionEnterTimeout={500}
-      transitionLeaveTimeout={500}
+      transitionLeaveTimeout={400}
       >
       {
         alerts.map((id) => (
