@@ -10,10 +10,14 @@ export default (state = [], action) => {
       ...action.response.result
     ];
   }
-  if (action.type === 'REMOVE_ALERT') {
-    return [ ...state ].filter((id) => id !== action.id);
+  switch (action.type) {
+    case 'REMOVE_ALERT':
+      return [ ...state ].filter((id) => id !== action.id);
+    case 'BOOK_SLOT_SUCCESS':
+      return [ ...state, action.notificationId ];
+    default:
+      return state;
   }
-  return state;
 };
 
 export const alertsById = (state = {}, action) => {
@@ -21,6 +25,17 @@ export const alertsById = (state = {}, action) => {
     return {
       ...state,
       ...action.response.errors
+    }
+  }
+  if (action.type === 'BOOK_SLOT_SUCCESS') {
+    const newNotification = {
+      id: action.notificationId,
+      message: 'booked!',
+      type: 'SUCCESS'
+    };
+    return {
+      ...state,
+      [action.notificationId]: newNotification
     }
   }
   return state;

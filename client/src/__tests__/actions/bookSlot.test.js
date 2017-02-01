@@ -8,6 +8,7 @@ jest.mock('../../apiClients', () => ({
   ),
   fetchSlots: () => new Promise(() => {})
 }));
+jest.mock('lodash.uniqueid', () => () => '1');
 
 import { bookSlot } from '../../actions';
 import sinon from 'sinon';
@@ -23,12 +24,13 @@ it('book slot calls dispatch with book slot success action with response on succ
   const slotId= 1;
   const spy = sinon.spy();
   const normalizedBookings = { 1: { id: 1 }, 2: { id: 2 } };
+  const mockedId = '1';
   const successAction = {
     type: 'BOOK_SLOT_SUCCESS',
     slotId,
     response: {
       bookingId: 105, status: 200, ok: true
-    }, notificationId: '1'
+    }, notificationId: mockedId
    }
   return bookSlot(slotId)(spy)().then((response) => {
     expect(spy.getCall(1).args[0]).toEqual(successAction);
@@ -43,7 +45,10 @@ it('book slot calls dispatch with book slot failure action on failure', () => {
   const failureAction = {
     type: 'BOOK_SLOT_FAILURE',
     response: {
-      errors: { [mockedId]: { id: mockedId, message: 'Slot has already been taken' } },
+      errors: { [mockedId]: {
+        id: mockedId, type: 'ERROR',
+        message: 'Slot has already been taken'
+      } },
       result: [ mockedId ]
     }
   };

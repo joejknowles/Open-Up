@@ -8,7 +8,7 @@ it('alertsById adds errors when BOOK_SLOT_FAILURE action called', () => (
     type: 'BOOK_SLOT_FAILURE',
     response: {
       errors: {
-        '1': { id: '1', message: 'error message' }
+        '1': { id: '1', message: 'error message', type: 'ERROR' }
       }
     }
   })).toEqual({ '1':
@@ -21,7 +21,7 @@ it('alertsById adds errors when FETCH_SLOTS_FAILURE action called', () => (
     type: 'FETCH_SLOTS_FAILURE',
     response: {
       errors: {
-        '1': { id: '1', message: 'error message' }
+        '1': { id: '1', message: 'error message', type: 'ERROR' }
       }
     }
   })).toEqual({ '1':
@@ -31,7 +31,7 @@ it('alertsById adds errors when FETCH_SLOTS_FAILURE action called', () => (
 
 it('alertsById adds notification when BOOK_SLOT_SUCCESS action called', () => (
   expect(alertsById({},
-    { type: 'BOOK_SLOT_SUCCESS' }
+    { type: 'BOOK_SLOT_SUCCESS', notificationId: '1' }
   )).toEqual({ '1':
     { id: '1', message: 'booked!', type: 'SUCCESS' }
   })

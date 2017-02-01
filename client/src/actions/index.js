@@ -27,9 +27,10 @@ export const bookSlot = (slotId) => (dispatch) => () => {
   dispatch({type: 'BOOK_SLOT_REQUEST'});
   return apiClients.bookSlot(slotId).then((response) => {
     response = camelizeKeys(response);
+    const notificationId = uniqueId();
     const successAction = {
       type: 'BOOK_SLOT_SUCCESS',
-      slotId,
+      slotId, notificationId,
       response
     };
     dispatch(successAction);
@@ -39,7 +40,7 @@ export const bookSlot = (slotId) => (dispatch) => () => {
     const result = [];
     response.errors.forEach((message) => {
       const id = uniqueId();
-      errors[id] = { id, message };
+      errors[id] = { id, message, type: "ERROR" };
       result.push(id);
     });
     dispatch({

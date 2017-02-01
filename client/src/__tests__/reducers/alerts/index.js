@@ -1,5 +1,5 @@
 import alerts from '../../../reducers/alerts';
-import { alertsSelector} from '../../../reducers';
+import { alertsSelector } from '../../../reducers';
 
 it('alerts defaults to empty array', () => expect(alerts(undefined, {})).toEqual([]));
 
@@ -16,8 +16,8 @@ it('removes alert when removeAlert error is dispatched', () => (
 ));
 
 it('alerts adds alert when BOOK_SLOT_SUCCESS action called', () => (
-  expect(alertsById([],
-    { type: 'BOOK_SLOT_SUCCESS' }
+  expect(alerts([],
+    { type: 'BOOK_SLOT_SUCCESS', notificationId: '1' }
   )).toEqual(['1'])
 ));
 
