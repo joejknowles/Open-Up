@@ -28,7 +28,7 @@ it('book slot calls dispatch with book slot success action with response on succ
     slotId,
     response: {
       bookingId: 105, status: 200, ok: true
-     }
+    }, notificationId: '1'
    }
   return bookSlot(slotId)(spy)().then((response) => {
     expect(spy.getCall(1).args[0]).toEqual(successAction);
