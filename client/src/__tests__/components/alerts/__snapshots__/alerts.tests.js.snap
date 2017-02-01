@@ -17,7 +17,15 @@ exports[`test Alert matches snapshot with success notification 1`] = `
 exports[`test Alerts match snapshot 1`] = `
 <div
   className="Alerts">
-  <Connect(Component)
-    id="1" />
+  <ReactCSSTransitionGroup
+    transitionAppear={false}
+    transitionEnter={true}
+    transitionEnterTimeout={500}
+    transitionLeave={true}
+    transitionLeaveTimeout={500}
+    transitionName="alert">
+    <Connect(Component)
+      id="1" />
+  </ReactCSSTransitionGroup>
 </div>
 `;

@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ReactCSSTransitionsGroup from 'react-addons-css-transition-group';
 
-import '../../styles/Alert.css'
+import '../../styles/Alert.css';
 
 import { alertsSelector, createAlertSelector } from '../../reducers';
 import { removeAlert } from '../../actions/alerts'
@@ -26,11 +27,17 @@ const ConnectedError = connect(
 
 export const Alerts = ({ alerts }) => (
   <div className="Alerts">
-    {
-      alerts.map((id) => (
-        <ConnectedError key={ id } { ...{ id } } />
-      ))
-    }
+    <ReactCSSTransitionsGroup
+      transitionName="alert"
+      transitionEnterTimeout={500}
+      transitionLeaveTimeout={500}
+      >
+      {
+        alerts.map((id) => (
+          <ConnectedError key={ id } { ...{ id } } />
+        ))
+      }
+    </ReactCSSTransitionsGroup>
   </div>
 );
 

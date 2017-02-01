@@ -2,7 +2,9 @@ exports[`test renders correctly 1`] = `
 <div
   className="App">
   <div
-    className="Alerts" />
+    className="Alerts">
+    <span />
+  </div>
   <div>
     <h3>
       Today 26/2/2017
