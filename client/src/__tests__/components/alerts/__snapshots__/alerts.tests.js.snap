@@ -1,4 +1,4 @@
-exports[`test error matches snapshot 1`] = `
+exports[`test Alert matches snapshot with error 1`] = `
 <div
   className="Alert Error"
   onClick={undefined}>
@@ -6,7 +6,15 @@ exports[`test error matches snapshot 1`] = `
 </div>
 `;
 
-exports[`test errors match snapshot 1`] = `
+exports[`test Alert matches snapshot with success notification 1`] = `
+<div
+  className="Alert Error"
+  onClick={undefined}>
+  error message
+</div>
+`;
+
+exports[`test Alerts match snapshot 1`] = `
 <div
   className="Alerts">
   <Connect(Component)
