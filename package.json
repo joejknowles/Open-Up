@@ -1,7 +1,0 @@
-{
-  "name": "main",
-  "private": true,
-  "scripts": {
-    "heroku-postbuild": "npm run build --prefix client"
-  }
-}
