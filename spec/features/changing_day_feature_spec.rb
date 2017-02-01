@@ -1,10 +1,10 @@
 require 'rails_helper'
 require_relative '../../config/urls.rb'
 
-feature 'booking by day' do
+feature 'booking by day', js: true do
   scenario 'can navigate to tomorrow' do
     visit Urls::SLOTS
-    find(:css, '.next-day').click
+    page.find('.next-day').click
     expect(page).to have_content 'Tomorrow'
   end
 
@@ -19,7 +19,7 @@ feature 'booking by day' do
     end
 
     scenario 'shows slot after navigating to tomorrow' do
-      find(:css, '.next-day').click
+      page.find('.next-day').click
       expect(page).to have_content 'book'
     end
   end

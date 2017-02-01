@@ -10,7 +10,7 @@ feature 'Day Booking page alerts', js: true do
       slot = Slot.create(start_time: start_time, end_time: end_time)
       visit Urls::SLOTS
       Booking.create(slot: slot)
-      find(:css, '.BookButton').click
+      find('.BookButton').click
     end
 
     scenario "should show error message" do
@@ -18,7 +18,7 @@ feature 'Day Booking page alerts', js: true do
     end
 
     scenario "error message should disappear on click" do
-      find(:css, '.Alert').click
+      find('.Alert').click
       expect(page).not_to have_content 'Slot has already been taken'
     end
 
@@ -31,7 +31,7 @@ feature 'Day Booking page alerts', js: true do
     scenario 'displays booked notidication' do
       slot = Slot.create(start_time: Time.new(1970, 10, 10, 9, 0, 0, '+00:00'), end_time: Time.new(1970, 10, 10, 9, 0, 0, '+00:00'))
       visit Urls::SLOTS
-      find(:css, '.BookButton').click
+      find('.BookButton').click
       expect(page).to have_content 'booked'
     end
   end
