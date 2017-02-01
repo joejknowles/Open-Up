@@ -8,6 +8,10 @@
   border: red;
 }
 
+.Success {
+  border: green;
+}
+
 .Alert {
   border-style: solid;
   border-width: thin;
