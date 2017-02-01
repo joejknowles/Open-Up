@@ -8,7 +8,10 @@ const dateTitle = (date) => (
 );
 
 export const Heading = ({ date }) => (
-  <h3>{ dateTitle(date) }</h3>
+  <div className="Heading">
+    <h3>{ dateTitle(date) }</h3>
+    <a className="next-day">Next Day</a>
+  </div>
 );
 
 export const mapStateToProps = (state) => ({

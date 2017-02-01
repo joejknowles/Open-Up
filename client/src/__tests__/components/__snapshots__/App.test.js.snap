@@ -6,9 +6,16 @@ exports[`test renders correctly 1`] = `
     <span />
   </div>
   <div>
-    <h3>
-      Today 26/2/2017
-    </h3>
+    <div
+      className="Heading">
+      <h3>
+        Today 26/2/2017
+      </h3>
+      <a
+        className="next-day">
+        Next Day
+      </a>
+    </div>
     <p
       className="message">
       No slots available

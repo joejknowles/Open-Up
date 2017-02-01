@@ -1,5 +1,12 @@
 exports[`test renders heading as before 1`] = `
-<h3>
-  Today 26/1/2017
-</h3>
+<div
+  className="Heading">
+  <h3>
+    Today 26/1/2017
+  </h3>
+  <a
+    className="next-day">
+    Next Day
+  </a>
+</div>
 `;
