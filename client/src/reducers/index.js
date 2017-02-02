@@ -4,7 +4,7 @@ import bookings from './bookings';
 import alerts, { alertsById } from './alerts';
 import parse from 'date-fns/parse';
 
-export const selectedDate = (state = null, action) => {
+export const selectedDate = (state = '', action) => {
   switch (action.type) {
     case 'FETCH_SLOTS_SUCCESS':
       return parse(action.response.date);
