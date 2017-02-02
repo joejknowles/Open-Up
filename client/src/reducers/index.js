@@ -5,10 +5,12 @@ import alerts, { alertsById } from './alerts';
 import parse from 'date-fns/parse';
 
 export const selectedDate = (state = null, action) => {
-  if (action.type === 'FETCH_SLOTS_SUCCESS') {
-    return parse(action.response.date);
+  switch (action.type) {
+    case 'FETCH_SLOTS_SUCCESS':
+      return parse(action.response.date);
+    default:
+      return state;
   }
-  return state;
 };
 
 export const slotsById = (state = {}, action) => {
