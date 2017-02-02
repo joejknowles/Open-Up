@@ -39,8 +39,11 @@ We suggest that you begin by typing:
 
 ###Automated tasks
 
+  `rake refresh`
+    deletes all bookings and creates new slots
+
   `rake test`
     builds the js then runs all tests - node and ruby
 
   `rake push`
-    runs `rake test` then pushes to default git remote if the tests pass
+    runs `rake test` then adds, commits and pushes to default git remote if the tests pass
