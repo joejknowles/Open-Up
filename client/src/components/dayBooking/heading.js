@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { selectedDateSelector } from '../../reducers';
-import format from 'date-fns/format'
 import { nextDay } from '../../actions/changeDay';
+import { getTitleDay, formatDate } from '../../helpers/dates';
 
 const dateTitle = (date) => (
-  `Today ${format(date, 'D/M/YYYY')}`
+  `${getTitleDay(date)} ${formatDate(date, 'D/M/YYYY')}`
 );
 
 export const Heading = ({ date, onNextDayClick }) => (
