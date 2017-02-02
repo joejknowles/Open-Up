@@ -9,10 +9,11 @@ const checkStatus = (response) => {
   }
 };
 
-export const fetchSlots = () => (
-  fetch('/api/slots')
-    .then(checkStatus)
-);
+export const fetchSlots = (date) => {
+  return fetch(
+    `/api/slots${ date ? `?selected_date=${ date }` : ''}`
+  ).then(checkStatus)
+};
 
 export const bookSlot = (slotId) => {
   return fetch('/api/booking', {

@@ -8,5 +8,6 @@ export default () => {
   if (process.env.NODE_ENV !== 'production') {
     middleware.push(createLogger());
   }
-  return createStore(topReducer, applyMiddleware(...middleware));
+  const initialState = { selectedDate: new Date() };
+  return createStore(topReducer, initialState, applyMiddleware(...middleware));
 };

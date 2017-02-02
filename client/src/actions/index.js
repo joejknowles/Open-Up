@@ -35,7 +35,7 @@ export const bookSlot = (slotId) => (dispatch) => () => {
     };
     dispatch(successAction);
   }).catch((response) => {
-    fetchSlots(dispatch)()(); // TODO: use a better library than redux thunk
+    fetchSlots(dispatch)('2017-02-02')(); // TODO: use a better library than redux thunk
     const errors = {};
     const result = [];
     response.errors.forEach((message) => {

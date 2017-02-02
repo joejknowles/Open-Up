@@ -28,7 +28,7 @@ feature 'Day Booking page alerts', js: true do
   end
 
   context 'successful booking' do
-    scenario 'displays booked notidication' do
+    scenario 'displays booked notification' do
       slot = Slot.create(start_time: Time.new(1970, 10, 10, 9, 0, 0, '+00:00'), end_time: Time.new(1970, 10, 10, 9, 0, 0, '+00:00'))
       visit Urls::SLOTS
       find('.BookButton').click

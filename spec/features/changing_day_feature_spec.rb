@@ -11,6 +11,7 @@ feature 'booking by day', js: true do
   context "when there are slots tomorrow but none today" do
     before do
       slot = Slot.create(start_time: 1.day.from_now, end_time: 1.day.from_now + 1.hour)
+
       visit Urls::SLOTS
     end
 
