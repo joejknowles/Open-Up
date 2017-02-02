@@ -3,6 +3,7 @@ import isLoading from './isLoading';
 import bookings from './bookings';
 import alerts, { alertsById } from './alerts';
 import { getNextDay, parseDate } from '../helpers/dates';
+import { slotsById, allSlots} from './slots';
 
 export const selectedDate = (state = '', action) => {
   switch (action.type) {
@@ -14,29 +15,6 @@ export const selectedDate = (state = '', action) => {
       return state;
   }
 };
-
-export const slotsById = (state = {}, action) => {
-  switch (action.type) {
-    case 'FETCH_SLOTS_SUCCESS':
-      return {
-        ...state,
-        ...action.response.entities.slots
-      };
-    case 'BOOK_SLOT_SUCCESS':
-      const slot = { ...state[action.slotId]  }
-      slot.booking = action.response.bookingId;
-      return {
-        ...state,
-        [action.slotId]: slot
-      };
-    default:
-      return state;
-  }
-}
-
-export const allSlots = (state = [], action) => (
-  action.type === 'FETCH_SLOTS_SUCCESS' ? action.response.result : state
-);
 
 export const isLoadingSelector = ({ isLoading }) => (
   isLoading

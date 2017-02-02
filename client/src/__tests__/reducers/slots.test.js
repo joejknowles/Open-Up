@@ -1,4 +1,4 @@
-import { slotsById, allSlots } from '../../reducers';
+import { slotsById, allSlots } from '../../reducers/slots';
 
 it('slotsById returns empty object by default', () => {
   const actual = slotsById(undefined, {});
