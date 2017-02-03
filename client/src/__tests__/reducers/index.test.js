@@ -12,7 +12,7 @@ const expectedReducers = [
 ];
 
 const runTestForName = (reducerName) => (
-  it(`includes ${reducerName} reducer`, () =>
+  it(`Top reducer includes ${reducerName} reducer`, () =>
     expectReducerReturnsProperty(reducerName)
   )
 );
@@ -23,13 +23,12 @@ for (let reducerName of expectedReducers) {
 }
 
 const expectReducerReturnsProperty = (reducerName) => (
-  expectToBeDefined(callReducerWithInitialValues()[reducerName])
+  expect(
+    callReducerWithInitialValues()
+      .hasOwnProperty(reducerName)
+  ).toBe(true)
 );
 
 const callReducerWithInitialValues = () => (
   topReducer(undefined, {})
-);
-
-const expectToBeDefined = (value) => (
-  expect(typeof(value)).not.toBe('undefined')
 );
