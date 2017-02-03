@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20170129130433) do
   end
 
   create_table "slots", force: :cascade do |t|
-    t.time     "start_time"
+    t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.time     "end_time"
+    t.datetime "end_time"
   end
 
   add_foreign_key "bookings", "slots"

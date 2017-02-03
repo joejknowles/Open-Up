@@ -20,8 +20,8 @@ feature 'Day Booking page', js: true do
   end
 
   context 'with one slot' do
-    let(:start_time) { Time.new(1970, 10, 10, 9, 0, 0, '+00:00') }
-    let(:end_time) { Time.new(1970, 10, 10, 10, 0, 0, '+00:00')}
+    let(:start_time) { DateTime.now }
+    let(:end_time) { 1.hour.from_now }
 
     before do
       Slot.create(start_time: start_time, end_time: end_time)
@@ -46,8 +46,8 @@ feature 'Day Booking page', js: true do
 
   context 'with slot unavailable' do
     it 'displays unavailable slot' do
-      start_time = Time.new(1970, 10, 10, 12, 0, 0, '+00:00')
-      end_time = Time.new(1970, 10, 10, 13, 0, 0, '+00:00')
+      start_time = DateTime.now
+      end_time = 1.hour.from_now
       slot = Slot.create(start_time: start_time, end_time: end_time)
       Booking.create(slot: slot)
       visit Urls::SLOTS
