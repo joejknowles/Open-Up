@@ -1,7 +1,8 @@
 import { isLoadingSelector,
   selectedDateSelector,
   slotsSelector,
-  createSlotSelector } from '../../reducers';
+  createSlotSelector,
+  isDateCachedSelector } from '../../reducers';
 
 it('isLoadingSelector selects isLoading', () => (
   expect(
@@ -20,7 +21,7 @@ it('slotsSelector selects slot ids', () => {
   expect(slotsSelector({ allSlots })).toEqual(allSlots);
 })
 
-it('slotSelector selects correct slot', () => {
+it('createSlotSelector selects correct slot', () => {
   const slotsById = {
     1: { id: 1 }, 2: { id: 2 }
   };
@@ -29,3 +30,28 @@ it('slotSelector selects correct slot', () => {
     createSlotSelector(1)({ slotsById }))
     .toEqual(expected)
 });
+
+it('isDateCachedSelector returns true when date is cached', () => {
+  const selectedDate = new Date();
+  const state = {
+    selectedDate,
+    slotsByDate: {
+      [selectedDate]: []
+    }
+  };
+  const actual = isDateCachedSelector(state);
+  expect(actual).toBe(true);
+})
+
+it('isDateCachedSelector returns false when date is not cached', () => {
+  const selectedDate = new Date(9999999);
+  const otherDate = new Date(5555555);
+  const state = {
+    selectedDate,
+    slotsByDate: {
+      [otherDate]: []
+    }
+  };
+  const actual = isDateCachedSelector(state);
+  expect(actual).toBe(false);
+})

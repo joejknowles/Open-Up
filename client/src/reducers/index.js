@@ -36,6 +36,10 @@ export const alertsSelector = ({ alerts }) => alerts;
 
 export const createAlertSelector = (id) => ({alertsById}) => alertsById[id];
 
+export const isDateCachedSelector = (
+  { slotsByDate, selectedDate }
+) => slotsByDate.hasOwnProperty(selectedDate);
+
 export default combineReducers({
   selectedDate,
   slotsById,
