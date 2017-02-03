@@ -5,8 +5,8 @@ import { arrayOfSlots } from '../schema'
 import { camelizeKeys } from 'humps'
 import uniqueId from 'lodash.uniqueid'
 
-export const fetchSlots = (dispatch) => (date) => () => {
-  dispatch({type: 'FETCH_SLOTS_REQUEST'});
+export const fetchSlots = (dispatch) => (date) => ({ block = true } = {}) => {
+  dispatch({ type: 'FETCH_SLOTS_REQUEST', block});
   return apiClients.fetchSlots(date).then((response) => {
     response = camelizeKeys(response);
     const normalizedResponse = normalize(response.slots, arrayOfSlots);

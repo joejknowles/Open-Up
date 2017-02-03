@@ -60,7 +60,7 @@ it('book slot calls dispatch with book slot failure action on failure', () => {
 
 it('book slot calls dispatch with fetch slots request action on failure', () => {
   const spy = sinon.spy();
-  const action = { type: 'FETCH_SLOTS_REQUEST'};
+  const action = { type: 'FETCH_SLOTS_REQUEST', block: true };
   return bookSlot('bad slot id')(spy)()
     .then((error) => {
       expect(spy.getCall(1).args[0]).toEqual(action)

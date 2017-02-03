@@ -20,7 +20,15 @@ it('fetch slots returns a function that returns a promise', () => {
 it('fetch slots returns a function that calls dispatch with fetch slots request action', () => {
   const spy = sinon.spy();
   const result = fetchSlots(spy)()();
-  const action = { type: 'FETCH_SLOTS_REQUEST' }
+  const action = { type: 'FETCH_SLOTS_REQUEST', block: true }
+  expect(spy.getCall(0).args[0]).toEqual(action);
+});
+
+it('fetch slots with false block option returns a function that calls ' +
+   'dispatch with fetch slots request action with block false', () => {
+  const spy = sinon.spy();
+  const result = fetchSlots(spy)()({ block: false });
+  const action = { type: 'FETCH_SLOTS_REQUEST', block: false }
   expect(spy.getCall(0).args[0]).toEqual(action);
 });
 
