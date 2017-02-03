@@ -1,4 +1,3 @@
-
 export const slotsById = (state = {}, action) => {
   switch (action.type) {
     case 'FETCH_SLOTS_SUCCESS':

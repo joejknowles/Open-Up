@@ -2,7 +2,8 @@ import {
   getTitleDay,
   numberToWeekday,
   formatDate,
-  getNextDay } from '../../helpers/dates.js';
+  getNextDay,
+  getPrevDay } from '../../helpers/dates.js';
 import addDays from 'date-fns/add_days';
 
 it('weekday gives Monday for day 1', () => expect(numberToWeekday(1)).toBe('Monday'));
@@ -25,3 +26,6 @@ it('getTitleDay gives "Wednesday" for "Wednesday"', () =>
 
 it('getNextDay gives following day', () =>
   expect(getNextDay(new Date(2012, 1, 29))).toEqual(new Date(2012, 2, 1)));
+
+it('getPrevDay gives following day', () =>
+  expect(getPrevDay(new Date(2012, 1, 29))).toEqual(new Date(2012, 1, 28)));

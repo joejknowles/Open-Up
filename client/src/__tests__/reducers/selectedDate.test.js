@@ -14,9 +14,17 @@ it('selectedDate returns date on FETCH_SLOTS_SUCCESS', () => {
 });
 
 it('selectedDate returns date of next day on NEXT_DAY', () => {
-  const firstDate = '2017-02-02T00:00:00.000Z';
+  const startingDate = '2017-02-02T00:00:00.000Z';
   const action = { type: 'NEXT_DAY' };
   const expectedDate = new Date(2017, 1, 3);
-  const actual = selectedDate(firstDate, action);
+  const actual = selectedDate(startingDate, action);
+  expect(actual).toEqual(expectedDate);
+});
+
+it('selectedDate returns date of next day on NEXT_DAY', () => {
+  const startingDate = '2017-02-02T00:00:00.000Z';
+  const action = { type: 'PREV_DAY' };
+  const expectedDate = new Date(2017, 1, 1);
+  const actual = selectedDate(startingDate, action);
   expect(actual).toEqual(expectedDate);
 });

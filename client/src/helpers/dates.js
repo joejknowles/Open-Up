@@ -29,6 +29,8 @@ export const getTitleDay = (date) => (
 
 export const getNextDay = (date) => addDays(date, 1);
 
+export const getPrevDay = (date) => addDays(date, -1);
+
 export const formatDate = (date) => format(date, 'D/M/YYYY');
 
 export const parseDate = (date) => parse(date);

@@ -16,7 +16,6 @@ feature 'booking by day', js: true do
   context "when there are slots tomorrow but none today" do
     before do
       slot = Slot.create(start_time: 1.day.from_now, end_time: 1.day.from_now + 1.hour)
-
       visit Urls::SLOTS
     end
 
@@ -27,6 +26,28 @@ feature 'booking by day', js: true do
     scenario 'shows slot after navigating to tomorrow' do
       page.find('.next-day').click
       expect(page).to have_content 'book'
+    end
+  end
+
+  context "when there are slots today but none tomorrow" do
+    before do
+      slot = Slot.create(start_time: DateTime.now, end_time: DateTime.now + 1.hour)
+      visit Urls::SLOTS
+    end
+
+    scenario 'shows slot available today' do
+      expect(page).to have_content 'book'
+    end
+
+    scenario 'shows no slots after navigating to tomorrow' do
+      page.find('.next-day').click
+      expect(page).not_to have_content 'book'
+    end
+
+    scenario 'shows slot again after navigating to back to today' do
+      page.find('.next-day').click
+      page.find('.prev-day').click
+      expect(page).not_to have_content 'book'
     end
   end
 end
