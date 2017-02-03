@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../styles/App.css';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { selectedDateSelector } from '../../reducers';
+import { selectedDateSelector, isDateCachedSelector } from '../../reducers';
 
 import LoadingBlocker from '../loadingBlocker';
 import Heading from './heading';
@@ -15,9 +15,9 @@ export class DayBooking extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { date, fetchSlots } = this.props;
+    const { date, fetchSlots, isDateCached } = this.props;
     if (!isSameDay(date, prevProps.date)) {
-      this.props.isDateCached ?
+      isDateCached ?
         fetchSlots({block: false}) :
         fetchSlots();
     }
@@ -36,17 +36,17 @@ export class DayBooking extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  date: selectedDateSelector(state)//,
-  //isDateCached:
+  date: selectedDateSelector(state),
+  isDateCached: isDateCachedSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSlots: actions.fetchSlots(dispatch)
 });
 
-const mergeProps = ({ date }, dispatchProps) => ({
+const mergeProps = ({ date, isDateCached }, dispatchProps) => ({
   fetchSlots: dispatchProps.fetchSlots(date),
-  date
+  date, isDateCached
 });
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(DayBooking);

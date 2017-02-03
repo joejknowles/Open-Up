@@ -27,10 +27,10 @@ export const getTitleDay = (date) => (
       getWeekday(date))
 );
 
-export const getNextDay = (date) => addDays(date, 1);
+export const getNextDay = (date) => format(addDays(date, 1));
 
-export const getPrevDay = (date) => addDays(date, -1);
+export const getPrevDay = (date) => format(addDays(date, -1));
 
 export const formatDate = (date) => format(date, 'D/M/YYYY');
 
-export const parseDate = (date) => parse(date);
+export const parseDate = (date) => format(parse(date));

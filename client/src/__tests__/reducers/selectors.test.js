@@ -16,9 +16,16 @@ it('selectedDateSelector selects selectedDate', () => (
     .toBe('selectedDate test')
 ));
 
-it('slotsSelector selects slot ids', () => {
-  const allSlots = [1, 2, 5];
-  expect(slotsSelector({ allSlots })).toEqual(allSlots);
+it('slotsSelector selects slot ids for selectedDate', () => {
+  const slots = [1, 2, 5];
+  const selectedDate = new Date();
+  const state = {
+    selectedDate,
+    slotsByDate: {
+      [selectedDate]: slots
+    }
+  };
+  expect(slotsSelector(state)).toEqual(slots);
 })
 
 it('createSlotSelector selects correct slot', () => {

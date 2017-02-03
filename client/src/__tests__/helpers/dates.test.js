@@ -25,7 +25,7 @@ it('getTitleDay gives "Wednesday" for "Wednesday"', () =>
   expect(getTitleDay(new Date(2012, 1, 29))).toBe('Wednesday'));
 
 it('getNextDay gives following day', () =>
-  expect(getNextDay(new Date(2012, 1, 29))).toEqual(new Date(2012, 2, 1)));
+  expect(getNextDay(new Date(2012, 1, 29))).toEqual('2012-03-01T00:00:00.000+00:00'));
 
-it('getPrevDay gives following day', () =>
-  expect(getPrevDay(new Date(2012, 1, 29))).toEqual(new Date(2012, 1, 28)));
+it('getPrevDay gives previous day', () =>
+  expect(getPrevDay(new Date(2012, 1, 29))).toEqual('2012-02-28T00:00:00.000+00:00'));

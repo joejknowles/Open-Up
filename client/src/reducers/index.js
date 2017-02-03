@@ -3,7 +3,7 @@ import isLoading from './isLoading';
 import bookings from './bookings';
 import alerts, { alertsById } from './alerts';
 import { getNextDay, parseDate, getPrevDay } from '../helpers/dates';
-import { slotsById, allSlots } from './slots';
+import { slotsById, allSlots, slotsByDate } from './slots';
 
 export const selectedDate = (state = '', action) => {
   switch (action.type) {
@@ -26,9 +26,9 @@ export const selectedDateSelector = ({ selectedDate }) => (
   selectedDate
 );
 
-export const slotsSelector = ({ allSlots }) => (
-  allSlots
-);
+export const slotsSelector = ({ selectedDate, slotsByDate }) => {
+  return slotsByDate[selectedDate]
+};
 
 export const createSlotSelector = (id) => ({ slotsById }) => (
   slotsById[id]
@@ -44,6 +44,7 @@ export const isDateCachedSelector = (
 
 export default combineReducers({
   selectedDate,
+  slotsByDate,
   slotsById,
   allSlots,
   isLoading,

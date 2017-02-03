@@ -47,7 +47,7 @@ feature 'booking by day', js: true do
     scenario 'shows slot again after navigating to back to today' do
       page.find('.next-day').click
       page.find('.prev-day').click
-      expect(page).not_to have_content 'book'
+      expect(page).to have_content 'book'
     end
   end
 end

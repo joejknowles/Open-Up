@@ -11,7 +11,8 @@ const emptyStoreMock = mockStore(
   {
     allSlots: [],
     selectedDate: new Date(2017, 1, 26),
-    alerts: []
+    alerts: [],
+    slotsByDate: {}
   }
 );
 

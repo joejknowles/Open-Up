@@ -26,7 +26,7 @@ export const slotsByDate = (state = {}, action) => {
     case 'FETCH_SLOTS_SUCCESS':
       return {
         ...state,
-        [action.date]: action.response.result
+        [action.response.date]: action.response.result
       }
     default:
     return state;
