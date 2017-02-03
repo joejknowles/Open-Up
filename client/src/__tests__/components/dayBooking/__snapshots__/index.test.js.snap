@@ -1,8 +1,8 @@
 exports[`test matches snapshot 1`] = `
-<Connect(Component)>
-  <div>
+<div>
+  <Connect(Component) />
+  <Connect(Component)>
     <Connect(Component) />
-    <Connect(Component) />
-  </div>
-</Connect(Component)>
+  </Connect(Component)>
+</div>
 `;

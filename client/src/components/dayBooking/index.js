@@ -23,12 +23,12 @@ export class DayBooking extends Component {
 
   render() {
     return (
-      <LoadingBlocker>
-        <div>
-          <Heading />
+      <div>
+        <Heading />
+        <LoadingBlocker>
           <List />
-        </div>
-      </LoadingBlocker>
+        </LoadingBlocker>
+      </div>
     );
   }
 }
