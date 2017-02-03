@@ -8,6 +8,11 @@ exports[`test renders correctly 1`] = `
   <div>
     <div
       className="Heading">
+      <a
+        className="prev-day"
+        onClick={[Function]}>
+        Previous Day
+      </a>
       <h3>
         Sunday 26/2/2017
       </h3>

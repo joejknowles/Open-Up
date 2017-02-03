@@ -1,6 +1,11 @@
 exports[`test renders heading as before 1`] = `
 <div
   className="Heading">
+  <a
+    className="prev-day"
+    onClick={undefined}>
+    Previous Day
+  </a>
   <h3>
     Thursday 26/1/2017
   </h3>

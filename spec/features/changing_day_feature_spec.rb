@@ -8,6 +8,11 @@ feature 'booking by day', js: true do
     expect(page).to have_content 'Tomorrow'
   end
 
+  scenario 'no previous day button when on today' do
+    visit Urls::SLOTS
+    expect(page).not_to have_css '.prev-day'
+  end
+
   context "when there are slots tomorrow but none today" do
     before do
       slot = Slot.create(start_time: 1.day.from_now, end_time: 1.day.from_now + 1.hour)
