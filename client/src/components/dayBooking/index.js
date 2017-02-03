@@ -15,9 +15,9 @@ export class DayBooking extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { date, fetchSlots } = this.props;
+    const { date, fetchSlots, updateSlots } = this.props;
     if (!isSameDay(date, prevProps.date)) {
-      fetchSlots();
+      this.props.isDateCached ? updateSlots : fetchSlots();
     }
   }
 
@@ -34,7 +34,8 @@ export class DayBooking extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  date: selectedDateSelector(state)
+  date: selectedDateSelector(state)//,
+  //isDateCached:
 });
 
 const mapDispatchToProps = (dispatch) => ({

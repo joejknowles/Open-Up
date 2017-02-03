@@ -13,7 +13,7 @@ it('matches snapshot', () => {
   expect(tree).toMatchSnapshot();
 });
 
-it('updates slots on didMount', () => {
+it('fetches slots on didMount', () => {
   const fetchSlots = jest.fn();
   const wrapper = shallow(
     <DayBooking
@@ -24,7 +24,7 @@ it('updates slots on didMount', () => {
   expect(fetchSlots.mock.calls.length).toBe(1);
 });
 
-it('updates slots on didUpdate when date changes', () => {
+it('fetches slots on didUpdate when date changes', () => {
   const fetchSlots = jest.fn();
   const wrapper = shallow(
     <DayBooking { ...{ fetchSlots } } date={ new Date(1)} />,
@@ -34,7 +34,7 @@ it('updates slots on didUpdate when date changes', () => {
   expect(fetchSlots.mock.calls.length).toBe(2);
 });
 
-it("doesn't update slots on didUpdate when date doesn't change", () => {
+it("doesn't fetch slots on didUpdate when date doesn't change", () => {
   const fetchSlots = jest.fn();
   const wrapper = shallow(
     <DayBooking { ...{ fetchSlots } } date={ new Date(10000000000)} test={ 'right test '} />,
@@ -42,6 +42,18 @@ it("doesn't update slots on didUpdate when date doesn't change", () => {
   );
   wrapper.setProps({
     otherProp: 'something irrelevant',
+    date: new Date(10000000000)});
+  expect(fetchSlots.mock.calls.length).toBe(1);
+});
+
+it("doesn't fetch slots on didUpdate when date ", () => {
+  const fetchSlots = jest.fn();
+  const wrapper = shallow(
+    <DayBooking { ...{ fetchSlots } } date={ new Date(20000000000)} test={ 'right test '} />,
+    { lifecycleExperimental: true }
+  );
+  wrapper.setProps({
+    isDateCached: true,
     date: new Date(10000000000)});
   expect(fetchSlots.mock.calls.length).toBe(1);
 });
