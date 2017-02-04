@@ -10,6 +10,12 @@
   top: 0;
 }
 
+.prev-day {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 .List {
   width: 45%;
   margin: auto;
