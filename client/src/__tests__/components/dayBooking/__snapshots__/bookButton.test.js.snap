@@ -1,6 +1,6 @@
 exports[`test renders booking button as before 1`] = `
 <button
-  className="BookButton"
+  className="BookButton slot-content"
   onClick={undefined}>
   book 
   13:00

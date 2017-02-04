@@ -20,7 +20,7 @@ exports[`test renders Slot without booking as before 1`] = `
 
 exports[`test renders UnavailableSlot as before 1`] = `
 <div
-  className="unavailableSlot">
+  className="unavailableSlot slot-content">
   <span
     className="message">
     unavailable 

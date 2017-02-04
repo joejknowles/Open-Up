@@ -8,7 +8,7 @@ const formatTime = (time) => (
 );
 
 export const BookButton = ({ startTime, endTime, bookSlot }) => (
-  <button className="BookButton" onClick={ bookSlot }>
+  <button className="BookButton slot-content" onClick={ bookSlot }>
     book { formatTime(startTime) } to { formatTime(endTime) }
   </button>
 );

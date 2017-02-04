@@ -21,7 +21,7 @@ export const Slot = (props) => (
 );
 
 export const UnavailableSlot = ({ startTime, endTime }) => (
-  <div className="unavailableSlot">
+  <div className="unavailableSlot slot-content">
     <span className="message">
       unavailable { formatTime(startTime) } to { formatTime(endTime) }
     </span>
