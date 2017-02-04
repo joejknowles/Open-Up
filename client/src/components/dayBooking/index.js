@@ -3,6 +3,7 @@ import '../../styles/App.css';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { selectedDateSelector, isDateCachedSelector } from '../../reducers';
+import { getNextDay } from '../../helpers/dates'
 
 import LoadingBlocker from '../loadingBlocker';
 import Heading from './heading';
@@ -12,14 +13,16 @@ import isSameDay from 'date-fns/is_same_day';
 export class DayBooking extends Component {
   componentDidMount() {
     this.props.fetchSlots();
+    this.props.fetchNextSlots();
   }
 
   componentDidUpdate(prevProps) {
-    const { date, fetchSlots, isDateCached } = this.props;
+    const { date, fetchSlots, isDateCached, fetchNextSlots } = this.props;
     if (!isSameDay(date, prevProps.date)) {
       isDateCached ?
-        fetchSlots({block: false}) :
+        fetchSlots({ block: false }) :
         fetchSlots();
+      fetchNextSlots({ block: false });
     }
   }
 
@@ -46,6 +49,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mergeProps = ({ date, isDateCached }, dispatchProps) => ({
   fetchSlots: dispatchProps.fetchSlots(date),
+  fetchNextSlots: dispatchProps.fetchSlots(getNextDay(date)),
   date, isDateCached
 });
 
