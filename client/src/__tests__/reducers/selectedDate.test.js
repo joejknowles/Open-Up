@@ -5,14 +5,6 @@ it('selectedDate returns empty string as default', () => {
   expect(actual).toEqual('');
 });
 
-it('selectedDate returns date on FETCH_SLOTS_SUCCESS', () => {
-  const dateString = '2017-02-02T00:00:00.000Z';
-  const action = { type: 'FETCH_SLOTS_SUCCESS', response: { date: dateString } };
-  const expectedDate = '2017-02-02T00:00:00.000+00:00';
-  const actual = selectedDate(undefined, action);
-  expect(actual).toEqual(expectedDate);
-});
-
 it('selectedDate returns date of next day on NEXT_DAY', () => {
   const startingDate = '2017-02-02T00:00:00.000Z';
   const action = { type: 'NEXT_DAY' };

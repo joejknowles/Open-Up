@@ -2,13 +2,11 @@ import { combineReducers } from 'redux';
 import isLoading from './isLoading';
 import bookings from './bookings';
 import alerts, { alertsById } from './alerts';
-import { getNextDay, parseDate, getPrevDay } from '../helpers/dates';
+import { getNextDay, getPrevDay } from '../helpers/dates';
 import { slotsById, allSlots, slotsByDate } from './slots';
 
 export const selectedDate = (state = '', action) => {
   switch (action.type) {
-    case 'FETCH_SLOTS_SUCCESS':
-      return parseDate(action.response.date);
     case 'NEXT_DAY':
       return getNextDay(state);
     case 'PREV_DAY':

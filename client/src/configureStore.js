@@ -2,6 +2,7 @@ import topReducer from './reducers';
 import { createStore, applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
+import { parseDate } from './helpers/dates';
 
 export default () => {
   const middleware = [ thunk ];
@@ -9,7 +10,7 @@ export default () => {
     middleware.push(createLogger());
   }
   const initialState = {
-    selectedDate: new Date()
+    selectedDate: parseDate(new Date())
   };
   return createStore(topReducer, initialState, applyMiddleware(...middleware));
 };
