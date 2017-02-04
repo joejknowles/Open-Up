@@ -32,7 +32,8 @@
 
 .unavailableSlot {
   font-size: 16px;
-  height: 95%;
+  height: 100%;
+  width: 100%;
   border-style: solid;
   border-width: 1.5px;
   border-color: #BBB;
@@ -58,8 +59,10 @@
   border-radius: 0.5em;
   border-width: 1.5px;
   outline: none;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
   padding: 0;
-  margin: 0;
 }
 
 .BookButton:focus {
