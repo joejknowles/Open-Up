@@ -17,8 +17,28 @@
 }
 
 .List {
-  width: 45%;
+  width: 40%;
   margin: auto;
+  background-color: white;
+}
+
+.list-next-enter {
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  transition: transform 1000ms ease;
+}
+
+.list-next-enter.list-next-enter-active {
+  transform: translate(-50%, 0);
+}
+
+.list-next-leave {
+  transition: transform 500ms;
+}
+
+.list-next-leave.list-next-leave-active {
+  transform: scale(0);
 }
 
 .Slot {
@@ -45,6 +65,7 @@
 }
 
 .message {
+  width: 100%;
   display: inline-block;
   vertical-align: middle;
   line-height: normal;

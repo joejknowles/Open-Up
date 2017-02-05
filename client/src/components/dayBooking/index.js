@@ -9,6 +9,7 @@ import LoadingBlocker from '../loadingBlocker';
 import Heading from './heading';
 import List from './list';
 import isSameDay from 'date-fns/is_same_day';
+import ReactCSSTransitionsGroup from 'react-addons-css-transition-group';
 
 export class DayBooking extends Component {
   componentDidMount() {
@@ -29,7 +30,13 @@ export class DayBooking extends Component {
       <div>
         <Heading />
         <LoadingBlocker>
-          <List />
+          <ReactCSSTransitionsGroup
+            transitionName={ `list-${ this.props.direction }`}
+            transitionEnterTimeout={1000}
+            transitionLeaveTimeout={500}
+            >
+            <List key={this.props.date} />
+          </ReactCSSTransitionsGroup>
         </LoadingBlocker>
       </div>
     );
@@ -48,7 +55,7 @@ const mapDispatchToProps = (dispatch) => ({
 const mergeProps = ({ date, isDateCached }, dispatchProps) => ({
   fetchSlots: dispatchProps.fetchSlots(date),
   fetchNextSlots: dispatchProps.fetchSlots(getNextDay(date)),
-  date, isDateCached
+  date, isDateCached, direction: 'next'
 });
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(DayBooking);

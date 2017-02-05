@@ -2,7 +2,15 @@ exports[`test matches snapshot 1`] = `
 <div>
   <Connect(Component) />
   <Connect(Component)>
-    <Connect(Component) />
+    <ReactCSSTransitionGroup
+      transitionAppear={false}
+      transitionEnter={true}
+      transitionEnterTimeout={1000}
+      transitionLeave={true}
+      transitionLeaveTimeout={500}
+      transitionName="list-undefined">
+      <Connect(Component) />
+    </ReactCSSTransitionGroup>
   </Connect(Component)>
 </div>
 `;

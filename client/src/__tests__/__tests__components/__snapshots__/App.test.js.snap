@@ -17,10 +17,12 @@ exports[`test renders as before 1`] = `
         Next Day
       </a>
     </div>
-    <p
-      className="message">
-      No slots available
-    </p>
+    <span>
+      <p
+        className="message">
+        No slots available
+      </p>
+    </span>
   </div>
 </div>
 `;
