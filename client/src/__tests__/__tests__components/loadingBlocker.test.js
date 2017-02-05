@@ -9,7 +9,7 @@ const shallowRenderer = ReactTestUtils.createRenderer();
 
 it('renders loading indicator when loading', () => {
   const component = shallow(
-    <LoadingBlocker isLoading={ true }>
+    <LoadingBlocker isLoading={ true } block={ true }>
       <p className='test-child'>children</p>
     </LoadingBlocker>
   );

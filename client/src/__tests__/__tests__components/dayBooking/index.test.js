@@ -54,18 +54,3 @@ it("doesn't fetch slots on didUpdate when date doesn't change", () => {
     date: new Date(10000000000)});
   expect(dispatches.fetchSlots.mock.calls.length).toBe(1);
 });
-
-it("fetches slots on didUpdate when date is cached with block: false", () => {
-  const dispatches = {
-    fetchSlots: jest.fn(),
-    fetchNextSlots: jest.fn()
-  }
-  const wrapper = shallow(
-    <DayBooking { ...dispatches } date={ new Date(20000000000)} test={ 'right test '} />,
-    { lifecycleExperimental: true }
-  );
-  wrapper.setProps({
-    isDateCached: true,
-    date: new Date(10000000000)});
-  expect(dispatches.fetchSlots).toBeCalledWith({block: false});
-});

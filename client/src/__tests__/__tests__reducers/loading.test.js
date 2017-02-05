@@ -7,11 +7,6 @@ it('isLoading is true after slots request', () =>
     { type: 'FETCH_SLOTS_REQUEST', block: true }
   )).toBe(true));
 
-it('isLoading is false after slots request with no blocking', () =>
-  expect(isLoading(undefined,
-    { type: 'FETCH_SLOTS_REQUEST', block: false }
-  )).toBe(false));
-
 it('isLoading becomes false when FETCH_**_SUCCESS action called', () => (
   expect(isLoading(true, { type: 'FETCH_SLOTS_SUCCESS' })).toBe(false)
 ));

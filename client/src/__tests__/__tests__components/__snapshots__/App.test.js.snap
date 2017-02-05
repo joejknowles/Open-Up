@@ -1,4 +1,4 @@
-exports[`test renders correctly 1`] = `
+exports[`test renders as before 1`] = `
 <div
   className="App">
   <div
@@ -8,13 +8,8 @@ exports[`test renders correctly 1`] = `
   <div>
     <div
       className="Heading">
-      <a
-        className="prev-day"
-        onClick={[Function]}>
-        Previous Day
-      </a>
       <h3>
-        Sunday 26/2/2017
+        Today 5/2/2017
       </h3>
       <a
         className="next-day"

@@ -10,9 +10,9 @@ const mockStore = configureStore([]);
 const emptyStoreMock = mockStore(
   {
     allSlots: [],
-    selectedDate: new Date(2017, 1, 26),
+    selectedDate: '2017-02-05T16:24:17.712+00:00',
     alerts: [],
-    slotsByDate: {}
+    slotsByDate: {'2017-02-05T16:24:17.712+00:00': []}
   }
 );
 
@@ -25,7 +25,7 @@ it('renders booking component', () => {
   expect(app.find(DayBooking).length).toBe(1);
 });
 
-it('renders correctly', () => {
+it('renders as before', () => {
   const tree = renderer.create(<App store={ emptyStoreMock }/>).toJSON();
   expect(tree).toMatchSnapshot();
 });

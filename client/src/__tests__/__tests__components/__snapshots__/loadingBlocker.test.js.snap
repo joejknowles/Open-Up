@@ -1,4 +1,9 @@
-exports[`test matches snapshot when loading 1`] = `<Unknown />`;
+exports[`test matches snapshot when loading 1`] = `
+<p
+  className="test-child">
+  children
+</p>
+`;
 
 exports[`test matches snapshot when not loading 1`] = `
 <p

@@ -1,3 +1,5 @@
+import { parseDate } from '../helpers/dates';
+
 export const slotsById = (state = {}, action) => {
   switch (action.type) {
     case 'FETCH_SLOTS_SUCCESS':
@@ -24,9 +26,10 @@ export const allSlots = (state = [], action) => (
 export const slotsByDate = (state = {}, action) => {
   switch (action.type) {
     case 'FETCH_SLOTS_SUCCESS':
+      const date = parseDate(action.response.date);
       return {
         ...state,
-        [action.response.date]: action.response.result
+        [date]: action.response.result
       }
     default:
     return state;

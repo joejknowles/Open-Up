@@ -17,12 +17,10 @@ export class DayBooking extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { date, fetchSlots, isDateCached, fetchNextSlots } = this.props;
+    const { date, fetchSlots, fetchNextSlots } = this.props;
     if (!isSameDay(date, prevProps.date)) {
-      isDateCached ?
-        fetchSlots({ block: false }) :
-        fetchSlots();
-      fetchNextSlots({ block: false });
+      fetchSlots();
+      fetchNextSlots();
     }
   }
 

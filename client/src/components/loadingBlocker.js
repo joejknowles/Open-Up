@@ -2,12 +2,12 @@ import React from 'react';
 import LoadingIndicator from './loadingIndicator';
 import { connect } from 'react-redux';
 
-import { isLoadingSelector } from '../reducers';
+import { shouldBlockSelector } from '../reducers';
 
-export const LoadingBlocker = ({ isLoading, children }) => (
-  isLoading ? <LoadingIndicator /> : children
+export const LoadingBlocker = ({ block, children }) => (
+  block ? <LoadingIndicator /> : children
 );
 
-export default connect((state) =>
-  ({ isLoading: isLoadingSelector(state) })
+export default connect((state, { block }) =>
+  ({ block: shouldBlockSelector(state) })
 )(LoadingBlocker);

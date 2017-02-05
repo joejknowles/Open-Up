@@ -1,12 +1,13 @@
 import * as apiClients from '../apiClients';
 import { normalize } from 'normalizr';
 import { arrayOfSlots } from '../schema'
+import { parseDate } from '../helpers/dates';
 
 import { camelizeKeys } from 'humps'
 import uniqueId from 'lodash.uniqueid'
 
-export const fetchSlots = (dispatch) => (date) => ({ block = true } = {}) => {
-  dispatch({ type: 'FETCH_SLOTS_REQUEST', block});
+export const fetchSlots = (dispatch) => (date) => () => {
+  dispatch({ type: 'FETCH_SLOTS_REQUEST', date});
   return apiClients.fetchSlots(date).then((response) => {
     response = camelizeKeys(response);
     const normalizedResponse = normalize(response.slots, arrayOfSlots);
@@ -24,7 +25,7 @@ export const fetchSlots = (dispatch) => (date) => ({ block = true } = {}) => {
 };
 
 export const bookSlot = (slotId) => (dispatch) => () => {
-  dispatch({type: 'BOOK_SLOT_REQUEST'});
+  dispatch({type: 'BOOK_SLOT_REQUEST', slotId});
   return apiClients.bookSlot(slotId).then((response) => {
     response = camelizeKeys(response);
     const notificationId = uniqueId();
@@ -35,7 +36,7 @@ export const bookSlot = (slotId) => (dispatch) => () => {
     };
     dispatch(successAction);
   }).catch((response) => {
-    fetchSlots(dispatch)(new Date())(); // TODO: use a better library than redux thunk
+    fetchSlots(dispatch)(parseDate(new Date()))(); // TODO: use a better library than redux thunk
     const errors = {};
     const result = [];
     response.errors.forEach((message) => {

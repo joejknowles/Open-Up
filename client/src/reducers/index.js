@@ -40,6 +40,10 @@ export const isDateCachedSelector = (
   { slotsByDate, selectedDate }
 ) => slotsByDate.hasOwnProperty(selectedDate);
 
+export const shouldBlockSelector = (state) => (
+  (!isDateCachedSelector(state)) && isLoading
+);
+
 export default combineReducers({
   selectedDate,
   slotsByDate,

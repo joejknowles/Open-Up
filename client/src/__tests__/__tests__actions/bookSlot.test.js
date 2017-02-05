@@ -11,12 +11,14 @@ jest.mock('../../apiClients', () => ({
 jest.mock('lodash.uniqueid', () => () => '1');
 
 import { bookSlot } from '../../actions';
+import { parseDate } from '../../helpers/dates';
 import sinon from 'sinon';
 
 it('book slot returns a function that calls dispatch with book slot request action', () => {
   const spy = sinon.spy();
-  const result = bookSlot(1)(spy)();
-  const action = { type: 'BOOK_SLOT_REQUEST' }
+  const slotId = 1;
+  const result = bookSlot(slotId)(spy)();
+  const action = { type: 'BOOK_SLOT_REQUEST', slotId }
   expect(spy.getCall(0).args[0]).toEqual(action);
 });
 
@@ -60,7 +62,9 @@ it('book slot calls dispatch with book slot failure action on failure', () => {
 
 it('book slot calls dispatch with fetch slots request action on failure', () => {
   const spy = sinon.spy();
-  const action = { type: 'FETCH_SLOTS_REQUEST', block: true };
+  const date = new Date();
+  const action = { type: 'FETCH_SLOTS_REQUEST',
+  date: parseDate(date) };
   return bookSlot('bad slot id')(spy)()
     .then((error) => {
       expect(spy.getCall(1).args[0]).toEqual(action)

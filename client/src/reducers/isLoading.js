@@ -4,7 +4,7 @@ const isLoading = (state = true, action) => {
     case 'FETCH_SLOTS_FAILURE':
       return false;
     case 'FETCH_SLOTS_REQUEST':
-      return action.block;
+      return true;
     default:
       return state
   }
