@@ -26,15 +26,17 @@
   z-index: 1;
   position: absolute;
   left: 50%;
-  transition: transform 1000ms ease;
+  opacity: 0;
+  transition: transform 300ms ease 100ms, opacity 400ms;
 }
 
 .list-next-enter.list-next-enter-active {
+  opacity: 1;
   transform: translate(-50%, 0);
 }
 
 .list-next-leave {
-  transition: transform 500ms;
+  transition: transform 200ms;
 }
 
 .list-next-leave.list-next-leave-active {
@@ -65,7 +67,7 @@
 }
 
 .message {
-  width: 100%;
+  width: 40%;
   display: inline-block;
   vertical-align: middle;
   line-height: normal;

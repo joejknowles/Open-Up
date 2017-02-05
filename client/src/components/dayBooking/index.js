@@ -32,8 +32,8 @@ export class DayBooking extends Component {
         <LoadingBlocker>
           <ReactCSSTransitionsGroup
             transitionName={ `list-${ this.props.direction }`}
-            transitionEnterTimeout={1000}
-            transitionLeaveTimeout={500}
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={200}
             >
             <List key={this.props.date} />
           </ReactCSSTransitionsGroup>
