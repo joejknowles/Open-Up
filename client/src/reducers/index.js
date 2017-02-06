@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import isLoading from './isLoading';
 import bookings from './bookings';
+import dateChangeDirection from './dateChangeDirection';
 import alerts, { alertsById } from './alerts';
 import { getNextDay, getPrevDay } from '../helpers/dates';
 import { slotsById, allSlots, slotsByDate } from './slots';
@@ -44,6 +45,9 @@ export const shouldBlockSelector = (state) => (
   (!isDateCachedSelector(state)) && isLoading
 );
 
+export const dateChangeDirectionSelector = ({ dateChangeDirection }) =>
+  dateChangeDirection;
+
 export default combineReducers({
   selectedDate,
   slotsByDate,
@@ -52,5 +56,6 @@ export default combineReducers({
   isLoading,
   bookings,
   alerts,
-  alertsById
+  alertsById,
+  dateChangeDirection
 });

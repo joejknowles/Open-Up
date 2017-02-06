@@ -8,7 +8,8 @@ const expectedReducers = [
   'bookings',
   'alerts',
   'alertsById',
-  'slotsByDate'
+  'slotsByDate',
+  'dateChangeDirection'
 ];
 
 const runTestForName = (reducerName) => (

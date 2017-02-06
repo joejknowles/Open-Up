@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import '../../styles/App.css';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { selectedDateSelector, isDateCachedSelector } from '../../reducers';
+import {
+  selectedDateSelector,
+  isDateCachedSelector,
+  dateChangeDirectionSelector } from '../../reducers';
 import { getNextDay } from '../../helpers/dates'
 
 import LoadingBlocker from '../loadingBlocker';
@@ -45,23 +48,18 @@ export class DayBooking extends Component {
 
 const mapStateToProps = (state) => ({
   date: selectedDateSelector(state),
-  isDateCached: isDateCachedSelector(state)
+  isDateCached: isDateCachedSelector(state),
+  direction: dateChangeDirectionSelector(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSlots: actions.fetchSlots(dispatch)
 });
 
-let isNext = true;
-
-const mergeProps = ({ date, isDateCached }, dispatchProps) => {
-  const direction = isNext ? 'next' : 'prev';
-  isNext = !isNext;
-  return ({
-    fetchSlots: dispatchProps.fetchSlots(date),
-    fetchNextSlots: dispatchProps.fetchSlots(getNextDay(date)),
-    date, isDateCached, direction
-  });
-};
+const mergeProps = ({ date, isDateCached, direction }, dispatchProps) => ({
+  fetchSlots: dispatchProps.fetchSlots(date),
+  fetchNextSlots: dispatchProps.fetchSlots(getNextDay(date)),
+  date, isDateCached, direction
+});
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(DayBooking);

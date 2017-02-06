@@ -2,7 +2,8 @@ import { isLoadingSelector,
   selectedDateSelector,
   slotsSelector,
   createSlotSelector,
-  isDateCachedSelector } from '../../reducers';
+  isDateCachedSelector,
+  dateChangeDirectionSelector } from '../../reducers';
 
 it('isLoadingSelector selects isLoading', () => (
   expect(
@@ -14,6 +15,12 @@ it('selectedDateSelector selects selectedDate', () => (
   expect(
     selectedDateSelector({selectedDate: 'selectedDate test'}))
     .toBe('selectedDate test')
+));
+
+it('dateChangeDirectionSelector selects dateChangeDirection', () => (
+  expect(
+    dateChangeDirectionSelector({dateChangeDirection: 'next'}))
+    .toBe('next')
 ));
 
 it('slotsSelector selects slot ids for selectedDate', () => {

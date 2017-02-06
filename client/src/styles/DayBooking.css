@@ -35,12 +35,25 @@
   transform: translate(-50%, 0);
 }
 
-.list-next-leave {
+.list-next-leave, .list-prev-leave {
   transition: transform 200ms;
 }
 
-.list-next-leave.list-next-leave-active {
+.list-next-leave.list-next-leave-active, .list-prev-leave.list-prev-leave-active {
   transform: scale(0);
+}
+
+.list-prev-enter {
+  z-index: 1;
+  position: absolute;
+  right: 50%;
+  opacity: 0;
+  transition: transform 300ms ease 100ms, opacity 400ms;
+}
+
+.list-prev-enter.list-prev-enter-active {
+  opacity: 1;
+  transform: translate(50%, 0);
 }
 
 .Slot {
