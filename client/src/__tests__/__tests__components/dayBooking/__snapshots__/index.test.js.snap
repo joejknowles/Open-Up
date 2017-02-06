@@ -5,7 +5,7 @@ exports[`test matches snapshot 1`] = `
     <ReactCSSTransitionGroup
       transitionAppear={false}
       transitionEnter={true}
-      transitionEnterTimeout={500}
+      transitionEnterTimeout={400}
       transitionLeave={true}
       transitionLeaveTimeout={200}
       transitionName="list-undefined">

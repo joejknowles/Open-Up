@@ -17,7 +17,7 @@
 }
 
 .List {
-  width: 40%;
+  width: 20%;
   margin: auto;
   background-color: white;
 }
@@ -27,20 +27,23 @@
   position: absolute;
   left: 50%;
   opacity: 0;
+  transform: scale(0.95);
   transition: transform 300ms ease 100ms, opacity 400ms;
 }
 
 .list-next-enter.list-next-enter-active {
   opacity: 1;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, 0)  scale(1);
 }
 
 .list-next-leave, .list-prev-leave {
-  transition: transform 200ms;
+  opacity: 0.9;
+  transition: opacity 100ms, transform 100ms 50ms;
 }
 
 .list-next-leave.list-next-leave-active, .list-prev-leave.list-prev-leave-active {
-  transform: scale(0);
+  opacity: 0;
+  transform: scale(0.8);
 }
 
 .list-prev-enter {
@@ -48,12 +51,13 @@
   position: absolute;
   right: 50%;
   opacity: 0;
+  transform: scale(0.95);
   transition: transform 300ms ease 100ms, opacity 400ms;
 }
 
 .list-prev-enter.list-prev-enter-active {
   opacity: 1;
-  transform: translate(50%, 0);
+  transform: translate(50%, 0) scale(1);
 }
 
 .Slot {
