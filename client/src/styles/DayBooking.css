@@ -23,7 +23,6 @@
 }
 
 .list-next-enter {
-  z-index: 1;
   position: absolute;
   left: 50%;
   opacity: 0;
@@ -36,15 +35,16 @@
 }
 
 .list-next-leave, .list-prev-leave {
-  transition: transform 200ms;
+  opacity: 0.9;
+  transition: opacity 200ms, transform 200ms;
 }
 
 .list-next-leave.list-next-leave-active, .list-prev-leave.list-prev-leave-active {
+  opacity: 0;
   transform: scale(0);
 }
 
 .list-prev-enter {
-  z-index: 1;
   position: absolute;
   right: 50%;
   opacity: 0;
