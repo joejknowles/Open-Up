@@ -7,13 +7,22 @@ export const slotsById = (state = {}, action) => {
         ...state,
         ...action.response.entities.slots
       };
-    case 'BOOK_SLOT_SUCCESS':
+    case 'BOOK_SLOT_SUCCESS': {
       const slot = { ...state[action.slotId]  }
       slot.booking = action.response.bookingId;
       return {
         ...state,
         [action.slotId]: slot
       };
+    }
+    case 'BOOK_SLOT_REQUEST': {
+      const slot = { ...state[action.slotId]  }
+      slot.booking = 'pending';
+      return {
+        ...state,
+        [action.slotId]: slot
+      };
+    }
     default:
       return state;
   }

@@ -19,9 +19,19 @@ it('slotsById returns slots by Id on fetch slots success', () => {
   expect(actual).toEqual(normalizedSlots);
 });
 
+it("slotsById sets booking id to 'pending' on slot on book slot request", () => {
+  const slotId = 7;
+  const previousState = { 7: { id: 7 } };
+  const bookingId = 8;
+  const action = { type: 'BOOK_SLOT_REQUEST', slotId };
+  const actual = slotsById(previousState, action);
+  const expected = { 7: { id: 7, booking: 'pending' } };
+  expect(actual).toEqual(expected);
+});
+
 it('slotsById adds booking id to slot on book slot success', () => {
   const slotId = 7;
-  const previousState =  { 7: { id: 7 } };
+  const previousState = { 7: { id: 7 } };
   const bookingId = 8;
   const action = { type: 'BOOK_SLOT_SUCCESS', slotId, response: { bookingId } };
   const actual = slotsById(previousState, action);
@@ -30,7 +40,7 @@ it('slotsById adds booking id to slot on book slot success', () => {
 });
 
 it('slotsById returns previous state when no new slots on fetch slots success', () => {
-  const previousState =  { 10: { id: 10 } };
+  const previousState = { 10: { id: 10 } };
   const action = { type: 'FETCH_SLOTS_SUCCESS', response: { entities: {} } };
   const actual = slotsById(previousState, action);
   expect(actual).toEqual(previousState);
