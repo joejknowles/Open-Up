@@ -29,16 +29,17 @@ export class DayBooking extends Component {
   }
 
   render() {
+    const { direction, date } = this.props;
     return (
       <div>
         <Heading />
         <LoadingBlocker>
           <ReactCSSTransitionsGroup
-            transitionName={ `list-${ this.props.direction }`}
+            transitionName={ `list-${ direction }`}
             transitionEnterTimeout={400}
             transitionLeaveTimeout={200}
             >
-            <List key={this.props.date} />
+            <List key={ date } date={ date } />
           </ReactCSSTransitionsGroup>
         </LoadingBlocker>
       </div>

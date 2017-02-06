@@ -1,6 +1,6 @@
 import { isLoadingSelector,
   selectedDateSelector,
-  slotsSelector,
+  createSlotsSelector,
   createSlotSelector,
   isDateCachedSelector,
   dateChangeDirectionSelector } from '../../reducers';
@@ -23,7 +23,7 @@ it('dateChangeDirectionSelector selects dateChangeDirection', () => (
     .toBe('next')
 ));
 
-it('slotsSelector selects slot ids for selectedDate', () => {
+it('createSlotsSelector selects slot ids for selectedDate', () => {
   const slots = [1, 2, 5];
   const selectedDate = new Date();
   const state = {
@@ -32,7 +32,7 @@ it('slotsSelector selects slot ids for selectedDate', () => {
       [selectedDate]: slots
     }
   };
-  expect(slotsSelector(state)).toEqual(slots);
+  expect(createSlotsSelector(selectedDate)(state)).toEqual(slots);
 })
 
 it('createSlotSelector selects correct slot', () => {

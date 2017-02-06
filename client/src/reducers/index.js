@@ -25,9 +25,9 @@ export const selectedDateSelector = ({ selectedDate }) => (
   selectedDate
 );
 
-export const slotsSelector = ({ selectedDate, slotsByDate }) => {
-  return slotsByDate[selectedDate]
-};
+export const createSlotsSelector = (date) => ({ slotsByDate }) => (
+  slotsByDate[date]
+);
 
 export const createSlotSelector = (id) => ({ slotsById }) => (
   slotsById[id]
