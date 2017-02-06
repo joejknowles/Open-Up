@@ -17,9 +17,16 @@
 }
 
 .List {
-  width: 20%;
+  width: 40%;
   margin: auto;
   background-color: white;
+}
+
+.message {
+  width: 40%;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 .list-next-enter {
@@ -79,13 +86,6 @@
   border-style: solid;
   border-color: #BBB;
   color: #BBB;
-}
-
-.message {
-  width: 40%;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: normal;
 }
 
 .BookButton {
