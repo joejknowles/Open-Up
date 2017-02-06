@@ -22,17 +22,10 @@
   background-color: white;
 }
 
-.message {
-  width: 20%;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: normal;
-}
-
 .list-next-enter {
   z-index: 1;
   position: absolute;
-  left: 44%;
+  left: 50%;
   opacity: 0;
   transform: scale(0.95);
   transition: transform 300ms ease 100ms, opacity 400ms;
@@ -40,23 +33,23 @@
 
 .list-next-enter.list-next-enter-active {
   opacity: 1;
-  transform: translate(-20%, 0)  scale(1);
+  transform: translate(-50%, 0)  scale(1);
 }
 
 .list-next-leave, .list-prev-leave {
   opacity: 0.9;
-  transition: opacity 150ms, transform 100ms 50ms;
+  transition: opacity 100ms, transform 100ms 50ms;
 }
 
 .list-next-leave.list-next-leave-active, .list-prev-leave.list-prev-leave-active {
   opacity: 0;
-  transform: scale(0.6);
+  transform: scale(0.8);
 }
 
 .list-prev-enter {
   z-index: 1;
   position: absolute;
-  right: 44%;
+  right: 50%;
   opacity: 0;
   transform: scale(0.95);
   transition: transform 300ms ease 100ms, opacity 400ms;
@@ -64,7 +57,7 @@
 
 .list-prev-enter.list-prev-enter-active {
   opacity: 1;
-  transform: translate(20%, 0) scale(1);
+  transform: translate(50%, 0) scale(1);
 }
 
 .Slot {
@@ -88,6 +81,13 @@
   border-style: solid;
   border-color: #BBB;
   color: #BBB;
+}
+
+.message {
+  width: 40%;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 .BookButton {
