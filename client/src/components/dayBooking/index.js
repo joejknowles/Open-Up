@@ -52,10 +52,16 @@ const mapDispatchToProps = (dispatch) => ({
   fetchSlots: actions.fetchSlots(dispatch)
 });
 
-const mergeProps = ({ date, isDateCached }, dispatchProps) => ({
-  fetchSlots: dispatchProps.fetchSlots(date),
-  fetchNextSlots: dispatchProps.fetchSlots(getNextDay(date)),
-  date, isDateCached, direction: 'next'
-});
+let isNext = true;
+
+const mergeProps = ({ date, isDateCached }, dispatchProps) => {
+  const direction = isNext ? 'next' : 'prev';
+  isNext = !isNext;
+  return ({
+    fetchSlots: dispatchProps.fetchSlots(date),
+    fetchNextSlots: dispatchProps.fetchSlots(getNextDay(date)),
+    date, isDateCached, direction
+  });
+};
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(DayBooking);
