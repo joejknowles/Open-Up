@@ -18,6 +18,4 @@ const mapStateToProps = (initState, { date }) => (state) => ({
   slots: createSlotsSelector(date)(state)
 });
 
-const connectedList = connect(mapStateToProps)(List);
-
-export default connectedList;
+export default connect(mapStateToProps)(List);
