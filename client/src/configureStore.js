@@ -10,7 +10,9 @@ export default () => {
     middleware.push(createLogger());
   }
   const initialState = {
-    selectedDate: parseDate(new Date())
+    booking: {
+      selectedDate: parseDate(new Date())
+    }
   };
   return createStore(topReducer, initialState, applyMiddleware(...middleware));
 };

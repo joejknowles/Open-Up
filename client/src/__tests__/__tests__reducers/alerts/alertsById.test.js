@@ -38,5 +38,5 @@ it('alertsById adds notification when BOOK_SLOT_SUCCESS action called', () => (
 ));
 
 it('createAlertSelector selector returns errors', () => (
-  expect(createAlertSelector('1')({ alertsById: { '1': { id: '1', message: 'error message' } } })).toEqual({ id: '1', message: 'error message' })
+  expect(createAlertSelector('1')({ alerts: { alertsById: { '1': { id: '1', message: 'error message' } } } })).toEqual({ id: '1', message: 'error message' })
 ));

@@ -21,40 +21,49 @@ export const isLoadingSelector = ({ isLoading }) => (
   isLoading
 );
 
-export const selectedDateSelector = ({ selectedDate }) => (
-  selectedDate
+export const selectedDateSelector = (state) => (
+  state.booking.selectedDate
 );
 
-export const createSlotsSelector = (date) => ({ slotsByDate }) => (
-  slotsByDate[date]
+const slotsByDateSelector = (state) => state.booking.slotsByDate;
+
+export const createSlotsSelector = (date) => (state) => (
+  slotsByDateSelector(state)[date]
 );
 
-export const createSlotSelector = (id) => ({ slotsById }) => (
+export const createSlotSelector = (id) => ({ booking: { slotsById } }) => (
   slotsById[id]
 );
 
-export const alertsSelector = ({ alerts }) => alerts;
+export const alertsSelector = (state) => state.alerts.alerts;
 
-export const createAlertSelector = (id) => ({alertsById}) => alertsById[id];
+export const createAlertSelector = (id) => (state) => state.alerts.alertsById[id];
 
-export const isDateCachedSelector = (
-  { slotsByDate, selectedDate }
-) => slotsByDate.hasOwnProperty(selectedDate);
+export const isDateCachedSelector = (state) =>
+slotsByDateSelector(state).hasOwnProperty(selectedDateSelector(state));
 
 export const shouldBlockSelector = (state) => (
-  (!isDateCachedSelector(state)) && isLoading
+  (!isDateCachedSelector(state)) && isLoadingSelector(state)
 );
 
-export const dateChangeDirectionSelector = ({ dateChangeDirection }) =>
+export const dateChangeDirectionSelector = ({ booking: { dateChangeDirection } }) =>
   dateChangeDirection;
 
-export default combineReducers({
+const booking = combineReducers({
   selectedDate,
   slotsByDate,
   slotsById,
-  isLoading,
-  bookings,
+  dateChangeDirection,
+  bookings
+});
+
+const combinedAlerts = combineReducers({
   alerts,
-  alertsById,
-  dateChangeDirection
+  alertsById
+});
+
+export default combineReducers({
+  booking,
+  alerts: combinedAlerts,
+  isLoading
 });

@@ -42,8 +42,3 @@ it('renders heading as before', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
-
-it('maps sate to props correctly', () => (
-  expect(mapStateToProps({ selectedDate: 'test date' }))
-    .toEqual({ date: 'test date'})
-));

@@ -22,5 +22,5 @@ it('alerts adds alert when BOOK_SLOT_SUCCESS action called', () => (
 ));
 
 it('alertsSelector selector returns errors', () => (
-  expect(alertsSelector({alerts: ['1']})).toEqual(['1'])
+  expect(alertsSelector({alerts: { alerts: ['1']} })).toEqual(['1'])
 ));

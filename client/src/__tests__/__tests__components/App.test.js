@@ -9,10 +9,14 @@ import configureStore from 'redux-mock-store';
 const mockStore = configureStore([]);
 const emptyStoreMock = mockStore(
   {
-    allSlots: [],
-    selectedDate: '2017-02-05T16:24:17.712+00:00',
-    alerts: [],
-    slotsByDate: {'2017-02-05T16:24:17.712+00:00': []}
+    booking: {
+      allSlots: [],
+      selectedDate: '2017-02-05T16:24:17.712+00:00',
+      slotsByDate: {'2017-02-05T16:24:17.712+00:00': []}
+    },
+    alerts: {
+      alerts: []
+    }
   }
 );
 

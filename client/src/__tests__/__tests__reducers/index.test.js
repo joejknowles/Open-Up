@@ -1,34 +1,42 @@
 import topReducer from '../../reducers';
 
 const expectedReducers = [
-  'selectedDate',
-  'slotsById',
-  'isLoading',
-  'bookings',
-  'alerts',
-  'alertsById',
-  'slotsByDate',
-  'dateChangeDirection'
+  ['booking'],
+  ['booking', 'selectedDate'],
+  ['booking', 'slotsById'],
+  ['booking', 'slotsByDate'],
+  ['booking', 'bookings'],
+  ['booking', 'dateChangeDirection'],
+  ['isLoading'],
+  ['alerts', 'alerts'],
+  ['alerts', 'alertsById']
 ];
 
-const runTestForName = (reducerName) => (
-  it(`Top reducer includes ${reducerName} reducer`, () =>
-    expectReducerReturnsProperty(reducerName)
+const runTestForNames = (reducerNames) => (
+  it(testName(reducerNames), () =>
+    expectReducerReturnsProperty(reducerNames)
   )
 );
 
+const testName = (reducerNames) => {
+  const nestedReducer = reducerNames.join(' > ')
+  return `Top reducer includes ${nestedReducer} reducer`
+};
+
 // Test reducer returns all correct properties
-for (let reducerName of expectedReducers) {
-  runTestForName(reducerName);
+for (let reducerNames of expectedReducers) {
+  runTestForNames(reducerNames);
 }
 
-const expectReducerReturnsProperty = (reducerName) => (
-  expect(
-    callReducerWithInitialValues()
-      .hasOwnProperty(reducerName)
-  ).toBe(true)
-);
+const expectReducerReturnsProperty = (reducerNames) => {
+  let object = initialStore;
+  for ( let reducerName of reducerNames ) {
+    expect(
+      object
+        .hasOwnProperty(reducerName)
+    ).toBe(true);
+    object = object[reducerName];
+  }
+};
 
-const callReducerWithInitialValues = () => (
-  topReducer(undefined, {})
-);
+const initialStore = topReducer(undefined, {});
