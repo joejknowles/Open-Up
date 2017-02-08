@@ -3,7 +3,6 @@ import topReducer from '../../reducers';
 const expectedReducers = [
   'selectedDate',
   'slotsById',
-  'allSlots',
   'isLoading',
   'bookings',
   'alerts',

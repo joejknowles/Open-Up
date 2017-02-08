@@ -28,10 +28,6 @@ export const slotsById = (state = {}, action) => {
   }
 }
 
-export const allSlots = (state = [], action) => (
-  action.type === 'FETCH_SLOTS_SUCCESS' ? action.response.result : state
-);
-
 export const slotsByDate = (state = {}, action) => {
   switch (action.type) {
     case 'FETCH_SLOTS_SUCCESS':

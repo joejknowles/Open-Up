@@ -1,4 +1,4 @@
-import { slotsById, allSlots } from '../../reducers/slots';
+import { slotsById } from '../../reducers/slots';
 
 it('slotsById returns empty object by default', () => {
   const actual = slotsById(undefined, {});
@@ -44,14 +44,4 @@ it('slotsById returns previous state when no new slots on fetch slots success', 
   const action = { type: 'FETCH_SLOTS_SUCCESS', response: { entities: {} } };
   const actual = slotsById(previousState, action);
   expect(actual).toEqual(previousState);
-});
-
-it('allSlots returns an empty array by default', () => {
-  const actual = allSlots(undefined, {});
-  expect(actual).toEqual([]);
-});
-
-it('allSlots returns an array of slot ids on fetch slots success', () => {
-  const actual = allSlots(undefined, { type: 'FETCH_SLOTS_SUCCESS', response: { result: [1, 2, 4] }});
-  expect(actual).toEqual([1, 2, 4]);
 });

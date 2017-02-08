@@ -4,7 +4,7 @@ import bookings from './bookings';
 import dateChangeDirection from './dateChangeDirection';
 import alerts, { alertsById } from './alerts';
 import { getNextDay, getPrevDay } from '../helpers/dates';
-import { slotsById, allSlots, slotsByDate } from './slots';
+import { slotsById, slotsByDate } from './slots';
 
 export const selectedDate = (state = '', action) => {
   switch (action.type) {
@@ -52,7 +52,6 @@ export default combineReducers({
   selectedDate,
   slotsByDate,
   slotsById,
-  allSlots,
   isLoading,
   bookings,
   alerts,
