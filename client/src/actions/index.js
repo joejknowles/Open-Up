@@ -3,8 +3,8 @@ import { normalize } from 'normalizr';
 import { arrayOfSlots } from '../schema'
 import { parseDate } from '../helpers/dates';
 
-import { camelizeKeys } from 'humps'
-import uniqueId from 'lodash.uniqueid'
+import { camelizeKeys } from 'humps';
+import uniqueId from 'lodash.uniqueid';
 
 export const fetchSlotsRequest = (date) => ({
   type: 'FETCH_SLOTS_REQUEST', date
