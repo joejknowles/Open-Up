@@ -42,3 +42,13 @@ it('fetchSlots saga should be done', () => {
     { done: true, value: undefined }
   );
 });
+
+it('fetchSlotsFailure saga should dispatch failure action on error', () => {
+  const date = new Date();
+  const gen = fetchSlots(date);
+  gen.next();
+  gen.next();
+  expect(gen.throw('error').value).toEqual(
+    put(actions.fetchSlotsFailure(date, 'error'))
+  );
+});

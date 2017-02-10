@@ -22,6 +22,10 @@ export const fetchSlotsSuccess = (response) => {
   };
 };
 
+export const fetchSlotsFailure = (date, errors) => ({
+  type: 'FETCH_SLOTS_FAILURE', date, errors
+});
+
 export const fetchSlots = (dispatch) => (date) => () => {
   dispatch({ type: 'FETCH_SLOTS_REQUEST', date});
   return apiClients.fetchSlots(date).then((response) => {

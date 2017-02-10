@@ -4,6 +4,10 @@ import * as actions from '../actions';
 
 export function* fetchSlots(date) {
   yield put(actions.fetchSlotsRequest(date));
-  const response = yield call(apiClients.fetchSlots, date);
-  yield put(actions.fetchSlotsSuccess(response))
+  try {
+    const response = yield call(apiClients.fetchSlots, date);
+    yield put(actions.fetchSlotsSuccess(response));
+  } catch(error) {
+    yield put(actions.fetchSlotsFailure(date, error));
+  }
 };

@@ -11,7 +11,8 @@ jest.mock('../../apiClients', () => ({
 import {
   fetchSlots,
   fetchSlotsRequest,
-  fetchSlotsSuccess } from '../../actions';
+  fetchSlotsSuccess,
+  fetchSlotsFailure } from '../../actions';
 import sinon from 'sinon';
 
 // Redux-saga
@@ -41,6 +42,13 @@ it('fetchSlotsSuccess creates action with date', () => {
     }
   })
 });
+
+it('fetchSlotsRequest creates action with date', () => (
+  expect(fetchSlotsFailure('date', 'errors')).toEqual({
+    type: "FETCH_SLOTS_FAILURE",
+    date: 'date', errors: 'errors'
+  })
+));
 
 //// Redux-thunk
 
