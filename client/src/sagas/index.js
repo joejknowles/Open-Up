@@ -11,6 +11,10 @@ export function* fetchSlots({ date }) {
   }
 };
 
+function* watchFetchSlotsRequest() {
+  yield takeEvery('FETCH_SLOTS_REQUEST', fetchSlots);
+}
+
 export default function* rootSaga() {
-  yield [ takeEvery('FETCH_SLOTS_REQUEST', fetchSlots) ];
+  yield [ watchFetchSlotsRequest() ];
 };
