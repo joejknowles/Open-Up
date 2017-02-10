@@ -1,21 +1,7 @@
-jest.mock('../../apiClients', () => ({
-  fetchSlots: (date) => (
-    new Promise((resolve, reject) => (
-      date === 'failing date' ?
-        reject({ response: { error: 'fails'}, status: 402, ok: false}) :
-        resolve({ slots: [{ id: 1 }, { id: 2 }], status: 200, ok: true } )
-    ))
-  )
-}));
-
 import {
-  fetchSlots,
   fetchSlotsRequest,
   fetchSlotsSuccess,
   fetchSlotsFailure } from '../../actions';
-import sinon from 'sinon';
-
-// Redux-saga
 
 it('fetchSlotsRequest creates action with date', () => (
   expect(fetchSlotsRequest('date')).toEqual({
@@ -49,5 +35,3 @@ it('fetchSlotsRequest creates action with date', () => (
     date: 'date', errors: 'errors'
   })
 ));
-
-//// Redux-thunk
