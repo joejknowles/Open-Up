@@ -6,6 +6,14 @@ import { parseDate } from '../helpers/dates';
 import { camelizeKeys } from 'humps'
 import uniqueId from 'lodash.uniqueid'
 
+export const fethSlotsRequest = () => {
+
+};
+
+export const fethSlotsSuccess = () => {
+  
+};
+
 export const fetchSlots = (dispatch) => (date) => () => {
   dispatch({ type: 'FETCH_SLOTS_REQUEST', date});
   return apiClients.fetchSlots(date).then((response) => {
