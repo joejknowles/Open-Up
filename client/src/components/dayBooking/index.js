@@ -54,7 +54,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchSlots: actions.fetchSlots(dispatch)
+  fetchSlots: (date) => () => dispatch(actions.fetchSlotsRequest(date))
 });
 
 const mergeProps = ({ date, isDateCached, direction }, dispatchProps) => ({
