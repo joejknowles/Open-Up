@@ -26,24 +26,6 @@ export const fetchSlotsFailure = (date, errors) => ({
   type: 'FETCH_SLOTS_FAILURE', date, errors
 });
 
-export const fetchSlots = (dispatch) => (date) => () => {
-  dispatch({ type: 'FETCH_SLOTS_REQUEST', date});
-  return apiClients.fetchSlots(date).then((response) => {
-    response = camelizeKeys(response);
-    const normalizedResponse = normalize(response.slots, arrayOfSlots);
-    const successAction = {
-      type: 'FETCH_SLOTS_SUCCESS',
-      response: {
-        ...normalizedResponse,
-        date: response.date
-      }
-    };
-    dispatch(successAction);
-  }, (error) => {
-    dispatch({ type: 'FETCH_SLOTS_FAILURE' });
-  });
-};
-
 export const bookSlot = (slotId) => (dispatch) => () => {
   dispatch({type: 'BOOK_SLOT_REQUEST', slotId});
   return apiClients.bookSlot(slotId).then((response) => {
@@ -56,7 +38,7 @@ export const bookSlot = (slotId) => (dispatch) => () => {
     };
     dispatch(successAction);
   }).catch((response) => {
-    fetchSlots(dispatch)(parseDate(new Date()))(); // TODO: use a better library than redux thunk
+    dispatch(fetchSlotsRequest(parseDate(new Date())));
     const errors = {};
     const result = [];
     response.errors.forEach((message) => {
