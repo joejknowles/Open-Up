@@ -8,14 +8,41 @@ jest.mock('../../apiClients', () => ({
   )
 }));
 
-import { fetchSlots } from '../../actions';
+import {
+  fetchSlots,
+  fetchSlotsRequest,
+  fetchSlotsSuccess } from '../../actions';
 import sinon from 'sinon';
 
-it('fetch slots returns a function that returns a promise', () => {
-  const spy = sinon.spy();
-  const result = fetchSlots(spy)()();
-  expect(result).toEqual(jasmine.any(Promise));
+// Redux-saga
+
+it('fetchSlotsRequest creates action with date', () => (
+  expect(fetchSlotsRequest('date')).toEqual({
+    type: "FETCH_SLOTS_REQUEST",
+    date: 'date'
+  })
+));
+
+it('fetchSlotsSuccess creates action with date', () => {
+  const response = {
+    slots: [{ id: 1 }, { id: 2 }],
+    status: 200, ok: true,
+    date: 'date'
+  };
+
+  expect(fetchSlotsSuccess(response)).toEqual({
+    type: "FETCH_SLOTS_SUCCESS",
+    response: {
+      entities: {
+        slots: { 1: { id: 1 }, 2: { id: 2 } }
+      },
+      result: [1, 2],
+      date: 'date'
+    }
+  })
 });
+
+//// Redux-thunk
 
 it('fetch slots returns a function that calls dispatch with fetch slots request action', () => {
   const spy = sinon.spy();

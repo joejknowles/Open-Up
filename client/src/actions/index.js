@@ -6,12 +6,20 @@ import { parseDate } from '../helpers/dates';
 import { camelizeKeys } from 'humps'
 import uniqueId from 'lodash.uniqueid'
 
-export const fethSlotsRequest = () => {
+export const fetchSlotsRequest = (date) => ({
+  type: 'FETCH_SLOTS_REQUEST', date
+});
 
-};
-
-export const fethSlotsSuccess = () => {
-  
+export const fetchSlotsSuccess = (response) => {
+  response = camelizeKeys(response);
+  const normalizedSlots = normalize(response.slots, arrayOfSlots);
+  return {
+    type: 'FETCH_SLOTS_SUCCESS',
+    response: {
+      ...normalizedSlots,
+      date: response.date
+    }
+  };
 };
 
 export const fetchSlots = (dispatch) => (date) => () => {
