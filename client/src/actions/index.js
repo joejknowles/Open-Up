@@ -30,6 +30,10 @@ export const bookSlotRequest = (slotId) => ({
   type: 'BOOK_SLOT_REQUEST', slotId
 });
 
+export const bookSlotSuccess = () => {
+  
+};
+
 export const bookSlot = (slotId) => (dispatch) => () => {
   dispatch({type: 'BOOK_SLOT_REQUEST', slotId});
   return apiClients.bookSlot(slotId).then((response) => {

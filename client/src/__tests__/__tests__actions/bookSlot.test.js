@@ -10,7 +10,11 @@ jest.mock('../../apiClients', () => ({
 }));
 jest.mock('lodash.uniqueid', () => () => '1');
 
-import { bookSlot, bookSlotRequest } from '../../actions';
+import {
+  bookSlot,
+  bookSlotRequest,
+  bookSlotSuccess
+} from '../../actions';
 import { parseDate } from '../../helpers/dates';
 import sinon from 'sinon';
 
@@ -22,7 +26,18 @@ it('bookSlotRequest creates action with slotId', () => (
   ).toEqual({ type: 'BOOK_SLOT_REQUEST', slotId: 99 })
 ));
 
+it('bookSlotSuccess creates action with response', () => {
+  const response = { booking_id: 105, status: 200, ok: true };
+  const successAction = {
+    type: 'BOOK_SLOT_SUCCESS',
+    slotId,
+    response: {
+      bookingId: 105, status: 200, ok: true
+    }, notificationId: mockedId
+   }
 
+  expect(bookSlotSuccess(response)).toEqual(successAction)
+});
 
 ////redux-thunk
 
