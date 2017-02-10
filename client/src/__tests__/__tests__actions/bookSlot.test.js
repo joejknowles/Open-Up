@@ -10,9 +10,21 @@ jest.mock('../../apiClients', () => ({
 }));
 jest.mock('lodash.uniqueid', () => () => '1');
 
-import { bookSlot } from '../../actions';
+import { bookSlot, bookSlotRequest } from '../../actions';
 import { parseDate } from '../../helpers/dates';
 import sinon from 'sinon';
+
+////// sagas
+
+it('bookSlotRequest creates action with slotId', () => (
+  expect(
+    bookSlotRequest(99)
+  ).toEqual({ type: 'BOOK_SLOT_REQUEST', slotId: 99 })
+));
+
+
+
+////redux-thunk
 
 it('book slot returns a function that calls dispatch with book slot request action', () => {
   const spy = sinon.spy();

@@ -26,6 +26,10 @@ export const fetchSlotsFailure = (date, errors) => ({
   type: 'FETCH_SLOTS_FAILURE', date, errors
 });
 
+export const bookSlotRequest = (slotId) => ({
+  type: 'BOOK_SLOT_REQUEST', slotId
+});
+
 export const bookSlot = (slotId) => (dispatch) => () => {
   dispatch({type: 'BOOK_SLOT_REQUEST', slotId});
   return apiClients.bookSlot(slotId).then((response) => {
