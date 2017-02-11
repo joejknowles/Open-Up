@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import format from 'date-fns/format';
-import { bookSlot } from '../../actions';
+import { bookSlotRequest } from '../../actions';
 
 const formatTime = (time) => (
   format(time, 'HH:mm')
@@ -14,7 +14,7 @@ export const BookButton = ({ startTime, endTime, bookSlot }) => (
 );
 
 export const mapDispatchToProps = (dispatch, { id }) => ({
-  bookSlot: bookSlot(id)(dispatch)
+  bookSlot: () => dispatch(bookSlotRequest(id))
 });
 
 export default connect(null, mapDispatchToProps)(BookButton)

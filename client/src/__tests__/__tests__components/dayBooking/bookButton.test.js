@@ -26,10 +26,3 @@ it('calls bookSlot on click', () => {
   component.simulate('click');
   expect(mockBookSlot).toHaveBeenCalled();
 });
-
-it('mapDispatchToProps bookSlot with Id', () => {
-  const actions = require('../../../actions');
-  actions.bookSlot = jest.fn(() => () => {});
-  mapDispatchToProps(null, { id: 1 });
-  expect(actions.bookSlot).toHaveBeenCalledWith(1);
-})

@@ -43,32 +43,6 @@ it('bookSlotSuccess creates action with response', () => {
 
 ////redux-thunk
 
-it('book slot returns a function that calls dispatch with book slot request action', () => {
-  const spy = sinon.spy();
-  const slotId = 1;
-  const result = bookSlot(slotId)(spy)();
-  const action = { type: 'BOOK_SLOT_REQUEST', slotId }
-  expect(spy.getCall(0).args[0]).toEqual(action);
-});
-
-it('book slot calls dispatch with book slot success action with response on success', () => {
-  const slotId= 1;
-  const spy = sinon.spy();
-  const normalizedBookings = { 1: { id: 1 }, 2: { id: 2 } };
-  const mockedId = '1';
-  const successAction = {
-    type: 'BOOK_SLOT_SUCCESS',
-    slotId,
-    response: {
-      bookingId: 105, status: 200, ok: true
-    }, notificationId: mockedId
-   }
-  return bookSlot(slotId)(spy)().then((response) => {
-    expect(spy.getCall(1).args[0]).toEqual(successAction);
-  });
-});
-
-
 it('book slot calls dispatch with book slot failure action on failure', () => {
   const mockedId = '1';
   jest.mock('lodash.uniqueid', () => mockedId);
