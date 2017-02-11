@@ -6,8 +6,7 @@ exports[`test matches snapshot 1`] = `
       transitionAppear={false}
       transitionEnter={true}
       transitionEnterTimeout={400}
-      transitionLeave={true}
-      transitionLeaveTimeout={200}
+      transitionLeave={false}
       transitionName="list-undefined">
       <Connect(Component)
         date={undefined} />

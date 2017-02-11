@@ -37,7 +37,7 @@ export class DayBooking extends Component {
           <ReactCSSTransitionsGroup
             transitionName={ `list-${ direction }`}
             transitionEnterTimeout={400}
-            transitionLeaveTimeout={200}
+            transitionLeave={false}
             >
             <List key={ date } date={ date } />
           </ReactCSSTransitionsGroup>
