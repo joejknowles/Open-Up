@@ -13,7 +13,7 @@ it('watchBookSlotRequests watches Fetch slots requests', () => (
 
 it('bookSlot calls bookSlot api client', () => {
   const slotId = 1;
-  const gen = bookSlot(slotId);
+  const gen = bookSlot({ slotId });
   expect(gen.next().value).toEqual(
     call(apiClients.bookSlot, slotId)
   );
@@ -22,7 +22,7 @@ it('bookSlot calls bookSlot api client', () => {
 it('bookSlot dispatches success action with ', () => {
   const slotId = 1;
   const notificationId = 9;
-  const gen = bookSlot(slotId);
+  const gen = bookSlot({ slotId });
   const apiResponse = { booking_id: 105, status: 200, ok: true }
   gen.next();
   expect(gen.next(apiResponse).value).toEqual(
@@ -32,7 +32,7 @@ it('bookSlot dispatches success action with ', () => {
 
 it('bookSlot ends', () => {
   const slotId = 1;
-  const gen = bookSlot(slotId);
+  const gen = bookSlot({ slotId });
   gen.next();
   gen.next();
   expect(gen.next()).toEqual(

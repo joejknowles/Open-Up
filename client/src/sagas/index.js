@@ -16,10 +16,14 @@ export function* watchFetchSlotsRequests() {
   yield takeEvery('FETCH_SLOTS_REQUEST', fetchSlots);
 }
 
-export function* bookSlot(slotId) {
-  const response = yield call(apiClients.bookSlot, slotId);
-  const notificationId = uniqueId();
-  yield put(actions.bookSlotSuccess(response, slotId, notificationId));
+export function* bookSlot({ slotId }) {
+  try {
+    const response = yield call(apiClients.bookSlot, slotId);
+    const notificationId = uniqueId();
+    yield put(actions.bookSlotSuccess(response, slotId, notificationId));
+  } catch(e) {
+    console.log(e);
+  }
 }
 
 export function* watchBookSlotRequests() {
@@ -27,5 +31,5 @@ export function* watchBookSlotRequests() {
 }
 
 export default function* rootSaga() {
-  yield [ watchFetchSlotsRequests() ];
+  yield [ watchFetchSlotsRequests(), watchBookSlotRequests() ];
 };

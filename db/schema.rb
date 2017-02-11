@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170129130433) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slot_id"], name: "index_bookings_on_slot_id", using: :btree
+    t.index ["slot_id"], name: "unique_slot_bookings", unique: true, using: :btree
   end
 
   create_table "slots", force: :cascade do |t|
