@@ -1,6 +1,7 @@
-import { put, call, takeEvery } from 'redux-saga/effects';
+import { put, call, takeEvery, select } from 'redux-saga/effects';
 import * as apiClients from '../apiClients';
 import * as actions from '../actions';
+import { selectedDateSelector } from '../reducers';
 import uniqueId from 'lodash.uniqueid';
 
 export function* fetchSlots({ date }) {
@@ -23,6 +24,8 @@ export function* bookSlot({ slotId }) {
     yield put(actions.bookSlotSuccess(response, slotId, notificationId));
   } catch(e) {
     yield put(actions.bookSlotFailure(e, slotId));
+    const selectedDate = yield select(selectedDateSelector);
+    yield put(actions.fetchSlotsRequest(selectedDate));
   }
 }
 

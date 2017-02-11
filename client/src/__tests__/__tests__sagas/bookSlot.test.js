@@ -1,9 +1,10 @@
-import { put, call, takeEvery } from 'redux-saga/effects';
+import { put, call, takeEvery, select } from 'redux-saga/effects';
 jest.mock('lodash.uniqueid', () => () => 9);
 
 import { bookSlot, watchBookSlotRequests } from '../../sagas';
 import * as apiClients from '../../apiClients';
 import * as actions from '../../actions';
+import { selectedDateSelector } from '../../reducers'
 
 it('watchBookSlotRequests watches Fetch slots requests', () => (
   expect(
@@ -19,7 +20,7 @@ it('bookSlot calls bookSlot api client', () => {
   );
 });
 
-it('bookSlot dispatches success action with ', () => {
+it('bookSlot dispatches success action', () => {
   const slotId = 1;
   const notificationId = 9;
   const gen = bookSlot({ slotId });
@@ -30,7 +31,18 @@ it('bookSlot dispatches success action with ', () => {
   );
 });
 
-it('bookSlot dispatches success action with ', () => {
+it('bookSlot ends without failure', () => {
+  const slotId = 1;
+  const gen = bookSlot({ slotId });
+  gen.next();
+  gen.next();
+  gen.next();
+  expect(gen.next()).toEqual(
+    { done: true, value: undefined }
+  );
+});
+
+it('bookSlot dispatches failure action', () => {
   const slotId = 1;
   const notificationId = 9;
   const gen = bookSlot({ slotId });
@@ -41,12 +53,38 @@ it('bookSlot dispatches success action with ', () => {
   );
 });
 
-it('bookSlot ends', () => {
+it('bookSlot selects the selectedDate from the store', () => {
+  const slotId = 1;
+  const gen = bookSlot({ slotId });
+  const apiResponse = { errors: ['Slot has already been taken'], status: 402, ok: false }
+  gen.next();
+  gen.throw({errors: []});
+  const selectedDate = 'date';
+  expect(gen.next().value).toEqual(
+    select(selectedDateSelector)
+  );
+});
+
+it('bookSlot dispatches fetchSlotsRequest action with the selected date', () => {
+  const slotId = 1;
+  const gen = bookSlot({ slotId });
+  const apiResponse = { errors: ['Slot has already been taken'], status: 402, ok: false }
+  gen.next();
+  gen.throw({errors: []});
+  gen.next();
+  const selectedDate = 'date';
+  expect(gen.next(selectedDate).value).toEqual(
+    put(actions.fetchSlotsRequest(selectedDate))
+  );
+});
+
+it('bookSlot ends after failure', () => {
   const slotId = 1;
   const gen = bookSlot({ slotId });
   gen.next();
+  gen.throw({errors: []});
   gen.next();
-  gen.next();
+  gen.next()
   expect(gen.next()).toEqual(
     { done: true, value: undefined }
   );
