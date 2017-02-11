@@ -1,7 +1,7 @@
 import { put, call, takeEvery, select } from 'redux-saga/effects';
 jest.mock('lodash.uniqueid', () => () => 9);
 
-import { bookSlot, watchBookSlotRequests } from '../../sagas';
+import { bookSlot, watchBookSlotRequests, removeAlert } from '../../sagas';
 import * as apiClients from '../../apiClients';
 import * as actions from '../../actions';
 import { selectedDateSelector } from '../../reducers'
@@ -28,6 +28,16 @@ it('bookSlot dispatches success action', () => {
   gen.next();
   expect(gen.next(apiResponse).value).toEqual(
     put(actions.bookSlotSuccess(apiResponse, slotId, notificationId))
+  );
+});
+
+it('bookSlot calls removeAlert saga', () => {
+  const slotId = 1;
+  const gen = bookSlot({ slotId });
+  gen.next();
+  gen.next();
+  expect(gen.next().value).toEqual(
+    call(removeAlert, 9)
   );
 });
 
@@ -78,13 +88,26 @@ it('bookSlot dispatches fetchSlotsRequest action with the selected date', () => 
   );
 });
 
+it('bookSlot calls removeAlert saga after failure', () => {
+  const slotId = 1;
+  const gen = bookSlot({ slotId });
+  gen.next();
+  gen.throw({errors: []});
+  gen.next();
+  gen.next();
+  expect(gen.next().value).toEqual(
+    call(removeAlert, 9)
+  );
+});
+
 it('bookSlot ends after failure', () => {
   const slotId = 1;
   const gen = bookSlot({ slotId });
   gen.next();
   gen.throw({errors: []});
   gen.next();
-  gen.next()
+  gen.next();
+  gen.next();
   expect(gen.next()).toEqual(
     { done: true, value: undefined }
   );
