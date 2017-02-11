@@ -1,6 +1,7 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 import * as apiClients from '../apiClients';
 import * as actions from '../actions';
+import uniqueId from 'lodash.uniqueid';
 
 export function* fetchSlots({ date }) {
   try {
@@ -16,7 +17,9 @@ export function* watchFetchSlotsRequests() {
 }
 
 export function* bookSlot(slotId) {
-  yield call(apiClients.bookSlot, slotId);
+  const response = yield call(apiClients.bookSlot, slotId);
+  const notificationId = uniqueId();
+  yield put(actions.bookSlotSuccess(response, slotId, notificationId));
 }
 
 export function* watchBookSlotRequests() {
