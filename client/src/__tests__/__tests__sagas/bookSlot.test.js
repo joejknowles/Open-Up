@@ -9,3 +9,11 @@ it('watchBookSlotRequests watches Fetch slots requests', () => (
     watchBookSlotRequests().next().value
   ).toEqual(takeEvery('BOOK_SLOT_REQUEST', bookSlot))
 ));
+
+it('bookSlot calls bookSlot api client', () => {
+  const slotId = 1;
+  const gen = bookSlot(slotId);
+  expect(gen.next().value).toEqual(
+    call(apiClients.bookSlot, slotId)
+  );
+});

@@ -16,7 +16,7 @@ export function* watchFetchSlotsRequests() {
 }
 
 export function* bookSlot(slotId) {
-  yield slotId;
+  yield call(apiClients.bookSlot, slotId);
 }
 
 export function* watchBookSlotRequests() {
