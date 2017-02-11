@@ -13,7 +13,8 @@ jest.mock('lodash.uniqueid', () => () => '1');
 import {
   bookSlot,
   bookSlotRequest,
-  bookSlotSuccess
+  bookSlotSuccess,
+  bookSlotFailure
 } from '../../actions';
 import { parseDate } from '../../helpers/dates';
 import sinon from 'sinon';
@@ -41,27 +42,24 @@ it('bookSlotSuccess creates action with response', () => {
   expect(bookSlotSuccess(response, slotId, notificationId)).toEqual(successAction)
 });
 
-////redux-thunk
-
-it('book slot calls dispatch with book slot failure action on failure', () => {
-  const mockedId = '1';
-  jest.mock('lodash.uniqueid', () => mockedId);
-  const spy = sinon.spy();
+it('bookSlotFailure creates action', () => {
+  const response = { errors: ['Slot has already been taken'], status: 402, ok: false }
+  const notificationId = 2;
   const failureAction = {
     type: 'BOOK_SLOT_FAILURE',
     response: {
-      errors: { [mockedId]: {
-        id: mockedId, type: 'ERROR',
+      errors: { [notificationId]: {
+        id: notificationId, type: 'ERROR',
         message: 'Slot has already been taken'
       } },
-      result: [ mockedId ]
+      result: [ notificationId ]
     }
   };
-  return bookSlot('bad slot id')(spy)()
-    .then((error) => {
-      expect(spy.getCall(2).args[0]).toEqual(failureAction)
-    });
+
+  expect(bookSlotFailure(response, notificationId)).toEqual(failureAction)
 });
+
+////redux-thunk
 
 it('book slot calls dispatch with fetch slots request action on failure', () => {
   const spy = sinon.spy();

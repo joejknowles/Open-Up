@@ -30,9 +30,21 @@ it('bookSlot dispatches success action with ', () => {
   );
 });
 
+it('bookSlot dispatches success action with ', () => {
+  const slotId = 1;
+  const notificationId = 9;
+  const gen = bookSlot({ slotId });
+  const apiResponse = { errors: ['Slot has already been taken'], status: 402, ok: false }
+  gen.next();
+  expect(gen.throw(apiResponse).value).toEqual(
+    put(actions.bookSlotFailure(apiResponse, slotId, notificationId))
+  );
+});
+
 it('bookSlot ends', () => {
   const slotId = 1;
   const gen = bookSlot({ slotId });
+  gen.next();
   gen.next();
   gen.next();
   expect(gen.next()).toEqual(

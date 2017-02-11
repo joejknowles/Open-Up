@@ -39,6 +39,22 @@ export const bookSlotSuccess = (response, slotId, notificationId) => {
   };
 };
 
+export const bookSlotFailure = (response, notificationId) => {
+  response = camelizeKeys(response);
+  const errors = {};
+  const result = [];
+  response.errors.forEach((message) => {
+    errors[notificationId] = { id: notificationId, message, type: "ERROR" };
+    result.push(notificationId);
+  });
+  return {
+    type: 'BOOK_SLOT_FAILURE',
+    response: {
+      errors, result
+    }
+  };
+};
+
 export const bookSlot = (slotId) => (dispatch) => () => {
   dispatch({type: 'BOOK_SLOT_REQUEST', slotId});
   return apiClients.bookSlot(slotId).then((response) => {
