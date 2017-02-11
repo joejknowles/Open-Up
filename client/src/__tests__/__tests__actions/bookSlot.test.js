@@ -28,15 +28,17 @@ it('bookSlotRequest creates action with slotId', () => (
 
 it('bookSlotSuccess creates action with response', () => {
   const response = { booking_id: 105, status: 200, ok: true };
+  const slotId = 1;
+  const notificationId = 2;
   const successAction = {
     type: 'BOOK_SLOT_SUCCESS',
     slotId,
     response: {
       bookingId: 105, status: 200, ok: true
-    }, notificationId: mockedId
-   }
+    }, notificationId: notificationId
+  };
 
-  expect(bookSlotSuccess(response)).toEqual(successAction)
+  expect(bookSlotSuccess(response, slotId, notificationId)).toEqual(successAction)
 });
 
 ////redux-thunk

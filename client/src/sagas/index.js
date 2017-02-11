@@ -15,6 +15,14 @@ export function* watchFetchSlotsRequests() {
   yield takeEvery('FETCH_SLOTS_REQUEST', fetchSlots);
 }
 
+export function* bookSlot(slotId) {
+  yield slotId;
+}
+
+export function* watchBookSlotRequests() {
+  yield takeEvery('BOOK_SLOT_REQUEST', bookSlot);
+}
+
 export default function* rootSaga() {
   yield [ watchFetchSlotsRequests() ];
 };
