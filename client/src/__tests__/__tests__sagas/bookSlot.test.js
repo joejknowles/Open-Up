@@ -49,7 +49,7 @@ it('bookSlot dispatches failure action', () => {
   const apiResponse = { errors: ['Slot has already been taken'], status: 402, ok: false }
   gen.next();
   expect(gen.throw(apiResponse).value).toEqual(
-    put(actions.bookSlotFailure(apiResponse, slotId, notificationId))
+    put(actions.bookSlotFailure(apiResponse, notificationId))
   );
 });
 

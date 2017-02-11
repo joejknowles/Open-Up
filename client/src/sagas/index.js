@@ -23,7 +23,8 @@ export function* bookSlot({ slotId }) {
     const notificationId = uniqueId();
     yield put(actions.bookSlotSuccess(response, slotId, notificationId));
   } catch(e) {
-    yield put(actions.bookSlotFailure(e, slotId));
+    const notificationId = uniqueId();
+    yield put(actions.bookSlotFailure(e, notificationId));
     const selectedDate = yield select(selectedDateSelector);
     yield put(actions.fetchSlotsRequest(selectedDate));
   }
