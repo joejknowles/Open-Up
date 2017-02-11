@@ -1,14 +1,13 @@
 import topReducer from './reducers';
 import { createStore, applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
-import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import { parseDate } from './helpers/dates';
 import rootSaga from './sagas';
 
 export default () => {
   const reduxSagaMiddleware = createSagaMiddleware();
-  const middleware = [ thunk, reduxSagaMiddleware ];
+  const middleware = [ reduxSagaMiddleware ];
   if (process.env.NODE_ENV !== 'production') {
     middleware.push(createLogger());
   }
