@@ -37,10 +37,10 @@ export const bookSlotSuccess = (response, slotId, notificationId) => {
 };
 
 export const bookSlotFailure = (response, alertId) => {
-  response = camelizeKeys(response);
+  const camelizedResponse = camelizeKeys(response);
   const errors = {};
   const result = [];
-  response.errors.forEach((message) => {
+  camelizedResponse.errors.forEach((message) => {
     errors[alertId] = { id: alertId, message, type: "ERROR" };
     result.push(alertId);
   });
