@@ -3,18 +3,18 @@ require_relative '../../config/urls.rb'
 
 feature 'Day Booking page', js: true do
   scenario "should say today" do
-    visit Urls::SLOTS
+    visit Urls::book
     expect(page).to have_content 'Today'
   end
 
   scenario "should say today's date" do
-    visit Urls::SLOTS
+    visit Urls::book
     expect(page).to have_content date_today
   end
 
   context "no slots" do
     scenario "display message: No slots available"  do
-      visit Urls::SLOTS
+      visit Urls::book
       expect(page).to have_content 'No slots available'
     end
   end
@@ -28,17 +28,17 @@ feature 'Day Booking page', js: true do
     end
 
     scenario "display one button with single digit hour" do
-      visit Urls::SLOTS
+      visit Urls::book
       expect(page).to have_content("book #{format_time start_time} to #{format_time end_time}")
     end
 
     scenario "display one button with double digit hour time" do
-      visit Urls::SLOTS
+      visit Urls::book
       expect(page).to have_content("book #{format_time start_time} to #{format_time end_time}")
     end
 
     scenario "books slot when clicked" do
-      visit Urls::SLOTS
+      visit Urls::book
       find('.BookButton').click
       expect(page).to have_content("unavailable #{format_time start_time} to #{format_time end_time}")
     end
@@ -50,7 +50,7 @@ feature 'Day Booking page', js: true do
       end_time = 1.hour.from_now
       slot = Slot.create(start_time: start_time, end_time: end_time)
       Booking.create(slot: slot)
-      visit Urls::SLOTS
+      visit Urls::book
       expect(page).to have_content("unavailable #{format_time start_time} to #{format_time end_time}")
     end
   end

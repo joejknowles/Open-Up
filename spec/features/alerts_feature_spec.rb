@@ -8,7 +8,7 @@ feature 'Day Booking page alerts', js: true do
 
     before do
       slot = Slot.create(start_time: start_time, end_time: end_time)
-      visit Urls::SLOTS
+      visit Urls::book
       Booking.create(slot: slot)
       find('.BookButton').click
     end
@@ -30,7 +30,7 @@ feature 'Day Booking page alerts', js: true do
   context 'successful booking' do
     scenario 'displays booked notification' do
       slot = Slot.create(start_time: DateTime.now, end_time: 1.hour.from_now)
-      visit Urls::SLOTS
+      visit Urls::book
       find('.BookButton').click
       expect(page).to have_content 'booked'
     end

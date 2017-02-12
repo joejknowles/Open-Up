@@ -3,20 +3,20 @@ require_relative '../../config/urls.rb'
 
 feature 'booking by day', js: true do
   scenario 'can navigate to tomorrow' do
-    visit Urls::SLOTS
+    visit Urls::book
     page.find('.next-day').click
     expect(page).to have_content 'Tomorrow'
   end
 
   scenario 'no previous day button when on today' do
-    visit Urls::SLOTS
+    visit Urls::book
     expect(page).not_to have_css '.prev-day'
   end
 
   context "when there are slots tomorrow but none today" do
     before do
       slot = Slot.create(start_time: 1.day.from_now, end_time: 1.day.from_now + 1.hour)
-      visit Urls::SLOTS
+      visit Urls::book
     end
 
     scenario 'shows no slots available today' do
@@ -32,7 +32,7 @@ feature 'booking by day', js: true do
   context "when there are slots today but none tomorrow" do
     before do
       slot = Slot.create(start_time: DateTime.now, end_time: DateTime.now + 1.hour)
-      visit Urls::SLOTS
+      visit Urls::book
     end
 
     scenario 'shows slot available today' do
