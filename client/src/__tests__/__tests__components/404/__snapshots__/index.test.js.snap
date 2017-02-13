@@ -1,6 +1,14 @@
 exports[`test renders 404 page as before 1`] = `
-<h3
+<div
   className="App">
-  Page not found
-</h3>
+  <h3>
+    Page not found
+  </h3>
+  <Link
+    onlyActiveOnIndex={false}
+    style={Object {}}
+    to="venue">
+    Home
+  </Link>
+</div>
 `;

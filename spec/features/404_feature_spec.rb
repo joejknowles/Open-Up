@@ -9,7 +9,7 @@ feature '404 page', js: true do
 
     scenario "links to existing page" do
       visit '/notRealUrl'
-      click_link ''
-      expect(page).to have_content 'venue'
+      click_link 'Home'
+      expect(page).to have_content /Venue/i
     end
 end
