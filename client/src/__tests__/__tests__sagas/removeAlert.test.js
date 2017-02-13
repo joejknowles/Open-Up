@@ -7,7 +7,7 @@ it('removeAlert calls delay', () => {
   const alertId = 1;
   const gen = removeAlert(alertId);
   expect(gen.next().value).toEqual(
-    call(delay, 2000)
+    call(delay, 4000)
   )
 });
 

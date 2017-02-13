@@ -36,7 +36,7 @@ export function* bookSlot({ slotId }) {
 }
 
 export function* removeAlert(alertId) {
-  yield call(delay, 2000);
+  yield call(delay, 4000);
   yield put(alertActions.removeAlert(alertId));
 }
 
