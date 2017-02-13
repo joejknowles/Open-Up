@@ -1,0 +1,6 @@
+exports[`test renders 404 page as before 1`] = `
+<h3
+  className="App">
+  Page not found
+</h3>
+`;

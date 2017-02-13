@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import Venue from './components/venue';
 import DayBooking from './components/dayBooking';
+import NotFound from './components/404';
 import { Router, Route, browserHistory } from 'react-router';
 import configureStore from './configureStore';
 import './index.css';
@@ -17,6 +18,7 @@ ReactDOM.render(
           <Route path="venue" component={ Venue } />
           <Route path="venue/book" component={ DayBooking } />
         </Route>
+        <Route path="*" component={ NotFound } />
       </Router>
     </Provider>
   ),
