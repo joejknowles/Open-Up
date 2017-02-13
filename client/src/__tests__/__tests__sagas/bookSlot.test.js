@@ -5,6 +5,7 @@ import { bookSlot, watchBookSlotRequests, removeAlert } from '../../sagas';
 import * as apiClients from '../../apiClients';
 import * as actions from '../../actions';
 import { selectedDateSelector } from '../../reducers'
+import { browserHistory } from 'react-router';
 
 it('watchBookSlotRequests watches Fetch slots requests', () => (
   expect(
@@ -31,9 +32,21 @@ it('bookSlot dispatches success action', () => {
   );
 });
 
+it('bookSlot returns to venue after booking', () => {
+  const slotId = 1;
+  const alertId = 9;
+  const gen = bookSlot({ slotId });
+  gen.next();
+  gen.next()
+  expect(gen.next().value).toEqual(
+    call(browserHistory.push, '/venue')
+  );
+});
+
 it('bookSlot calls removeAlert saga', () => {
   const slotId = 1;
   const gen = bookSlot({ slotId });
+  gen.next();
   gen.next();
   gen.next();
   expect(gen.next().value).toEqual(
@@ -44,6 +57,7 @@ it('bookSlot calls removeAlert saga', () => {
 it('bookSlot ends without failure', () => {
   const slotId = 1;
   const gen = bookSlot({ slotId });
+  gen.next();
   gen.next();
   gen.next();
   gen.next();
