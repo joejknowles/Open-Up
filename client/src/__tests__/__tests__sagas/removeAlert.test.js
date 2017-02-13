@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
-import { removeAlert } from '../../sagas';
+import { removeAlert } from '../../sagas/bookSlot';
 import * as actions from '../../actions/alerts';
 
 it('removeAlert calls delay', () => {

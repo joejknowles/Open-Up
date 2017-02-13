@@ -1,17 +1,11 @@
 import { put, call, takeEvery, select } from 'redux-saga/effects';
 jest.mock('lodash.uniqueid', () => () => 9);
 
-import { bookSlot, watchBookSlotRequests, removeAlert } from '../../sagas';
+import { bookSlot, removeAlert } from '../../sagas/bookSlot';
 import * as apiClients from '../../apiClients';
 import * as actions from '../../actions';
 import { selectedDateSelector } from '../../reducers'
 import { browserHistory } from 'react-router';
-
-it('watchBookSlotRequests watches Fetch slots requests', () => (
-  expect(
-    watchBookSlotRequests().next().value
-  ).toEqual(takeEvery('BOOK_SLOT_REQUEST', bookSlot))
-));
 
 it('bookSlot calls bookSlot api client', () => {
   const slotId = 1;

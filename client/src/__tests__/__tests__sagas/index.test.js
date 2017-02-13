@@ -1,8 +1,15 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 
-import { fetchSlots, watchFetchSlotsRequests } from '../../sagas';
+import { fetchSlots, watchFetchSlotsRequests, watchBookSlotRequests } from '../../sagas';
+import { bookSlot } from '../../sagas/bookSlot';
 import * as apiClients from '../../apiClients';
 import * as actions from '../../actions';
+
+it('watchBookSlotRequests watches book slot requests', () => (
+  expect(
+    watchBookSlotRequests().next().value
+  ).toEqual(takeEvery('BOOK_SLOT_REQUEST', bookSlot))
+));
 
 it('watchFetchSlotsRequest watches Fetch slots requests', () => (
   expect(
