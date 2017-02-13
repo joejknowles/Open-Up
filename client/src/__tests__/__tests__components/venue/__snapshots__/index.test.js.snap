@@ -1,0 +1,14 @@
+exports[`test renders Venue as before 1`] = `
+<div>
+  <h3>
+    Venue
+  </h3>
+  <Link
+    className="bookLink"
+    onlyActiveOnIndex={false}
+    style={Object {}}
+    to="venue/book">
+    book here
+  </Link>
+</div>
+`;
