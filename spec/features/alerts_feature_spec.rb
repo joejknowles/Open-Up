@@ -1,7 +1,7 @@
 require 'rails_helper'
 require_relative '../../config/urls.rb'
 
-feature 'Day Booking page alerts', js: true do
+feature 'Alerts on Day Booking page', js: true do
   context 'When double Booking' do
     let(:start_time) { DateTime.now }
     let(:end_time) { 1.hour.from_now }
@@ -23,6 +23,7 @@ feature 'Day Booking page alerts', js: true do
     end
 
     scenario "should update slots" do
+      visit Urls::book
       expect(page).to have_content 'unavailable'
     end
   end

@@ -40,7 +40,14 @@ feature 'Day Booking page', js: true do
     scenario "books slot when clicked" do
       visit Urls::book
       find('.BookButton').click
+      visit Urls::book
       expect(page).to have_content("unavailable #{format_time start_time} to #{format_time end_time}")
+    end
+
+    scenario "returns to venue after booking" do
+      visit Urls::book
+      find('.BookButton').click
+      expect(page).to have_content(/venue/i)
     end
   end
 
