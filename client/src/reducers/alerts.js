@@ -14,7 +14,7 @@ export default (state = [], action) => {
     case 'REMOVE_ALERT':
       return [ ...state ].filter((id) => id !== action.id);
     case 'BOOK_SLOT_SUCCESS':
-      return [ ...state, action.notificationId ];
+      return [ ...state, action.alertId ];
     default:
       return state;
   }
@@ -29,13 +29,13 @@ export const alertsById = (state = {}, action) => {
   }
   if (action.type === 'BOOK_SLOT_SUCCESS') {
     const newNotification = {
-      id: action.notificationId,
+      id: action.alertId,
       message: 'booked!',
       type: 'SUCCESS'
     };
     return {
       ...state,
-      [action.notificationId]: newNotification
+      [action.alertId]: newNotification
     }
   }
   return state;

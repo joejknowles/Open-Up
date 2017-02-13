@@ -17,7 +17,7 @@ it('removes alert when removeAlert error is dispatched', () => (
 
 it('alerts adds alert when BOOK_SLOT_SUCCESS action called', () => (
   expect(alerts([],
-    { type: 'BOOK_SLOT_SUCCESS', notificationId: '1' }
+    { type: 'BOOK_SLOT_SUCCESS', alertId: '1' }
   )).toEqual(['1'])
 ));
 

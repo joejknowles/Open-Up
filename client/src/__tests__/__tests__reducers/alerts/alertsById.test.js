@@ -31,7 +31,7 @@ it('alertsById adds errors when FETCH_SLOTS_FAILURE action called', () => (
 
 it('alertsById adds notification when BOOK_SLOT_SUCCESS action called', () => (
   expect(alertsById({},
-    { type: 'BOOK_SLOT_SUCCESS', notificationId: '1' }
+    { type: 'BOOK_SLOT_SUCCESS', alertId: '1' }
   )).toEqual({ '1':
     { id: '1', message: 'booked!', type: 'SUCCESS' }
   })

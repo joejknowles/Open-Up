@@ -22,12 +22,12 @@ it('bookSlot calls bookSlot api client', () => {
 
 it('bookSlot dispatches success action', () => {
   const slotId = 1;
-  const notificationId = 9;
+  const alertId = 9;
   const gen = bookSlot({ slotId });
   const apiResponse = { booking_id: 105, status: 200, ok: true }
   gen.next();
   expect(gen.next(apiResponse).value).toEqual(
-    put(actions.bookSlotSuccess(apiResponse, slotId, notificationId))
+    put(actions.bookSlotSuccess(apiResponse, slotId, alertId))
   );
 });
 
@@ -54,12 +54,12 @@ it('bookSlot ends without failure', () => {
 
 it('bookSlot dispatches failure action', () => {
   const slotId = 1;
-  const notificationId = 9;
+  const alertId = 9;
   const gen = bookSlot({ slotId });
   const apiResponse = { errors: ['Slot has already been taken'], status: 402, ok: false }
   gen.next();
   expect(gen.throw(apiResponse).value).toEqual(
-    put(actions.bookSlotFailure(apiResponse, notificationId))
+    put(actions.bookSlotFailure(apiResponse, alertId))
   );
 });
 

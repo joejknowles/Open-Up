@@ -27,11 +27,11 @@ export const bookSlotRequest = (slotId) => ({
   type: 'BOOK_SLOT_REQUEST', slotId
 });
 
-export const bookSlotSuccess = (response, slotId, notificationId) => {
+export const bookSlotSuccess = (response, slotId, alertId) => {
   response = camelizeKeys(response);
   return {
     type: 'BOOK_SLOT_SUCCESS',
-    slotId, notificationId,
+    slotId, alertId,
     response
   };
 };
