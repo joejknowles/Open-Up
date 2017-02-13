@@ -7,7 +7,7 @@ exports[`test renders Venue as before 1`] = `
     className="bookLink"
     onlyActiveOnIndex={false}
     style={Object {}}
-    to="venue/book">
+    to="/venue/book">
     book here
   </Link>
 </div>

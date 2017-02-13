@@ -6,6 +6,6 @@ export default () => (
     <h3>
       Venue
     </h3>
-    <Link to="venue/book" className="bookLink">book here</Link>
+    <Link to="/venue/book" className="bookLink">book here</Link>
   </div>
 );
