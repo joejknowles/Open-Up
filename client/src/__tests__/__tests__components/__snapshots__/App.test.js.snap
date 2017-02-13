@@ -5,29 +5,5 @@ exports[`test renders as before 1`] = `
     className="Alerts">
     <span />
   </div>
-  <div>
-    <div
-      className="Heading">
-      <a
-        className="prev-day"
-        onClick={[Function]}>
-        Previous Day
-      </a>
-      <h3>
-        Sunday 5/2/2017
-      </h3>
-      <a
-        className="next-day"
-        onClick={[Function]}>
-        Next Day
-      </a>
-    </div>
-    <span>
-      <p
-        className="message">
-        No slots available
-      </p>
-    </span>
-  </div>
 </div>
 `;
