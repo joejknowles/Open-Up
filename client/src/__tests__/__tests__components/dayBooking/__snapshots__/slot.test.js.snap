@@ -30,3 +30,16 @@ exports[`test renders UnavailableSlot as before 1`] = `
   </span>
 </div>
 `;
+
+exports[`test renders unavailable Slot as pending like before 1`] = `
+<div
+  className="unavailableSlot slot-content">
+  <span
+    className="message">
+    unavailable 
+    Invalid Date
+     to 
+    Invalid Date
+  </span>
+</div>
+`;

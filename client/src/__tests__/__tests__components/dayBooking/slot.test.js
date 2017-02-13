@@ -45,3 +45,10 @@ it("UnavailableSlot renders unavailable message", () => {
   const component = shallow(<UnavailableSlot { ...times } />);
   expect(component.find('span').text()).toBe('unavailable 13:00 to 14:00');
 });
+
+it('renders unavailable Slot as pending like before', () => {
+  const tree = shallowRenderer.render(
+    <UnavailableSlot booking="pending" />
+  );
+  expect(tree).toMatchSnapshot();
+});
