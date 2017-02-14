@@ -5,7 +5,7 @@ import { bookSlot, removeAlert } from '../../sagas/bookSlot';
 import * as apiClients from '../../apiClients';
 import * as actions from '../../actions';
 import { selectedDateSelector } from '../../reducers'
-import { browserHistory } from 'react-router';
+import { exitBooking } from '../../helpers/routing';
 
 it('bookSlot calls bookSlot api client', () => {
   const slotId = 1;
@@ -33,7 +33,7 @@ it('bookSlot returns to venue after booking', () => {
   gen.next();
   gen.next()
   expect(gen.next().value).toEqual(
-    call(browserHistory.push, '/venue')
+    call(exitBooking)
   );
 });
 

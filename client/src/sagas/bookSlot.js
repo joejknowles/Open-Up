@@ -3,7 +3,7 @@ import { delay } from 'redux-saga';
 
 import { selectedDateSelector } from '../reducers';
 import uniqueId from 'lodash.uniqueid';
-import { browserHistory } from 'react-router';
+import { exitBooking } from '../helpers/routing';
 
 import * as apiClients from '../apiClients';
 import * as actions from '../actions';
@@ -14,7 +14,7 @@ export function* bookSlot({ slotId }) {
   try {
     const response = yield call(apiClients.bookSlot, slotId);
     yield put(actions.bookSlotSuccess(response, slotId, alertId));
-    yield call(browserHistory.push, '/venue');
+    yield call(exitBooking);
   } catch(e) {
     yield put(actions.bookSlotFailure(e, alertId));
     const selectedDate = yield select(selectedDateSelector);
