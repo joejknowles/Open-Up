@@ -47,7 +47,7 @@ feature 'Day Booking page', js: true do
     scenario "returns to venue after booking" do
       visit Urls::book
       find('.BookButton').click
-      expect(page).to have_content(/venue/i)
+      expect(page).to have_current_path(Urls::venue, only_path: true)
     end
   end
 

@@ -1,9 +1,9 @@
 module Urls
-  def self.book venuName = 'venue'
-    "#{ venue(venuName) }/book"
+  def self.book venueName = nil
+    "#{ venue(venueName) }/book"
   end
 
-  def self.venue name
-    "/#{name}"
+  def self.venue name = nil
+    "/#{name || 'venue'}"
   end
 end

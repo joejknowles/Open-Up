@@ -8,7 +8,7 @@ import {
   dateChangeDirectionSelector } from '../../reducers';
 import { getNextDay } from '../../helpers/dates'
 
-import LoadingBlocker from '../loadingBlocker';
+import LoadingBlocker from '../common/loadingBlocker';
 import Heading from './heading';
 import List from './list';
 import isSameDay from 'date-fns/is_same_day';

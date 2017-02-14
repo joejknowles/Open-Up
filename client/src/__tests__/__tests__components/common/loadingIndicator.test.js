@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LoadingIndicator from '../../components/loadingIndicator';
+import LoadingIndicator from '../../../components/common/loadingIndicator';
 import renderer from 'react-test-renderer';
 
 it('Loading indicator renders the same as before', () => {

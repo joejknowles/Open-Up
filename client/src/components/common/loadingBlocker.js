@@ -2,7 +2,7 @@ import React from 'react';
 import LoadingIndicator from './loadingIndicator';
 import { connect } from 'react-redux';
 
-import { shouldBlockSelector } from '../reducers';
+import { shouldBlockSelector } from '../../reducers';
 
 export const LoadingBlocker = ({ block, children }) => (
   block ? <LoadingIndicator /> : children

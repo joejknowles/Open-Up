@@ -1,7 +1,7 @@
-import { LoadingBlocker } from '../../components/loadingBlocker';
+import { LoadingBlocker } from '../../../components/common/loadingBlocker';
 
 import React from 'react';
-import LoadingIndicator from '../../components/loadingIndicator';
+import LoadingIndicator from '../../../components/common/loadingIndicator';
 import { shallow } from 'enzyme';
 
 import ReactTestUtils from 'react-addons-test-utils';
