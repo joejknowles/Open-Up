@@ -1,3 +1,9 @@
 import React from 'react';
 
-export default () => (<div></div>);
+export default ({ children }) => (
+  <div className="modal">
+    <div className="modal-box">
+      { children }
+    </div>
+  </div>
+);
