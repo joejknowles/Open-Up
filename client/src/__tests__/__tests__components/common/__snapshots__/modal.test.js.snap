@@ -1,8 +1,10 @@
 exports[`test renders as before 1`] = `
 <div
-  className="modal">
+  className="modal"
+  onClick={[Function]}>
   <div
-    className="modal-box">
+    className="modal-box"
+    onClick={[Function]}>
     modal children
   </div>
 </div>
