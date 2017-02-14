@@ -1,0 +1,22 @@
+.Venue {
+  width: 40%;
+  margin: auto;
+  position: relative;
+}
+
+.venue-heading {
+  text-decoration: underline;
+}
+
+.bookLink {
+  position: absolute;
+  right: 0;
+  border-style: solid;
+  border-width: thin;
+  color: black;
+  text-decoration: none;
+  padding: 0.2em;
+  -webkit-box-shadow: 6px 6px 20px -8px rgba(0,0,0,0.75);
+  -moz-box-shadow: 6px 6px 20px -8px rgba(0,0,0,0.75);
+  box-shadow: 6px 6px 20px -8px rgba(0,0,0,0.75);
+}

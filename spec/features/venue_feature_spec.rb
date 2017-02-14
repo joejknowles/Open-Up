@@ -9,7 +9,7 @@ feature 'venue page', js: true do
 
     scenario "can got to book a slot" do
       visit Urls::venue('venue')
-      click_link 'book here'
+      find('.bookLink').click
       expect(page).to have_content 'No slots available'
     end
 end

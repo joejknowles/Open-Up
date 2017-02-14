@@ -1,14 +1,25 @@
 exports[`test renders Venue as before 1`] = `
-<div>
-  <h3>
-    Venue
-  </h3>
+<div
+  className="Venue">
   <Link
     className="bookLink"
     onlyActiveOnIndex={false}
     style={Object {}}
     to="/venue/book">
-    book here
+    BOOK HERE
   </Link>
+  <h3
+    className="venue-heading">
+    Venue 1
+  </h3>
+  <Unknown
+    className="venue-image" />
+  <p
+    className="venue-info">
+    <em>
+      Info:
+    </em>
+     This is general information about the venue.
+  </p>
 </div>
 `;
