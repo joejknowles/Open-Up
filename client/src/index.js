@@ -15,8 +15,9 @@ ReactDOM.render(
     <Provider store={ configureStore() } >
       <Router history={ browserHistory }>
         <Route path="/" component={ App } >
-          <Route path="venue" component={ Venue } />
-          <Route path="venue/book" component={ DayBooking } />
+          <Route path="venue" component={ Venue } >
+            <Route path="book" component={ DayBooking } />
+          </Route>
         </Route>
         <Route path="*" component={ NotFound } />
       </Router>

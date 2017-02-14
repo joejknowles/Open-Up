@@ -20,12 +20,12 @@ feature 'booking by day', js: true do
     end
 
     scenario 'shows no slots available today' do
-      expect(page).not_to have_content 'book'
+      expect(page).to have_content /no slots/i
     end
 
     scenario 'shows slot after navigating to tomorrow' do
       page.find('.next-day').click
-      expect(page).to have_content 'book'
+      expect(page).not_to have_content /no slots/i
     end
   end
 
@@ -36,12 +36,12 @@ feature 'booking by day', js: true do
     end
 
     scenario 'shows slot available today' do
-      expect(page).to have_content 'book'
+      expect(page).not_to have_content /no slots/i
     end
 
     scenario 'shows no slots after navigating to tomorrow' do
       page.find('.next-day').click
-      expect(page).not_to have_content 'book'
+      expect(page).to have_content /no slots/i
     end
 
     scenario 'shows slot again after navigating to back to today' do

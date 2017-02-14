@@ -11,6 +11,7 @@ import { getNextDay } from '../../helpers/dates'
 import LoadingBlocker from '../common/loadingBlocker';
 import Heading from './heading';
 import List from './list';
+import Modal from '../common/modal';
 import isSameDay from 'date-fns/is_same_day';
 import ReactCSSTransitionsGroup from 'react-addons-css-transition-group';
 
@@ -31,7 +32,7 @@ export class DayBooking extends Component {
   render() {
     const { direction, date } = this.props;
     return (
-      <div>
+      <Modal>
         <Heading />
         <LoadingBlocker>
           <ReactCSSTransitionsGroup
@@ -42,7 +43,7 @@ export class DayBooking extends Component {
             <List key={ date } date={ date } />
           </ReactCSSTransitionsGroup>
         </LoadingBlocker>
-      </div>
+      </Modal>
     );
   }
 }
