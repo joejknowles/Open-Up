@@ -3,7 +3,7 @@ import { delay } from 'redux-saga';
 
 import { selectedDateSelector } from '../reducers';
 import uniqueId from 'lodash.uniqueid';
-import { exitBooking } from '../helpers/routing';
+import { returnToVenue } from '../helpers/routing';
 
 import * as apiClients from '../apiClients';
 import * as actions from '../actions';
@@ -21,6 +21,12 @@ export function* bookSlot({ slotId }) {
     yield put(actions.fetchSlotsRequest(selectedDate));
   }
   yield call(removeAlert, alertId);
+}
+
+export function* exitBooking() {
+  yield call(returnToVenue);
+  const today = yield call(Date.now);
+  yield put({type: 'SET_DATE', date: today})
 }
 
 export function* removeAlert(alertId) {

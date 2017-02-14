@@ -3,7 +3,7 @@ import isLoading from './isLoading';
 import bookings from './bookings';
 import dateChangeDirection from './dateChangeDirection';
 import alerts, { alertsById } from './alerts';
-import { getNextDay, getPrevDay } from '../helpers/dates';
+import { getNextDay, getPrevDay, dateString } from '../helpers/dates';
 import { slotsById, slotsByDate } from './slots';
 
 export const selectedDate = (state = '', action) => {
@@ -12,6 +12,8 @@ export const selectedDate = (state = '', action) => {
       return getNextDay(state);
     case 'PREV_DAY':
       return getPrevDay(state);
+    case 'SET_DATE':
+      return dateString(action.date);
     default:
       return state;
   }

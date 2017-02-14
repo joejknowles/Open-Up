@@ -13,10 +13,18 @@ it('selectedDate returns date of next day on NEXT_DAY', () => {
   expect(actual).toEqual(expectedDate);
 });
 
-it('selectedDate returns date of next day on NEXT_DAY', () => {
+it('selectedDate returns date of previous day on PREV_DAY', () => {
   const startingDate = '2017-02-02';
   const action = { type: 'PREV_DAY' };
   const expectedDate = '2017-02-01';
+  const actual = selectedDate(startingDate, action);
+  expect(actual).toEqual(expectedDate);
+});
+
+it('selectedDate returns date on SET_DATE', () => {
+  const startingDate = '2017-02-02';
+  const action = { type: 'SET_DATE', date: new Date(2017, 1, 19) };
+  const expectedDate = '2017-02-19';
   const actual = selectedDate(startingDate, action);
   expect(actual).toEqual(expectedDate);
 });

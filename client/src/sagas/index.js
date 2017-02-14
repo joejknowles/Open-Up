@@ -1,6 +1,6 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 
-import { bookSlot } from './bookSlot'
+import { bookSlot, exitBooking } from './bookSlot'
 import * as apiClients from '../apiClients';
 import * as actions from '../actions';
 
@@ -21,6 +21,14 @@ export function* watchBookSlotRequests() {
   yield takeEvery('BOOK_SLOT_REQUEST', bookSlot);
 }
 
+export function* watchCloseModal() {
+  yield takeEvery('CLOSE_MODAL', exitBooking);
+}
+
 export default function* rootSaga() {
-  yield [ watchFetchSlotsRequests(), watchBookSlotRequests() ];
+  yield [
+    watchFetchSlotsRequests(),
+    watchBookSlotRequests(),
+    watchCloseModal()
+  ];
 };

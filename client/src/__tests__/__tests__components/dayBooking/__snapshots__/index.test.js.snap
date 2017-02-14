@@ -1,5 +1,5 @@
 exports[`test matches snapshot 1`] = `
-<Unknown>
+<Connect(Component)>
   <Connect(Component) />
   <Connect(Component)>
     <ReactCSSTransitionGroup
@@ -12,5 +12,5 @@ exports[`test matches snapshot 1`] = `
         date={undefined} />
     </ReactCSSTransitionGroup>
   </Connect(Component)>
-</Unknown>
+</Connect(Component)>
 `;

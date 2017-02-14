@@ -27,7 +27,7 @@ export const getTitleDay = (date) => (
       getWeekday(date))
 );
 
-const dateString = (date) => format(date, 'YYYY-MM-DD');
+export const dateString = (date) => format(date, 'YYYY-MM-DD');
 
 export const getNextDay = (date) => dateString(addDays(date, 1));
 

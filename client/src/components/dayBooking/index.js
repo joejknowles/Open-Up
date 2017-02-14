@@ -17,6 +17,7 @@ import ReactCSSTransitionsGroup from 'react-addons-css-transition-group';
 
 export class DayBooking extends Component {
   componentDidMount() {
+    this.props.setDate();
     this.props.fetchSlots();
     this.props.fetchNextSlots();
   }
@@ -55,13 +56,15 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchSlots: (date) => () => dispatch(actions.fetchSlotsRequest(date))
+  fetchSlots: (date) => () => dispatch(actions.fetchSlotsRequest(date)),
+  setDate: () => dispatch({ type: 'SET_DATE', date: new Date() })
 });
 
 const mergeProps = ({ date, isDateCached, direction }, dispatchProps) => ({
   fetchSlots: dispatchProps.fetchSlots(date),
   fetchNextSlots: dispatchProps.fetchSlots(getNextDay(date)),
-  date, isDateCached, direction
+  date, isDateCached, direction,
+  setDate: dispatchProps.setDate
 });
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(DayBooking);

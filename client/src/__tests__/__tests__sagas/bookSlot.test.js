@@ -1,11 +1,11 @@
 import { put, call, takeEvery, select } from 'redux-saga/effects';
 jest.mock('lodash.uniqueid', () => () => 9);
 
-import { bookSlot, removeAlert } from '../../sagas/bookSlot';
+import { bookSlot, removeAlert, exitBooking } from '../../sagas/bookSlot';
 import * as apiClients from '../../apiClients';
 import * as actions from '../../actions';
 import { selectedDateSelector } from '../../reducers'
-import { exitBooking } from '../../helpers/routing';
+import { returnToVenue } from '../../helpers/routing';
 
 it('bookSlot calls bookSlot api client', () => {
   const slotId = 1;
@@ -118,5 +118,22 @@ it('bookSlot ends after failure', () => {
   gen.next();
   expect(gen.next()).toEqual(
     { done: true, value: undefined }
+  );
+});
+
+
+it('exit booking returns to venue', () => (
+  expect(exitBooking().next().value).toEqual(
+    call(returnToVenue)
+  )
+));
+
+it('exit booking resets date', () => {
+  const today = new Date();
+  const gen = exitBooking();
+  gen.next();
+  gen.next();
+  expect(gen.next(today).value).toEqual(
+    put({type: 'SET_DATE', date: today})
   );
 });

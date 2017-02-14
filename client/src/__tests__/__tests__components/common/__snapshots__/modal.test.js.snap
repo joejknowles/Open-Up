@@ -1,7 +1,7 @@
 exports[`test renders as before 1`] = `
 <div
   className="modal"
-  onClick={[Function]}>
+  onClick={undefined}>
   <div
     className="modal-box"
     onClick={[Function]}>

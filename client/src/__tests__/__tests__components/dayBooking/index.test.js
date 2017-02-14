@@ -16,7 +16,8 @@ it('matches snapshot', () => {
 it('fetches slots on didMount', () => {
   const dispatches = {
     fetchSlots: jest.fn(),
-    fetchNextSlots: jest.fn()
+    fetchNextSlots: jest.fn(),
+    setDate: jest.fn()
   }
   const wrapper = shallow(
     <DayBooking
@@ -30,7 +31,8 @@ it('fetches slots on didMount', () => {
 it('fetches slots on didUpdate when date changes', () => {
   const dispatches = {
     fetchSlots: jest.fn(),
-    fetchNextSlots: jest.fn()
+    fetchNextSlots: jest.fn(),
+    setDate: jest.fn()
   }
   const wrapper = shallow(
     <DayBooking { ...dispatches } date={ new Date(1)} />,
@@ -43,7 +45,8 @@ it('fetches slots on didUpdate when date changes', () => {
 it("doesn't fetch slots on didUpdate when date doesn't change", () => {
   const dispatches = {
     fetchSlots: jest.fn(),
-    fetchNextSlots: jest.fn()
+    fetchNextSlots: jest.fn(),
+    setDate: jest.fn()
   }
   const wrapper = shallow(
     <DayBooking { ...dispatches } date={ new Date(10000000000)} test={ 'right test '} />,
