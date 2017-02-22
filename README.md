@@ -7,6 +7,7 @@
 
 # Open-Up
 Booking platform
+Master branch hosted on heroku: [here](http://open-up.herokuapp.com/)
 
 #Running
 
