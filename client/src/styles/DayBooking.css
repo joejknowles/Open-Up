@@ -5,6 +5,7 @@
 }
 
 .prev-day, .next-day {
+  cursor: pointer;
   position: absolute;
   top: 0;
 }
