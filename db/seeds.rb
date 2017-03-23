@@ -14,7 +14,7 @@ def add_default_slots day
   end
 end
 if Slot.all.empty?
-  (0..13).each do |day|
+  (0..90).each do |day|
     add_default_slots (DateTime.now + day.days)
   end
 end
