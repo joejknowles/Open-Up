@@ -29,7 +29,6 @@ const testApiClient = (clientName, arg, expectedArgs) => {
 
 testApiClient('fetchSlots', null, ['/api/slots']);
 
-
 const slotId = 1;
 const url = '/api/booking';
 const options = {
